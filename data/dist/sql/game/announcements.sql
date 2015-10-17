@@ -10,5 +10,6 @@ CREATE TABLE IF NOT EXISTS `announcements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO announcements (`type`, `author`, `content`) VALUES 
-(0, 'L2JServer', 'Thanks for using L2J.'),
-(1, 'L2JServer', 'http://www.l2jserver.com/');
+(0, 'L2mx', '感谢使用L2mx天堂II服务端.'),
+(1, 'L2mx', 'http://https://github.com/ailian8415/'),
+(2, 'L2mx', '如有需求可联系紫轩に彩児 739736414');
