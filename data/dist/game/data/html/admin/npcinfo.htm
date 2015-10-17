@@ -1,35 +1,35 @@
-<html><title>NPC Info</title><body>
+<html><title>NPC 资讯</title><body>
 <center>
 <table width=270 border=0 bgcolor="444444">
 <tr>
-<td><button value="Kill" action="bypass -h admin_kill" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Delete" action="bypass -h admin_delete" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Recall" action="bypass -h admin_recall_npc" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Buffs" action="bypass admin_getbuffs" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="杀死" action="bypass -h admin_kill" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="删除" action="bypass -h admin_delete" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="召唤" action="bypass -h admin_recall_npc" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="状态" action="bypass -h admin_getbuffs" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
-<td><button value="Quests" action="bypass admin_show_quests %tmplid%" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="NpcViewMod" action="bypass NpcViewMod view %objid%" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="任务" action="bypass admin_show_quests %tmplid%" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="NPC预览" action="bypass NpcViewMod view %objid%" width=60 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 <td></td>
 <td></td>
 </tr>
 </table>
 <img src="L2UI.SquareWhite" width=260 height=1><br>
 <table width=270 border=0>
-<tr><td colspan="4"><table width=270 border=0><tr><td width=270><font color="LEVEL">Npc Info</font> : %name% (<font color="LEVEL">%id%</font>) [<font color=00FF00>%lvl%</font> lvl]</td></tr></table></td></tr>
-<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">ObjectId</font></td><td align=right width=170>%objid%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Type:</font></td><td align=right width=170><font color=999999>%class%</font></td></tr></table></td></tr>
-<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">Race</font></td><td align=right width=170>%race%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Territory:</font></td><td align=right width=170>%territory%</td></tr></table></td></tr>
+<tr><td colspan="4"><table width=270 border=0><tr><td width=270><font color="LEVEL">NPC资讯</font> : %name% (<font color="LEVEL">%id%</font>) [<font color=00FF00>%lvl%</font> 等级]</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">静态Id</font></td><td align=right width=170>%objid%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">类型:</font></td><td align=right width=170><font color=999999>%class%</font></td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">种族</font></td><td align=right width=170>%race%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">领地:</font></td><td align=right width=170>%territory%</td></tr></table></td></tr>
 <tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">Spawn type:</font></td><td align=right width=170>%spawntype%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Spawn loc:</font></td><td align=right width=170>%spawn%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Location:</font></td><td align=right width=170>%loc%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">Heading:</font></td><td align=right width=170>%heading%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Collision Radius:</font></td><td align=right width=170>%collision_radius%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">Collision Height:</font></td><td align=right width=170>%collision_height%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Distance:</font></td><td align=right width=170>2D: %loc2d%, 3D: %loc3d%, You: %dist%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">Respawn:</font></td><td align=right width=170>%resp%</td></tr></table></td></tr>
-<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">Aggro:</font></td><td align=right width=170><font color=999999>%aggro%</font></td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">刷新位置:</font></td><td align=right width=170>%spawn%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">当前位置:</font></td><td align=right width=170>%loc%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">面向位置:</font></td><td align=right width=170>%heading%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">范围:</font></td><td align=right width=170>%collision_radius%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">高度:</font></td><td align=right width=170>%collision_height%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">距离:</font></td><td align=right width=170>2D: %loc2d%, 3D: %loc3d%, You: %dist%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">重生时间:</font></td><td align=right width=170>%resp%</td></tr></table></td></tr>
+<tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">主动性:</font></td><td align=right width=170><font color=999999>%aggro%</font></td></tr></table></td></tr>
 <tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color="LEVEL">HP:</font></td><td align=right width=170><font color=FF4040>%hp%/%hpmax%</font></td></tr></table></td></tr>
 <tr><td><table width=270 border=0><tr><td width=100><font color="LEVEL">MP:</font></td><td align=right width=170><font color=6161FF>%mp%/%mpmax%</font></td></tr></table></td></tr>
 %ai_intention%
@@ -40,47 +40,47 @@
 %route%
 </table><br>
 
-<font color="LEVEL">Combat</font><br1>
+<font color="LEVEL">战斗指数</font><br1>
 <table border="0" width="100%">
-<tr><td>P.Atk.</td><td>%patk%</td><td>M.Atk.</td><td>%matk%</td></tr>
-<tr><td>P.Def.</td><td>%pdef%</td><td>M.Def.</td><td>%mdef%</td></tr>
-<tr><td>Accuracy</td><td>%accu%</td><td>Evasion</td><td>%evas%</td></tr>
-<tr><td>Critical</td><td>%crit%</td><td>Speed</td><td>%rspd%</td></tr>
-<tr><td>Atk.Speed</td><td>%aspd%</td><td>Cast.Speed</td><td>%cspd%</td></tr>
-<tr><td>Atk.Type:</td><td>%atkType%</td><td>Atk.Range</td><td>%atkRng%</td></tr>
+<tr><td>物攻.</td><td>%patk%</td><td>魔攻.</td><td>%matk%</td></tr>
+<tr><td>物防.</td><td>%pdef%</td><td>魔防.</td><td>%mdef%</td></tr>
+<tr><td>命中</td><td>%accu%</td><td>回避</td><td>%evas%</td></tr>
+<tr><td>致命</td><td>%crit%</td><td>速度</td><td>%rspd%</td></tr>
+<tr><td>攻击速度</td><td>%aspd%</td><td>施法速度</td><td>%cspd%</td></tr>
+<tr><td>攻击类型:</td><td>%atkType%</td><td>攻击范围</td><td>%atkRng%</td></tr>
 </table><br>
 
-<font color="LEVEL">Basic Stats</font><br1>
+<font color="LEVEL">基本能力</font><br1>
 <table border="0" width="100%">
 <tr>
-<td>STR</td><td>%str%</td>
-<td>DEX</td><td>%dex%</td>
-<td>CON</td><td>%con%</td>
+<td>力量</td><td>%str%</td>
+<td>敏捷</td><td>%dex%</td>
+<td>体质</td><td>%con%</td>
 </tr>
 <tr>
-<td>INT</td><td>%int%</td>
-<td>WIT</td><td>%wit%</td>
-<td>MEN</td><td>%men%</td>
+<td>智力</td><td>%int%</td>
+<td>智慧</td><td>%wit%</td>
+<td>精神</td><td>%men%</td>
 </tr>
 </table><br>
 
-<font color="LEVEL">Elements</font><br1>
+<font color="LEVEL">元素</font><br1>
 <table border="0" width="100%">
 <tr>
-<td>Atk Ele</td><td>%ele_atk%</td>
-<td>Value</td><td>%ele_atk_value%</td>
+<td>元素属性</td><td>%ele_atk%</td>
+<td>数值</td><td>%ele_atk_value%</td>
 </tr>
 <tr>
-<td>Fire</td><td>%ele_dfire%</td>
-<td>Water</td><td>%ele_dwater%</td>
+<td>火</td><td>%ele_dfire%</td>
+<td>水</td><td>%ele_dwater%</td>
 </tr>
 <tr>
-<td>Wind</td><td>%ele_dwind%</td>
-<td>Earth</td><td>%ele_dearth%</td>
+<td>风</td><td>%ele_dwind%</td>
+<td>大地</td><td>%ele_dearth%</td>
 </tr>
 <tr>
-<td>Holy</td><td>%ele_dholy%</td>
-<td>Dark</td><td>%ele_ddark%</td>
+<td>神圣</td><td>%ele_dholy%</td>
+<td>黑暗</td><td>%ele_ddark%</td>
 </tr>
 </table><br>
 <br><img src="L2UI.SquareWhite" width=260 height=1><br>

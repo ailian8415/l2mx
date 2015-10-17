@@ -1,29 +1,29 @@
-<html><title>Account Details: %account%</title><body>
+<html><title>帐号资料: %account%</title><body>
 <center>
 <table width=270><tr>
-<td width=45><button value="Main" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=180><center>Account: %account%</center></td>
-<td width=45><button value="Back" action="bypass -h admin_character_info %player%" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td></tr>
+<td width=45><button value="首页" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>帐号: %account%</center></td>
+<td width=45><button value="返回" action="bypass -h admin_character_info %player%" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td></tr>
 </table><br>
 <table width=270>
 <tr>
-<td>Parameters:</td>
+<td>参数:</td>
 <td><edit var="qbox" width=100 height=15></td>
-<td><button value="Help" action="bypass -h admin_html help/accountinfo.htm" width=40 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Back" action="bypass -h admin_character_info %player%" width=40 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="帮助" action="bypass -h admin_html help/accountinfo.htm" width=40 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="返回" action="bypass -h admin_character_info %player%" width=40 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 <br><br>
 <table width=270>
 <tr>
-<td><button value="Ban Account" action="bypass -h admin_ban_acc %account%" width=90 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Reset Account" action="bypass -h admin_unban_acc %account%" width=90 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Custom Level" action="bypass -h admin_account_level %account% $qbox" width=90 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="封锁帐号" action="bypass -h admin_ban_acc %account%" width=90 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="解除封锁" action="bypass -h admin_unban_acc %account%" width=90 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="设定权限" action="bypass -h admin_account_level %account% $qbox" width=90 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 <br><br>
 </center>
-Account: <font color="LEVEL">%account%</font><br>
-Another characters in the %player%'s account:<br>
+帐号: <font color="LEVEL">%account%</font><br>
+在 %player% 账号内的其他角色:<br>
 %characters%
 </body></html>

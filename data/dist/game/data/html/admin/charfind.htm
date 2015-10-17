@@ -1,16 +1,16 @@
 <html><body>
 <table width=270><tr>
-<td width=45><button value="Main" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=180><center>Character Search</center></td>
-<td width=45><button value="Back" action="bypass -h admin_show_characters 0" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=45><button value="首页" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>玩家搜寻</center></td>
+<td width=45><button value="返回" action="bypass -h admin_show_characters 0" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr></table>
 <br>
 <table width=270>		
-<tr><td width=80>Name</td><td width=110>Class</td><td width=40>Level</td></tr>
+<tr><td width=80>名称</td><td width=110>职业</td><td width=40>等级</td></tr>
 %results%
 </table><br>
 <center>
 <table width=270><tr>
 <td><edit var="character_name" width=80></td>
-<td><button value="Find Char" action="bypass -h admin_find_character $character_name" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-</tr></table><br>Found %number% character%end%</center></body></html>
+<td><button value="搜寻" action="bypass -h admin_find_character $character_name" width=80 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+</tr></table><br>搜寻到: %number% 个玩家%end%</center></body></html>

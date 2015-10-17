@@ -1,74 +1,74 @@
-<html><title>L2J Mods Panel</title><body>
+<html><title>L2MX 模组管理</title><body>
 <center>
 <table width=270><tr>
-<td width=45><button value="Main" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=180><center>L2j Mods Menu</center></td>
-<td width=45><button value="Back" action="bypass -h admin_admin4" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=45><button value="首页" action="bypass -h admin_admin" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=180><center>模组管理</center></td>
+<td width=45><button value="返回" action="bypass -h admin_admin4" width=45 height=21 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr></table><br>
 <table width=240>
 <tr>
-<td>QuickBox:</td>
+<td>参数:</td>
 <td><edit var="qbox" width=120 height=15></td>
-<td><button value="Help" action="bypass -h admin_html help/mods_menu.htm" width=45 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="帮助" action="bypass -h admin_html help/mods_menu.htm" width=45 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 <br>
-<font color="LEVEL">L2J WEDDING MOD
-<a action="bypass -h admin_html help/l2jmod/wedding.htm">Help</a></font>
+<font color="LEVEL">结婚模组
+<a action="bypass -h admin_html help/l2jmod/wedding.htm">帮助</a></font>
 <table width=240 border=0 bgcolor="666666">
 <tr>
-<td><button value="Enable" action="bypass -h admin_set_mod AllowWedding=true" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Teleport" action="bypass -h admin_set_mod WeddingTeleport=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="T.Price" action="bypass -h admin_set_mod WeddingTeleportPrice=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="T.Time" action="bypass -h admin_set_mod WeddingTeleportDuration=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="启用" action="bypass -h admin_set_mod AllowWedding=true" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="传送" action="bypass -h admin_set_mod WeddingTeleport=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="价格" action="bypass -h admin_set_mod WeddingTeleportPrice=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="时间" action="bypass -h admin_set_mod WeddingTeleportDuration=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
-<td><button value="Disable" action="bypass -h admin_set_mod AllowWedding=false" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Wed Fee" action="bypass -h admin_set_mod WeddingPrice=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Div Fee" action="bypass -h admin_set_mod WeddingDivorceCosts=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Cheat.P" action="bypass -h admin_set_mod WeddingPunishInfidelity=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="关闭" action="bypass -h admin_set_mod AllowWedding=false" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="结婚费用" action="bypass -h admin_set_mod WeddingPrice=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="离婚费用" action="bypass -h admin_set_mod WeddingDivorceCosts=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="外遇费用" action="bypass -h admin_set_mod WeddingPunishInfidelity=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
-<td><button value="FormalW" action="bypass -h admin_set_mod WeddingFormalWear=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="SameSex" action="bypass -h admin_set_mod WeddingAllowSameSex=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="礼服" action="bypass -h admin_set_mod WeddingFormalWear=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="同性" action="bypass -h admin_set_mod WeddingAllowSameSex=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 <br>
-<font color="LEVEL">L2J CHAMPION MOBS MOD
-<a action="bypass -h admin_html help/l2jmod/champions.htm">Help</a></font>
+<font color="LEVEL">精英怪物模组
+<a action="bypass -h admin_html help/l2jmod/champions.htm">帮助</a></font>
 <table width=240 border=0 bgcolor="666666">
 <tr>
-<td><button value="Enable" action="bypass -h admin_set_mod ChampionEnable=true" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Freq." action="bypass -h admin_set_mod ChampionFrequency=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="MinLev" action="bypass -h admin_set_mod ChampionMinLevel=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="MaxLev" action="bypass -h admin_set_mod ChampionMaxLevel=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="启用" action="bypass -h admin_set_mod ChampionEnable=true" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="机率" action="bypass -h admin_set_mod ChampionFrequency=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="最低等级" action="bypass -h admin_set_mod ChampionMinLevel=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="最高等级" action="bypass -h admin_set_mod ChampionMaxLevel=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
-<td><button value="Disable" action="bypass -h admin_set_mod ChampionEnable=false" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="xHP" action="bypass -h admin_set_mod ChampionHp=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="HPregen" action="bypass -h admin_set_mod ChampionHpRegen=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="xAtk" action="bypass -h admin_set_mod ChampionAtk=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="关闭" action="bypass -h admin_set_mod ChampionEnable=false" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="HP倍率" action="bypass -h admin_set_mod ChampionHp=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="HP回复" action="bypass -h admin_set_mod ChampionHpRegen=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="伤害倍率" action="bypass -h admin_set_mod ChampionAtk=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
-<td><button value="Reward" action="bypass -h admin_set_mod ChampionRewardItem=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="ItemId" action="bypass -h admin_set_mod ChampionRewardItemID=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="ItmQty" action="bypass -h admin_set_mod ChampionRewardQty=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="AtkSpd" action="bypass -h admin_set_mod ChampionSpdHp=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="奖励" action="bypass -h admin_set_mod ChampionRewardItem=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="物品" action="bypass -h admin_set_mod ChampionRewardItemID=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="数量" action="bypass -h admin_set_mod ChampionRewardQty=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="攻击速度" action="bypass -h admin_set_mod ChampionSpdHp=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 <br>
-<font color="LEVEL">L2J TvT EVENT MOD
-<a action="bypass -h admin_html help/l2jmod/tvt.htm">Help</a></font>
+<font color="LEVEL">队伍决斗模组
+<a action="bypass -h admin_html help/l2jmod/tvt.htm">帮助</a></font>
 <table width=240 border=0 bgcolor="666666">
 <tr>
-<td><button value="Enable" action="bypass -h admin_set_mod TvTEventEnabled=true" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="Interval" action="bypass -h admin_set_mod TvTEventInterval=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="PartTime" action="bypass -h admin_set_mod TvTEventParticipationTime=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="RunnTime" action="bypass -h admin_set_mod TvTEventRunningTime=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="启用" action="bypass -h admin_set_mod TvTEventEnabled=true" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="竞赛间隔" action="bypass -h admin_set_mod TvTEventInterval=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="参加时间" action="bypass -h admin_set_mod TvTEventParticipationTime=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="进行时间" action="bypass -h admin_set_mod TvTEventRunningTime=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
-<td><button value="Disable" action="bypass -h admin_set_mod TvTEventEnabled=false" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td><button value="EventNpc" action="bypass -h admin_set_mod TvTEventParticipationNpcId=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="关闭" action="bypass -h admin_set_mod TvTEventEnabled=false" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td><button value="活动NPC" action="bypass -h admin_set_mod TvTEventParticipationNpcId=$qbox" width=60 height=20 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 <br>
