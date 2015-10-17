@@ -210,7 +210,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				if (activeChar.getTradeRefusal())
 				{
 					activeChar.setTradeRefusal(false);
-					activeChar.sendMessage("拒绝交易模式关闭"");
+					activeChar.sendMessage("拒绝交易模式关闭");
 				}
 				else
 				{
@@ -309,28 +309,28 @@ public class AdminAdmin implements IAdminCommandHandler
 		switch (mode)
 		{
 			case 1:
-				filename = "首页";
+				filename = "main";
 				break;
 			case 2:
-				filename = "游戏";
+				filename = "game";
 				break;
 			case 3:
-				filename = "效果";
+				filename = "effects";
 				break;
 			case 4:
-				filename = "服务器";
+				filename = "server";
 				break;
 			case 5:
-				filename = "模组";
+				filename = "mods";
 				break;
 			case 6:
-				filename = "角色";
+				filename = "char";
 				break;
 			case 7:
-				filename = "GM";
+				filename = "gm";
 				break;
 			default:
-				filename = "首页";
+				filename = "main";
 				break;
 		}
 		AdminHtml.showAdminHtml(activeChar, filename + "_menu.htm");

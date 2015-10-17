@@ -36,22 +36,22 @@ public class DBInstallerConsole implements DBOutputInterface
 	
 	public DBInstallerConsole(String db, String dir, String cleanUpScript)
 	{
-		System.out.println("Welcome to L2J DataBase installer");
+		System.out.println("欢迎使用天堂II数据库安装工具");
 		Preferences prop = Preferences.userRoot();
 		RunTasks rt = null;
 		try (Scanner scn = new Scanner(new CloseShieldedInputStream(System.in)))
 		{
 			while (_con == null)
 			{
-				System.out.printf("%s (%s): ", "Host", prop.get("dbHost_" + db, "localhost"));
+				System.out.printf("%s (%s): ", "主机", prop.get("dbHost_" + db, "localhost"));
 				String dbHost = scn.nextLine();
-				System.out.printf("%s (%s): ", "Port", prop.get("dbPort_" + db, "3306"));
+				System.out.printf("%s (%s): ", "端口", prop.get("dbPort_" + db, "3306"));
 				String dbPort = scn.nextLine();
-				System.out.printf("%s (%s): ", "Username", prop.get("dbUser_" + db, "root"));
+				System.out.printf("%s (%s): ", "用户", prop.get("dbUser_" + db, "root"));
 				String dbUser = scn.nextLine();
-				System.out.printf("%s (%s): ", "Password", "");
+				System.out.printf("%s (%s): ", "密码", "root");
 				String dbPass = scn.nextLine();
-				System.out.printf("%s (%s): ", "Database", prop.get("dbDbse_" + db, db));
+				System.out.printf("%s (%s): ", "名称", prop.get("dbDbse_" + db, db));
 				String dbDbse = scn.nextLine();
 				
 				dbHost = dbHost.isEmpty() ? prop.get("dbHost_" + db, "localhost") : dbHost;
@@ -64,11 +64,11 @@ public class DBInstallerConsole implements DBOutputInterface
 				_con = connector.getConnection();
 			}
 			
-			System.out.print("(C)lean install, (U)pdate or (E)xit? ");
+			System.out.print("(C)全新安装, (U)更新 (E)退出? ");
 			String resp = scn.next();
 			if (resp.equalsIgnoreCase("c"))
 			{
-				System.out.print("Do you really want to destroy your db (Y/N)?");
+				System.out.print("确定要丢弃现有数据库数据吗？ (Y/N)?");
 				if (scn.next().equalsIgnoreCase("y"))
 				{
 					rt = new RunTasks(this, db, dir, cleanUpScript, true);

@@ -156,7 +156,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance
 	};
 	// Misc
 	private static final int MAX_PLAYERS = 27;
-	private static final int MIN_PLAYERS = 10;
+	private static final int MIN_PLAYERS = 8;
 	private static final int MIN_LEVEL = 82;
 	private static final int TEMPLATE_ID = 139; // Ice Queen's Castle
 	private static final int DOOR_ID = 23140101;
@@ -1272,7 +1272,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance
 		{
 			if ((players != null) && (players.getInstanceId() == world.getInstanceId()))
 			{
-				players.sendPacket(new ExSendUIEvent(players, false, false, time, 0, "Time remaining until next battle"));
+				players.sendPacket(new ExSendUIEvent(players, false, false, time, 0, "距下一阶段剩余时间"));
 			}
 		}
 	}

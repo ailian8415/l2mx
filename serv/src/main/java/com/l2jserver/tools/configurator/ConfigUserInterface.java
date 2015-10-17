@@ -236,7 +236,7 @@ public class ConfigUserInterface extends JFrame implements ActionListener
 		
 		for (File file : files)
 		{
-			if (file.getName().endsWith(".properties") && file.isFile() && file.canWrite())
+			if (file.getName().endsWith(".ini") && file.isFile() && file.canWrite())
 			{
 				try
 				{

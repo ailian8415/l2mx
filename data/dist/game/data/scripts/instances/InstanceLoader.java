@@ -32,6 +32,7 @@ import instances.ElcadiasTent.ElcadiasTent;
 import instances.FinalEmperialTomb.FinalEmperialTomb;
 import instances.HideoutOfTheDawn.HideoutOfTheDawn;
 import instances.IceQueensCastle.IceQueensCastle;
+import instances.IceQueensCastleUltimateBattle.IceQueensCastleUltimateBattle;
 import instances.IceQueensCastleNormalBattle.IceQueensCastleNormalBattle;
 import instances.JiniaGuildHideout1.JiniaGuildHideout1;
 import instances.JiniaGuildHideout2.JiniaGuildHideout2;
@@ -74,6 +75,7 @@ public final class InstanceLoader
 		ChamberOfDelusionTower.class,
 		ChamberOfDelusionWest.class,
 		IceQueensCastle.class,
+		IceQueensCastleUltimateBattle.class,
 		IceQueensCastleNormalBattle.class,
 		JiniaGuildHideout1.class,
 		JiniaGuildHideout2.class,

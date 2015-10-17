@@ -60,7 +60,7 @@ public class DBDumper
 				new File("dumps").mkdir();
 				dump.createNewFile();
 				
-				_frame.appendToProgressArea("Writing dump " + dump.getName());
+				_frame.appendToProgressArea("写入 " + dump.getName());
 				if (rset.last())
 				{
 					int rows = rset.getRow();
@@ -78,8 +78,8 @@ public class DBDumper
 					while (rset.next())
 					{
 						_frame.setProgressValue(rset.getRow());
-						_frame.appendToProgressArea("Dumping Table " + rset.getString(1));
-						fws.println("CREATE TABLE `" + rset.getString(1) + "`");
+						_frame.appendToProgressArea("转存列表 " + rset.getString(1));
+						fws.println("创建列表 `" + rset.getString(1) + "`");
 						fws.println("(");
 						try (Statement desc = con.createStatement();
 							ResultSet dset = desc.executeQuery("DESC " + rset.getString(1)))
@@ -211,6 +211,6 @@ public class DBDumper
 		{
 			e.printStackTrace();
 		}
-		_frame.appendToProgressArea("Dump Complete!");
+		_frame.appendToProgressArea("安装完成!");
 	}
 }

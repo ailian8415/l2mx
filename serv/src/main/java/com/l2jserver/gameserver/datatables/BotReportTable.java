@@ -86,7 +86,7 @@ public final class BotReportTable
 			
 			try
 			{
-				File punishments = new File("./config/botreport_punishments.xml");
+				File punishments = new File("./config/xml/botreport_punishments.xml");
 				if (!punishments.exists())
 				{
 					throw new FileNotFoundException(punishments.getName());

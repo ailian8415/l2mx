@@ -83,31 +83,33 @@ public final class Config
 	// --------------------------------------------------
 	// L2J Property File Definitions
 	// --------------------------------------------------
-	public static final String CHARACTER_CONFIG_FILE = "./config/Character.properties";
-	public static final String FEATURE_CONFIG_FILE = "./config/Feature.properties";
-	public static final String FORTSIEGE_CONFIGURATION_FILE = "./config/FortSiege.properties";
-	public static final String GENERAL_CONFIG_FILE = "./config/General.properties";
+	public static final String CHARACTER_CONFIG_FILE = "./config/main/Character.ini";
+	public static final String FEATURE_CONFIG_FILE = "./config/main/Feature.ini";
+	public static final String FORTSIEGE_CONFIGURATION_FILE = "./config/main/FortSiege.ini";
+	public static final String GENERAL_CONFIG_FILE = "./config/main/General.ini";
 	public static final String HEXID_FILE = "./config/hexid.txt";
-	public static final String ID_CONFIG_FILE = "./config/IdFactory.properties";
-	public static final String L2JMOD_CONFIG_FILE = "./config/L2JMods.properties";
-	public static final String LOGIN_CONFIGURATION_FILE = "./config/LoginServer.properties";
-	public static final String NPC_CONFIG_FILE = "./config/NPC.properties";
-	public static final String PVP_CONFIG_FILE = "./config/PVP.properties";
-	public static final String RATES_CONFIG_FILE = "./config/Rates.properties";
-	public static final String CONFIGURATION_FILE = "./config/Server.properties";
-	public static final String IP_CONFIG_FILE = "./config/ipconfig.xml";
-	public static final String SIEGE_CONFIGURATION_FILE = "./config/Siege.properties";
-	public static final String TW_CONFIGURATION_FILE = "./config/TerritoryWar.properties";
-	public static final String TELNET_FILE = "./config/Telnet.properties";
-	public static final String FLOOD_PROTECTOR_FILE = "./config/FloodProtector.properties";
-	public static final String MMO_CONFIG_FILE = "./config/MMO.properties";
-	public static final String OLYMPIAD_CONFIG_FILE = "./config/Olympiad.properties";
-	public static final String GRANDBOSS_CONFIG_FILE = "./config/GrandBoss.properties";
-	public static final String GRACIASEEDS_CONFIG_FILE = "./config/GraciaSeeds.properties";
-	public static final String CHAT_FILTER_FILE = "./config/chatfilter.txt";
-	public static final String EMAIL_CONFIG_FILE = "./config/Email.properties";
-	public static final String CH_SIEGE_FILE = "./config/ConquerableHallSiege.properties";
-	public static final String GEODATA_FILE = "./config/GeoData.properties";
+	public static final String ID_CONFIG_FILE = "./config/main/IdFactory.ini";
+	public static final String L2JMOD_CONFIG_FILE = "./config/main/L2JMods.ini";
+	public static final String LOGIN_CONFIGURATION_FILE = "./config/network/LoginServer.ini";
+	public static final String NPC_CONFIG_FILE = "./config/main/NPC.ini";
+	public static final String PVP_CONFIG_FILE = "./config/main/PVP.ini";
+	public static final String RATES_CONFIG_FILE = "./config/main/Rates.ini";
+	public static final String CONFIGURATION_FILE = "./config/network/Server.ini";
+	public static final String IP_CONFIG_FILE = "./config/network/ipconfig.xml";
+	public static final String SIEGE_CONFIGURATION_FILE = "./config/main/Siege.ini";
+	public static final String TW_CONFIGURATION_FILE = "./config/main/TerritoryWar.ini";
+	public static final String TELNET_FILE = "./config/network/Telnet.ini";
+	public static final String FLOOD_PROTECTOR_FILE = "./config/main/FloodProtector.ini";
+	public static final String MMO_CONFIG_FILE = "./config/network/MMO.ini";
+	public static final String OLYMPIAD_CONFIG_FILE = "./config/main/Olympiad.ini";
+	public static final String GRANDBOSS_CONFIG_FILE = "./config/Boss/GrandBoss.ini";
+	public static final String GRACIASEEDS_CONFIG_FILE = "./config/main/GraciaSeeds.ini";
+	public static final String CHAT_FILTER_FILE = "./config/main/chatfilter.ini";
+	public static final String EMAIL_CONFIG_FILE = "./config/network/Email.ini";
+	public static final String CH_SIEGE_FILE = "./config/main/ConquerableHallSiege.ini";
+	public static final String GEODATA_FILE = "./config/geo/GeoData.ini";
+	public static final String L2MX_FILE = "./config/l2mr/l2mr.ini";
+	
 	// --------------------------------------------------
 	// L2J Variable Definitions
 	// --------------------------------------------------
@@ -2810,7 +2812,7 @@ public final class Config
 	{
 		switch (pName.trim().toLowerCase())
 		{
-			// rates.properties
+			// rates.ini
 			case "ratexp":
 				RATE_XP = Float.parseFloat(pValue);
 				break;

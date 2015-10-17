@@ -45,7 +45,7 @@ public class DBInstallerGUI extends JFrame implements DBOutputInterface
 	
 	public DBInstallerGUI(Connection con)
 	{
-		super("L2J Database Installer");
+		super("天堂II数据安排装工具");
 		setLayout(new BorderLayout());
 		setDefaultLookAndFeelDecorated(true);
 		setIconImage(ImagesTable.getImage("l2j.png").getImage());
@@ -68,7 +68,7 @@ public class DBInstallerGUI extends JFrame implements DBOutputInterface
 		JScrollPane scrollPane = new JScrollPane(_progArea);
 		
 		_progArea.setEditable(false);
-		appendToProgressArea("Connected");
+		appendToProgressArea("已成功连接");
 		
 		add(scrollPane, BorderLayout.CENTER);
 	}

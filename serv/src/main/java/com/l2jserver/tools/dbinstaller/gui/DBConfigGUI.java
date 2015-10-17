@@ -58,7 +58,7 @@ public class DBConfigGUI extends JFrame
 	
 	public DBConfigGUI(String db, String dir, String cleanUp)
 	{
-		super("L2J Database Installer");
+		super("天堂II数据库导入工具");
 		setLayout(new SpringLayout());
 		setDefaultLookAndFeelDecorated(true);
 		setIconImage(ImagesTable.getImage("l2j.png").getImage());
@@ -78,7 +78,7 @@ public class DBConfigGUI extends JFrame
 		_prop = Preferences.userRoot();
 		
 		// Host
-		JLabel labelDbHost = new JLabel("Host: ", SwingConstants.LEFT);
+		JLabel labelDbHost = new JLabel("主机: ", SwingConstants.LEFT);
 		add(labelDbHost);
 		_dbHost = new JTextField(15);
 		_dbHost.setText(_prop.get("dbHost_" + db, "localhost"));
@@ -86,7 +86,7 @@ public class DBConfigGUI extends JFrame
 		add(_dbHost);
 		
 		// Port
-		JLabel labelDbPort = new JLabel("Port: ", SwingConstants.LEFT);
+		JLabel labelDbPort = new JLabel("端口: ", SwingConstants.LEFT);
 		add(labelDbPort);
 		_dbPort = new JTextField(15);
 		_dbPort.setText(_prop.get("dbPort_" + db, "3306"));
@@ -94,7 +94,7 @@ public class DBConfigGUI extends JFrame
 		add(_dbPort);
 		
 		// Username
-		JLabel labelDbUser = new JLabel("Username: ", SwingConstants.LEFT);
+		JLabel labelDbUser = new JLabel("用户: ", SwingConstants.LEFT);
 		add(labelDbUser);
 		_dbUser = new JTextField(15);
 		_dbUser.setText(_prop.get("dbUser_" + db, "root"));
@@ -102,7 +102,7 @@ public class DBConfigGUI extends JFrame
 		add(_dbUser);
 		
 		// Password
-		JLabel labelDbPass = new JLabel("Password: ", SwingConstants.LEFT);
+		JLabel labelDbPass = new JLabel("密码: ", SwingConstants.LEFT);
 		add(labelDbPass);
 		_dbPass = new JPasswordField(15);
 		_dbPass.setText(_prop.get("dbPass_" + db, ""));
@@ -110,7 +110,7 @@ public class DBConfigGUI extends JFrame
 		add(_dbPass);
 		
 		// Database
-		JLabel labelDbDbse = new JLabel("Database: ", SwingConstants.LEFT);
+		JLabel labelDbDbse = new JLabel("名称: ", SwingConstants.LEFT);
 		add(labelDbDbse);
 		_dbDbse = new JTextField(15);
 		_dbDbse.setText(_prop.get("dbDbse_" + db, db));
@@ -120,7 +120,7 @@ public class DBConfigGUI extends JFrame
 		ActionListener cancelListener = e -> System.exit(0);
 		
 		// Cancel
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnCancel = new JButton("取消");
 		btnCancel.addActionListener(cancelListener);
 		add(btnCancel);
 		
@@ -141,11 +141,11 @@ public class DBConfigGUI extends JFrame
 				
 				Object[] options =
 				{
-					"Full Install",
-					"Upgrade",
-					"Exit"
+					"全新安装",
+					"更新",
+					"退出"
 				};
-				int n = JOptionPane.showOptionDialog(null, "Select Installation Type", "Installation Type", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
+				int n = JOptionPane.showOptionDialog(null, "选择安装类型", "安装类型", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
 				
 				if ((n == 2) || (n == -1))
 				{
@@ -154,7 +154,7 @@ public class DBConfigGUI extends JFrame
 				
 				if (n == 0)
 				{
-					int conf = JOptionPane.showConfirmDialog(null, "Do you really want to destroy your db?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+					int conf = JOptionPane.showConfirmDialog(null, "确定要丢弃现有数据库数据?", "确定", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 					
 					if (conf == 1)
 					{
@@ -173,7 +173,7 @@ public class DBConfigGUI extends JFrame
 		};
 		
 		// Connect
-		JButton btnConnect = new JButton("Connect");
+		JButton btnConnect = new JButton("连接");
 		btnConnect.addActionListener(connectListener);
 		add(btnConnect);
 		

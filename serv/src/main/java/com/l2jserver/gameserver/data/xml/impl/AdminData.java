@@ -59,9 +59,9 @@ public final class AdminData implements IXmlReader
 	{
 		_accessLevels.clear();
 		_adminCommandAccessRights.clear();
-		parseDatapackFile("config/accessLevels.xml");
+		parseDatapackFile("config/xml/accessLevels.xml");
 		LOG.info("{}: Loaded: {} Access Levels.", getClass().getSimpleName(), _accessLevels.size());
-		parseDatapackFile("config/adminCommands.xml");
+		parseDatapackFile("config/xml/adminCommands.xml");
 		LOG.info("{}: Loaded: {} Access Commands.", getClass().getSimpleName(), _adminCommandAccessRights.size());
 	}
 	
