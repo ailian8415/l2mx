@@ -1,30 +1,30 @@
 <html><body>
-<center>Information about Clans that Bid at Auction</center>
+<center>在拍卖会上投标的根据地情报</center>
 <img src="L2UI.SquareWhite" width=270 height=1>
 <img src="L2UI.SquareBlank" width=1 height=3>
 <table width=280 border=0>
 <tr>
-<td width=14><font color="a2a0a2">Name of clan hall</font></td>
+<td width=14><font color="a2a0a2">根据地名字</font></td>
 <td width=140><font color="b09979">%AGIT_NAME%</font></td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Clan that owns</font></td>
+<td><font color="a2a0a2">所拥有的血盟</font></td>
 <td><font color="b09979">%OWNER_PLEDGE_NAME%</font></td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Leader of clan</font></td>
+<td><font color="a2a0a2">所拥有的血盟盟主</font></td>
 <td><font color="b09979">%OWNER_PLEDGE_MASTER%</font></td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Size of clan hall</font></td>
-<td><font color="b09979">%AGIT_SIZE% rating</font> (grade)</td>
+<td><font color="a2a0a2">根据地规模</font></td>
+<td><font color="b09979">%AGIT_SIZE% 坪</font> [等级]</td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Rental fee</font></td>
-<td><font color="b09979">%AGIT_LEASE%</font> adena<font color="LEVEL">/week</font></td>
+<td><font color="a2a0a2">根据地租金</font></td>
+<td><font color="b09979">%AGIT_LEASE%</font> 金币<font color="LEVEL">/1星期</font></td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Clan hall location</font></td>
+<td><font color="a2a0a2">根据地位置</font></td>
 <td>%AGIT_LOCATION%</td>
 </tr>
 </table>
@@ -32,20 +32,20 @@
 <img src="L2UI.SquareBlank" width=1 height=3>
 <table width=280 border=0>
 <tr>
-<td width=140><font color="a2a0a2">Auction ends at</font></td>
+<td width=140><font color="a2a0a2">拍卖结束日期</font></td>
 <td width=140><font color="b09979">%AGIT_AUCTION_END%</font></td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Time remaining</font></td>
+<td><font color="a2a0a2">剩余时间</font></td>
 <td><font color="b09979">%AGIT_AUCTION_REMAIN%</font></td>
 </tr>
 <tr>
-<td><font color="a2a0a2">Minimum bid price</font></td>
-<td><font color="b09979">%AGIT_AUCTION_MINBID%</font> adena</td>
+<td><font color="a2a0a2">最低投标价</font></td>
+<td><font color="b09979">%AGIT_AUCTION_MINBID%</font> 金币</td>
 </tr>
 <tr>
-<td><font color="ccc0cc">Bid price</font></td>
-<td><font color="aaccff">%AGIT_AUCTION_MYBID%</font> adena</td>
+<td><font color="ccc0cc">投标价</font></td>
+<td><font color="aaccff">%AGIT_AUCTION_MYBID%</font> 金币</td>
 </tr>
 </table>
 <table width=280 border=0 bgcolor=333333>
@@ -57,13 +57,13 @@
 <table width=270 border=0>
 <tr>
 <td width=110></td>
-<td width=80 align=center><button action="bypass -h npc_%objectId%_cancelBid" value="Cancel" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=80 align=center><button action="bypass -h npc_%objectId%_bidlist" value="Bidders List" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_cancelBid" value="取消投标" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_bidlist" value="投标者名单" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 <tr>
 <td width=110></td>
-<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="Back" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=80 align=center><button action="bypass -h npc_%objectId%_rebid" value="Rebid" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="返回" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_rebid" value="重投" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 </body></html>

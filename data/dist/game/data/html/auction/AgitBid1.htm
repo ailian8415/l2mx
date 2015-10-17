@@ -1,12 +1,12 @@
 <html><body>
-<font color="LEVEL">Bidding is only permitted in one clan hall.</font> When a bid is submitted, the amount of adena bid is <font color="LEVEL">deposited</font> from the clan warehouse into the auction. <font color="LEVEL">10% of the bid amount is a transaction tax</font> and cannot be returned even if the bidding is canceled.<br>
-<font color="LEVEL">The bid price</font> must be higher than the minimum bid price (or previous bid price when rebidding) and the clan that has written the highest price at the end of the auction wins the auction.<br>
-There are currently <font color="aaccff">%PLEDGE_ADENA%</font> adena in the clan warehouse. The minimum amount that can be bid is <font color="aaccff">%AGIT_AUCTION_MINBID%</font> adena.<br>
-How much do you want to bid?
+<font color="LEVEL">只可在一个根据地投标</font>，与投标结束的同时，会从血盟仓库把与投标价相等的金币 <font color="LEVEL">寄存于拍卖所</font>。投标价的 <font color="LEVEL">10%是交易税</font>，而取消投标时也不会退还。<br>
+投标价应比<font color="LEVEL">最低投标价</font>【再次投标时，以之前投标价为准】高一些，在拍卖结束时以写出最高价的血盟得标。<br>
+现在在血盟仓库有 <font color="aaccff">%PLEDGE_ADENA%</font> 金币，可投标的最低金额是 <font color="aaccff">%AGIT_AUCTION_MINBID%</font> 金币。<br>
+投标价要写出多少？
 <table width=270 border=0>
 <tr>
 <td width=220 align=right><edit var=bidprice width=230 align=right type=number></td>
-<td width=40 align=right>adena</td>
+<td width=40 align=right>金币</td>
 </tr>
 </table>
 <img src="L2UI.SquareBlank" width=270 height=10>
@@ -15,8 +15,8 @@ How much do you want to bid?
 <table width=270 border=0>
 <tr>
 <td width=110></td>
-<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="Back" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=80 align=center><button action="bypass -h npc_%objectId%_bid $bidprice" value="Confirm" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="返回" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_bid $bidprice" value="确认投标" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 </body></html>

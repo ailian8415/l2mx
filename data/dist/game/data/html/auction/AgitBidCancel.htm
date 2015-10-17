@@ -1,14 +1,15 @@
 <html><body>
-When an auction bid is canceled, the transaction tax (<font color="LEVEL">10% of the bid amount</font>) cannot be returned.<br>
-The bid price for this clan hall is <font color="aaccff">%AGIT_BID%</font> adena. After deducting the transaction tax, you can receive back the remaining <font color="aaccff">%AGIT_BID_REMAIN%</font> adena. Do you want to cancel your bid?
+在取消拍卖投标时，不可退还交易税（<font color="LEVEL">投标价的10%</font>）。<br>
+这个根据地的投标价是<font color="aaccff">%AGIT_BID%</font> 金币，扣除交易税后剩余的<font color="aaccff">%AGIT_BID_REMAIN%</font> 金币可以退回。<br>
+要取消投标吗？<br>
 <img src="L2UI.SquareBlank" width=270 height=10>
 <img src="L2UI.SquareWhite" width=270 height=1>
 <img src="L2UI.SquareBlank" width=270 height=5>
 <table width=270 border=0>
 <tr>
 <td width=110></td>
-<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="Back" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=80 align=center><button action="bypass -h npc_%objectId%_doCancelBid" value="Cancel Bidding" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="返回" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_doCancelBid" value="取消投标" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 </body></html>

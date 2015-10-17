@@ -1,29 +1,29 @@
 <html><body>
 <table width=270 border=0>
 <tr>
-<td width=90>Minimum bid price</td>
-<td width=180><font color="aaccff">%AGIT_AUCTION_MINBID%</font> adena</td>
+<td width=90>最低投标价</td>
+<td width=180><font color="aaccff">%AGIT_AUCTION_MINBID%</font> 金币</td>
 </tr>
 <tr>
-<td>Bid price</td>
-<td><font color="aaccff">%AGIT_AUCTION_BID%</font> adena</td>
+<td>投标价</td>
+<td><font color="aaccff">%AGIT_AUCTION_BID%</font> 金币</td>
 </tr>
 <tr>
-<td>Auction closing date</td>
+<td>拍卖结束日</td>
 <td>%AGIT_AUCTION_END%</td>
 </tr>
 </table><br>
-Rebidding is only possible after a bid has been made or when raising a bid price. When canceling a bid, the transaction tax (<font color="LEVEL">10% of the bid price</font>) cannot be returned.<br>
-Rebidding and bid cancellation can be done through "My Sale Items" in the top menu.<br>
-Do you want to bid?<br>
+在投标结束时，若想要提高投标价时，可以进行再次投标，若要取消投标时，则不可退还交易税（<font color="LEVEL">投标价的10%</font>﹞。<br>
+在主选单的“我的出售商品”里，可以进行再次投标及取消投标。<br>
+要进行投标吗？<br>
 <img src="L2UI.SquareBlank" width=270 height=10>
 <img src="L2UI.SquareWhite" width=270 height=1>
 <img src="L2UI.SquareBlank" width=270 height=5>
 <table width=270 border=0>
 <tr>
 <td width=110></td>
-<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="Back" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
-<td width=80 align=center><button action="bypass -h npc_%objectId%_bid1" value="Confirm" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="%AGIT_LINK_BACK%" value="返回" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
+<td width=80 align=center><button action="bypass -h npc_%objectId%_bid1" value="确认投标" width=80 height=27 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"></td>
 </tr>
 </table>
 </body></html>
