@@ -92,7 +92,7 @@ public final class RequestExAskJoinMPCC extends L2GameClientPacket
 					}
 					else
 					{
-						activeChar.sendMessage(player.getName() + " doesn't have party and cannot be invited to Command Channel.");
+						activeChar.sendMessage(player.getName() + " 联盟内没有应邀的玩家。");
 					}
 					
 				}
@@ -123,7 +123,7 @@ public final class RequestExAskJoinMPCC extends L2GameClientPacket
 					}
 					else
 					{
-						activeChar.sendMessage(player.getName() + " doesn't have party and cannot be invited to Command Channel.");
+						activeChar.sendMessage(player.getName() + " 联盟内没有应邀的玩家。");
 					}
 				}
 			}
@@ -171,7 +171,7 @@ public final class RequestExAskJoinMPCC extends L2GameClientPacket
 			targetLeader.sendPacket(sm);
 			targetLeader.sendPacket(new ExAskJoinMPCC(requestor.getName()));
 			
-			requestor.sendMessage("You invited " + targetLeader.getName() + " to your Command Channel.");
+			requestor.sendMessage("邀请「" + targetLeader.getName() + "」加入你的指挥频道。");
 		}
 		else
 		{

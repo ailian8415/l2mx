@@ -64,7 +64,7 @@ public final class RequestCrystallizeItem extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("crystallize"))
 		{
-			activeChar.sendMessage("You are crystallizing too fast.");
+			activeChar.sendMessage("你结晶的速度太快。");
 			return;
 		}
 		
@@ -127,7 +127,7 @@ public final class RequestCrystallizeItem extends L2GameClientPacket
 		
 		if (!activeChar.getInventory().canManipulateWithItemId(itemToRemove.getId()))
 		{
-			activeChar.sendMessage("You cannot use this item.");
+			activeChar.sendMessage("你不能使用该物品。");
 			return;
 		}
 		

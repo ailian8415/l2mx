@@ -54,7 +54,7 @@ public final class RequestSurrenderPledgeWar extends L2GameClientPacket
 		
 		if (clan == null)
 		{
-			activeChar.sendMessage("No such clan.");
+			activeChar.sendMessage("无此血盟");
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}
@@ -63,7 +63,7 @@ public final class RequestSurrenderPledgeWar extends L2GameClientPacket
 		
 		if (!_clan.isAtWarWith(clan.getId()))
 		{
-			activeChar.sendMessage("You aren't at war with this clan.");
+			activeChar.sendMessage("并无与此血盟发生战争。");
 			activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}

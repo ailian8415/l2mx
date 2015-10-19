@@ -447,13 +447,34 @@ public class SevenSigns
 		switch (cabal)
 		{
 			case CABAL_DAWN:
-				return "Lords of Dawn";
+				return "黎明的君主们";
 			case CABAL_DUSK:
-				return "Revolutionaries of Dusk";
+				return "黄昏的革命军";
 		}
 		
-		return "No Cabal";
+		return "无所属阵营";
 	}
+	
+	public static final String getSealFileName(int seal, boolean shortName)
+	{
+		String sealName = (!shortName) ? ", " : "";
+		
+		switch (seal)
+		{
+			case SEAL_AVARICE:
+				sealName += "贪欲的封印";
+				break;
+			case SEAL_GNOSIS:
+				sealName += "启示的封印";
+				break;
+			case SEAL_STRIFE:
+				sealName += "战乱的封印";
+				break;
+		}
+		
+		return sealName;
+	}
+	// Add by pmq End
 	
 	public static final String getSealName(int seal, boolean shortName)
 	{
@@ -546,16 +567,16 @@ public class SevenSigns
 		switch (_activePeriod)
 		{
 			case PERIOD_COMP_RECRUITING:
-				periodName = "Quest Event Initialization";
+				periodName = "竞争准备中";
 				break;
 			case PERIOD_COMPETITION:
-				periodName = "Competition (Quest Event)";
+				periodName = "竞争期间";
 				break;
 			case PERIOD_COMP_RESULTS:
-				periodName = "Quest Event Results";
+				periodName = "结果统计中";
 				break;
 			case PERIOD_SEAL_VALIDATION:
-				periodName = "Seal Validation";
+				periodName = "封印有效期间";
 				break;
 		}
 		return periodName;
@@ -1417,7 +1438,7 @@ public class SevenSigns
 				{
 					player.teleToLocation(TeleportWhereType.TOWN);
 					player.setIsIn7sDungeon(false);
-					player.sendMessage("You have been teleported to the nearest town due to the beginning of the Seal Validation period.");
+					player.sendMessage("目前为封印有效期间，将强制传送至最近的村庄.");
 				}
 			}
 			else
@@ -1426,7 +1447,7 @@ public class SevenSigns
 				{
 					player.teleToLocation(TeleportWhereType.TOWN);
 					player.setIsIn7sDungeon(false);
-					player.sendMessage("You have been teleported to the nearest town because you have not signed for any cabal.");
+					player.sendMessage("因为没有参与任何封印，将强制传送至最近的村庄.");
 				}
 			}
 		}

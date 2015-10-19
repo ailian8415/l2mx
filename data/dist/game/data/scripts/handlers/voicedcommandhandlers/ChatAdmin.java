@@ -51,7 +51,7 @@ public class ChatAdmin implements IVoicedCommandHandler
 		{
 			if (params == null)
 			{
-				activeChar.sendMessage("Usage: .banchat name [minutes]");
+				activeChar.sendMessage("用法: .banchat 名字 [分钟]");
 				return true;
 			}
 			StringTokenizer st = new StringTokenizer(params);
@@ -74,45 +74,45 @@ public class ChatAdmin implements IVoicedCommandHandler
 					L2PcInstance player = L2World.getInstance().getPlayer(objId);
 					if ((player == null) || !player.isOnline())
 					{
-						activeChar.sendMessage("Player not online !");
+						activeChar.sendMessage("玩家不在线！");
 						return false;
 					}
 					if (player.isChatBanned())
 					{
-						activeChar.sendMessage("Player is already punished !");
+						activeChar.sendMessage("玩家已被封锁!");
 						return false;
 					}
 					if (player == activeChar)
 					{
-						activeChar.sendMessage("You can't ban yourself !");
+						activeChar.sendMessage("不能封锁自己!");
 						return false;
 					}
 					if (player.isGM())
 					{
-						activeChar.sendMessage("You can't ban GM !");
+						activeChar.sendMessage("不能封锁GM !");
 						return false;
 					}
 					if (AdminData.getInstance().hasAccess(command, player.getAccessLevel()))
 					{
-						activeChar.sendMessage("You can't ban moderator !");
+						activeChar.sendMessage("不能封锁管理者 !");
 						return false;
 					}
 					
 					PunishmentManager.getInstance().startPunishment(new PunishmentTask(objId, PunishmentAffect.CHARACTER, PunishmentType.CHAT_BAN, expirationTime, "Chat banned by moderator", activeChar.getName()));
-					player.sendMessage("Chat banned by moderator " + activeChar.getName());
+					player.sendMessage("执行禁言的管理者" + activeChar.getName());
 					
 					if (expirationTime > 0)
 					{
-						activeChar.sendMessage("Player " + player.getName() + " chat banned for " + expirationTime + " minutes.");
+						activeChar.sendMessage("玩家「" + player.getName() + "」禁言「" + expirationTime + "」分钟.");
 					}
 					else
 					{
-						activeChar.sendMessage("Player " + player.getName() + " chat banned forever.");
+						activeChar.sendMessage("玩家「" + player.getName() + "」永远禁言.");
 					}
 				}
 				else
 				{
-					activeChar.sendMessage("Player not found !");
+					activeChar.sendMessage("玩家不在线 !");
 					return false;
 				}
 			}
@@ -121,7 +121,7 @@ public class ChatAdmin implements IVoicedCommandHandler
 		{
 			if (params == null)
 			{
-				activeChar.sendMessage("Usage: .unbanchat name");
+				activeChar.sendMessage("用法: .unbanchat 名字");
 				return true;
 			}
 			StringTokenizer st = new StringTokenizer(params);
@@ -135,23 +135,23 @@ public class ChatAdmin implements IVoicedCommandHandler
 					L2PcInstance player = L2World.getInstance().getPlayer(objId);
 					if ((player == null) || !player.isOnline())
 					{
-						activeChar.sendMessage("Player not online !");
+						activeChar.sendMessage("玩家不在线 !");
 						return false;
 					}
 					if (!player.isChatBanned())
 					{
-						activeChar.sendMessage("Player is not chat banned !");
+						activeChar.sendMessage("玩家并未被禁言 !");
 						return false;
 					}
 					
 					PunishmentManager.getInstance().stopPunishment(objId, PunishmentAffect.CHARACTER, PunishmentType.CHAT_BAN);
 					
-					activeChar.sendMessage("Player " + player.getName() + " chat unbanned.");
-					player.sendMessage("Chat unbanned by moderator " + activeChar.getName());
+					activeChar.sendMessage("玩家「" + player.getName() + "」解除禁言.");
+					player.sendMessage("解除禁言的管理者：" + activeChar.getName());
 				}
 				else
 				{
-					activeChar.sendMessage("Player not found !");
+					activeChar.sendMessage("玩家不在线 !");
 					return false;
 				}
 			}

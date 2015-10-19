@@ -42,7 +42,7 @@ public class StatsVCmd implements IVoicedCommandHandler
 	{
 		if (!command.equals("stats") || (params == null) || params.isEmpty())
 		{
-			activeChar.sendMessage("Usage: .stats <player name>");
+			activeChar.sendMessage("用法: .stats <player name>");
 			return false;
 		}
 		
@@ -63,11 +63,11 @@ public class StatsVCmd implements IVoicedCommandHandler
 		
 		if (!L2Event.isParticipant(pc) || (pc.getEventStatus() == null))
 		{
-			activeChar.sendMessage("That player is not an event participant.");
+			activeChar.sendMessage("玩家没有参与活动.");
 			return false;
 		}
 		
-		final StringBuilder replyMSG = StringUtil.startAppend(300 + (pc.getEventStatus().getKills().size() * 50), "<html><body>" + "<center><font color=\"LEVEL\">[ L2J EVENT ENGINE ]</font></center><br><br>Statistics for player <font color=\"LEVEL\">", pc.getName(), "</font><br>Total kills <font color=\"FF0000\">", String.valueOf(pc.getEventStatus().getKills().size()), "</font><br><br>Detailed list: <br>");
+		final StringBuilder replyMSG = StringUtil.startAppend(300 + (pc.getEventStatus().getKills().size() * 50), "<html><body>" + "<center><font color=\"LEVEL\">[ 天堂II活动管理 ]</font></center><br><br>统计 <font color=\"LEVEL\">", pc.getName(), "</font><br>杀人总数 <font color=\"FF0000\">", String.valueOf(pc.getEventStatus().getKills().size()), "</font><br><br>详情: <br>");
 		for (L2PcInstance plr : pc.getEventStatus().getKills())
 		{
 			StringUtil.append(replyMSG, "<font color=\"FF0000\">", plr.getName(), "</font><br>");

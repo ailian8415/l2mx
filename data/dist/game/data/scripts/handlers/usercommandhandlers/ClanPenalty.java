@@ -50,25 +50,25 @@ public class ClanPenalty implements IUserCommandHandler
 		
 		if (activeChar.getClanJoinExpiryTime() > System.currentTimeMillis())
 		{
-			StringUtil.append(htmlContent, "<td width=170>Unable to join a clan.</td><td width=100 align=center>", format.format(activeChar.getClanJoinExpiryTime()), "</td>");
+			StringUtil.append(htmlContent, "<td width=170>无法加入血盟。</td><td width=100 align=center>", format.format(activeChar.getClanJoinExpiryTime()), "</td>");
 			penalty = true;
 		}
 		
 		if (activeChar.getClanCreateExpiryTime() > System.currentTimeMillis())
 		{
-			StringUtil.append(htmlContent, "<td width=170>Unable to create a clan.</td><td width=100 align=center>", format.format(activeChar.getClanCreateExpiryTime()), "</td>");
+			StringUtil.append(htmlContent, "<td width=170>无法建立血盟。</td><td width=100 align=center>", format.format(activeChar.getClanCreateExpiryTime()), "</td>");
 			penalty = true;
 		}
 		
 		if ((activeChar.getClan() != null) && (activeChar.getClan().getCharPenaltyExpiryTime() > System.currentTimeMillis()))
 		{
-			StringUtil.append(htmlContent, "<td width=170>Unable to invite a clan member.</td><td width=100 align=center>", format.format(activeChar.getClan().getCharPenaltyExpiryTime()), "</td>");
+			StringUtil.append(htmlContent, "<td width=170>无法邀请血盟成员。</td><td width=100 align=center>", format.format(activeChar.getClan().getCharPenaltyExpiryTime()), "</td>");
 			penalty = true;
 		}
 		
 		if (!penalty)
 		{
-			htmlContent.append("<td width=170>No penalty is imposed.</td><td width=100 align=center></td>");
+			htmlContent.append("<td width=170>没有惩罚。</td><td width=100 align=center></td>");
 		}
 		
 		htmlContent.append("</tr></table><img src=\"L2UI.SquareWhite\" width=270 height=1></center></body></html>");

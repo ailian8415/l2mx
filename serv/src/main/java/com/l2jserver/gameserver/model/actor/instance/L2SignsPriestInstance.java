@@ -451,20 +451,20 @@ public class L2SignsPriestInstance extends L2Npc
 						switch (stoneType)
 						{
 							case 1:
-								contribStoneColor = "Blue";
-								stoneColorContr = "blue";
+								contribStoneColor = "蓝色";
+								stoneColorContr = "蓝色";
 								stoneIdContr = SevenSigns.SEAL_STONE_BLUE_ID;
 								stoneCountContr = blueStoneCount;
 								break;
 							case 2:
-								contribStoneColor = "Green";
-								stoneColorContr = "green";
+								contribStoneColor = "绿色";
+								stoneColorContr = "绿色";
 								stoneIdContr = SevenSigns.SEAL_STONE_GREEN_ID;
 								stoneCountContr = greenStoneCount;
 								break;
 							case 3:
-								contribStoneColor = "Red";
-								stoneColorContr = "red";
+								contribStoneColor = "红色";
+								stoneColorContr = "红色";
 								stoneIdContr = SevenSigns.SEAL_STONE_RED_ID;
 								stoneCountContr = redStoneCount;
 								break;
@@ -699,17 +699,17 @@ public class L2SignsPriestInstance extends L2Npc
 					switch (stoneType)
 					{
 						case 1:
-							stoneColor = "blue";
+							stoneColor = "蓝色";
 							stoneId = SevenSigns.SEAL_STONE_BLUE_ID;
 							stoneValue = SevenSigns.SEAL_STONE_BLUE_VALUE;
 							break;
 						case 2:
-							stoneColor = "green";
+							stoneColor = "绿色";
 							stoneId = SevenSigns.SEAL_STONE_GREEN_ID;
 							stoneValue = SevenSigns.SEAL_STONE_GREEN_VALUE;
 							break;
 						case 3:
-							stoneColor = "red";
+							stoneColor = "红色";
 							stoneId = SevenSigns.SEAL_STONE_RED_ID;
 							stoneValue = SevenSigns.SEAL_STONE_RED_VALUE;
 							break;
@@ -893,11 +893,11 @@ public class L2SignsPriestInstance extends L2Npc
 					StringBuilder contentBuffer = new StringBuilder();
 					if (this instanceof L2DawnPriestInstance)
 					{
-						contentBuffer.append("<html><body>黎明的祭祀:<br><font color=\"LEVEL\">[ Seal Status ]</font><br>");
+						contentBuffer.append("<html><body>黎明的祭祀:<br><font color=\"LEVEL\">[ 封印狀態 ]</font><br>");
 					}
 					else
 					{
-						contentBuffer.append("<html><body>黄昏的祭祀:<br><font color=\"LEVEL\">[ Status of the Seals ]</font><br>");
+						contentBuffer.append("<html><body>黄昏的祭祀:<br><font color=\"LEVEL\">[ 封印狀態 ]</font><br>");
 					}
 					
 					for (int i = 1; i < 4; i++)
@@ -910,7 +910,7 @@ public class L2SignsPriestInstance extends L2Npc
 						}
 						else
 						{
-							contentBuffer.append("[" + SevenSigns.getSealName(i, false) + ": 没什么]<br>");
+							contentBuffer.append("[" + SevenSigns.getSealName(i, false) + ": 无]<br>");
 						}
 					}
 					

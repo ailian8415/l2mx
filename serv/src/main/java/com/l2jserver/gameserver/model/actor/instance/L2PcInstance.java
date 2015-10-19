@@ -2842,7 +2842,7 @@ public final class L2PcInstance extends L2Playable
 	{
 		if (checkCast && isCastingNow())
 		{
-			sendMessage("Cannot sit while casting");
+			sendMessage("坐下时无法使用技能！");
 			return;
 		}
 		
@@ -2865,7 +2865,7 @@ public final class L2PcInstance extends L2Playable
 	{
 		if (L2Event.isParticipant(this) && getEventStatus().isSitForced())
 		{
-			sendMessage("当你试著站起来的时候，一种超越理解的黑暗力量使你的膝盖颤抖...");
+			sendMessage("一股未知的黑暗力量让脚发抖起来，导致无法站起。");
 		}
 		else if (_waitTypeSitting && !isInStoreMode() && !isAlikeDead())
 		{
@@ -5069,11 +5069,11 @@ public final class L2PcInstance extends L2Playable
 				if (answer == 1)
 				{
 					CoupleManager.getInstance().createCouple(ptarget, L2PcInstance.this);
-					ptarget.sendMessage("Request to Engage has been >ACCEPTED<");
+					ptarget.sendMessage("请求结婚被《接受》了！");
 				}
 				else
 				{
-					ptarget.sendMessage("Request to Engage has been >DENIED<!");
+					ptarget.sendMessage("请求结婚被《拒绝》了！");
 				}
 			}
 		}
@@ -8575,7 +8575,7 @@ public final class L2PcInstance extends L2Playable
 			final L2PcInstance cha = target.getActingPlayer();
 			if ((cha != null) && (cha.getDuelId() != getDuelId()))
 			{
-				sendMessage("战斗状体下无法执行.");
+				sendMessage("决斗错误.");
 				sendPacket(ActionFailed.STATIC_PACKET);
 				return false;
 			}
@@ -10438,7 +10438,7 @@ public final class L2PcInstance extends L2Playable
 			{
 				teleToLocation(TeleportWhereType.TOWN);
 				setIsIn7sDungeon(false);
-				sendMessage("现在进入七封印的封印有效期，你已被传送至福建村镇.");
+				sendMessage("目前为封印有效期间，将强制传送至最近的村庄。");
 			}
 		}
 		else
@@ -10447,7 +10447,7 @@ public final class L2PcInstance extends L2Playable
 			{
 				teleToLocation(TeleportWhereType.TOWN);
 				setIsIn7sDungeon(false);
-				sendMessage("你没有参见七封印中的任何阵营，你已被传送至福建村镇.");
+				sendMessage("因为没有参与任何封印，将强制传送至最近的村庄。");
 			}
 		}
 		
@@ -10455,15 +10455,15 @@ public final class L2PcInstance extends L2Playable
 		{
 			if (isInvul())
 			{
-				sendMessage("以无敌模式进入游戏世界.");
+				sendMessage("目前为无敌模式。");
 			}
 			if (isInvisible())
 			{
-				sendMessage("以隐身模式进入游戏世界.");
+				sendMessage("目前为隐身模式。");
 			}
 			if (isSilenceMode())
 			{
-				sendMessage("以静默模式进入游戏世界.");
+				sendMessage("目前为静默模式。");
 			}
 		}
 		
@@ -10678,7 +10678,7 @@ public final class L2PcInstance extends L2Playable
 		}
 		if (isTeleportProtected())
 		{
-			sendMessage("Teleport spawn protection ended.");
+			sendMessage("传送保护- 从现在起可以刺激有先制攻击性的怪物.");
 		}
 		setProtection(false);
 		setTeleportProtection(false);
@@ -11545,7 +11545,7 @@ public final class L2PcInstance extends L2Playable
 		List<L2Fish> fish = FishData.getInstance().getFish(lvl, group, grade);
 		if ((fish == null) || fish.isEmpty())
 		{
-			sendMessage("错误 - 此鱼尚未定义");
+			sendMessage("钓鱼错误");
 			endFishing(false);
 			return;
 		}

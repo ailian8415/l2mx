@@ -179,7 +179,7 @@ public class Lottery
 			_isSellingTickets = true;
 			_isStarted = true;
 			
-			Broadcast.toAllOnlinePlayers("Lottery tickets are now available for Lucky Lottery #" + getId() + ".");
+			Broadcast.toAllOnlinePlayers("彩券局数第 #" + getId() + "局.");
 			Calendar finishtime = Calendar.getInstance();
 			finishtime.setTimeInMillis(_enddate);
 			finishtime.set(Calendar.MINUTE, 0);

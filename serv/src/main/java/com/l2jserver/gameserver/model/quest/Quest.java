@@ -1416,7 +1416,7 @@ public class Quest extends AbstractScript implements IIdentifiable
 		}
 		if ((player != null) && player.getAccessLevel().isGm())
 		{
-			String res = "<html><body><title>Script error</title>" + Util.getStackTrace(t) + "</body></html>";
+			String res = "<html><body><title>½Å±¾´íÎó</title>" + Util.getStackTrace(t) + "</body></html>";
 			return showResult(player, res);
 		}
 		return false;

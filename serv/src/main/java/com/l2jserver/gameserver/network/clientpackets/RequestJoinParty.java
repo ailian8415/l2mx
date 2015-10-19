@@ -66,7 +66,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		
 		if ((target.getClient() == null) || target.getClient().isDetached())
 		{
-			requestor.sendMessage("Player is in offline mode.");
+			requestor.sendMessage("玩家目前为离线交易模式.");
 			return;
 		}
 		
@@ -122,7 +122,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		
 		if (target.isJailed() || requestor.isJailed())
 		{
-			requestor.sendMessage("You cannot invite a player while is in Jail.");
+			requestor.sendMessage("无法邀请位邀请处于监禁中的玩家。");
 			return;
 		}
 		
@@ -147,7 +147,7 @@ public final class RequestJoinParty extends L2GameClientPacket
 		{
 			if (requestor.getParty().isInDimensionalRift())
 			{
-				requestor.sendMessage("You cannot invite a player when you are in the Dimensional Rift.");
+				requestor.sendMessage("无法邀请位于次元的裂痕的玩家。");
 			}
 			else
 			{

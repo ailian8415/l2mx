@@ -1860,13 +1860,13 @@ public class L2Clan implements IIdentifiable, INamable
 			}
 			else
 			{
-				player.sendMessage("You can't create any more sub-units of this type");
+				player.sendMessage("不能再创立学院了");
 			}
 			return null;
 		}
 		if (_leader.getObjectId() == leaderId)
 		{
-			player.sendMessage("Leader is not correct");
+			player.sendMessage("只有血盟盟主才可以建立血盟学院");
 			return null;
 		}
 		
@@ -2465,7 +2465,7 @@ public class L2Clan implements IIdentifiable, INamable
 		player.sendPacket(new ExBrExtraUserInfo(player));
 		
 		// TODO: Need correct message id
-		player.sendMessage("Alliance " + allyName + " has been created.");
+		player.sendMessage("建立「" + allyName + "」同盟。");
 	}
 	
 	public void dissolveAlly(L2PcInstance player)

@@ -116,12 +116,12 @@ public class QuestLink implements IBypassHandler
 			}
 			else if (qs.isStarted())
 			{
-				state = quest.isCustomQuest() ? " (In Progress)" : "02";
+				state = quest.isCustomQuest() ? " ﹝进行中﹞" : "02";
 				color = "ffdd66";
 			}
 			else if (qs.isCompleted())
 			{
-				state = quest.isCustomQuest() ? " (Done)" : "03";
+				state = quest.isCustomQuest() ? " (已完成)" : "03";
 				color = "787878";
 			}
 			StringUtil.append(sb, "<a action=\"bypass -h npc_", String.valueOf(npc.getObjectId()), "_Quest ", quest.getName(), "\">");

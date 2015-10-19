@@ -83,7 +83,7 @@ public final class RequestBuyItem extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("buy"))
 		{
-			player.sendMessage("You are buying too fast.");
+			player.sendMessage("你购买的速度太快。");
 			return;
 		}
 		
@@ -185,7 +185,7 @@ public final class RequestBuyItem extends L2GameClientPacket
 			
 			if ((price == 0) && !player.isGM() && Config.ONLY_GM_ITEMS_FREE)
 			{
-				player.sendMessage("Ohh Cheat dont work? You have a problem now!");
+				player.sendMessage("此价格只有 GM 才能购买！");
 				Util.handleIllegalPlayerAction(player, "Warning!! Character " + player.getName() + " of account " + player.getAccountName() + " tried buy item for 0 adena.", Config.DEFAULT_PUNISH);
 				return;
 			}

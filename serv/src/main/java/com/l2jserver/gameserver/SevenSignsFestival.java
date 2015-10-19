@@ -820,19 +820,19 @@ public class SevenSignsFestival implements SpawnListener
 		switch (festivalID)
 		{
 			case FESTIVAL_LEVEL_MAX_31:
-				festivalName = "Level 31 or lower";
+				festivalName = "32以下等级";
 				break;
 			case FESTIVAL_LEVEL_MAX_42:
-				festivalName = "Level 42 or lower";
+				festivalName = "43以下等级";
 				break;
 			case FESTIVAL_LEVEL_MAX_53:
-				festivalName = "Level 53 or lower";
+				festivalName = "54以下等级";
 				break;
 			case FESTIVAL_LEVEL_MAX_64:
-				festivalName = "Level 64 or lower";
+				festivalName = "65以下等级";
 				break;
 			default:
-				festivalName = "No Level Limit";
+				festivalName = "无等级限制";
 				break;
 		}
 		
@@ -1277,10 +1277,10 @@ public class SevenSignsFestival implements SpawnListener
 	{
 		if (SevenSigns.getInstance().isSealValidationPeriod())
 		{
-			return "<font color=\"FF0000\">This is the Seal Validation period. Festivals will resume next week.</font>";
+			return "<font color=\"FF0000\">封印有效期间已结束，黑暗祭典将在下一个竞争期间重新开始。</font>";
 		}
 		
-		return "<font color=\"FF0000\">The next festival will begin in " + getMinsToNextFestival() + " minute(s).</font>";
+		return "<font color=\"FF0000\">至下一个祭典的申请所剩余的时间： " + getMinsToNextFestival() + " 分钟.</font>";
 	}
 	
 	/**
@@ -1795,7 +1795,7 @@ public class SevenSignsFestival implements SpawnListener
 				}
 				else if (getMinsToNextFestival() == 2)
 				{
-					sendMessageToAll("Festival Guide", NpcStringId.THE_MAIN_EVENT_WILL_START_IN_2_MINUTES_PLEASE_REGISTER_NOW);
+					sendMessageToAll("祭典的引导者", NpcStringId.THE_MAIN_EVENT_WILL_START_IN_2_MINUTES_PLEASE_REGISTER_NOW);
 				}
 				
 				// Stand by until the allowed signup period has elapsed.
@@ -1870,7 +1870,7 @@ public class SevenSignsFestival implements SpawnListener
 				_festivalInitialized = true;
 				
 				setNextFestivalStart(Config.ALT_FESTIVAL_CYCLE_LENGTH);
-				sendMessageToAll("Festival Guide", NpcStringId.THE_MAIN_EVENT_IS_NOW_STARTING);
+				sendMessageToAll("祭典的引导者", NpcStringId.THE_MAIN_EVENT_IS_NOW_STARTING);
 				
 				// Stand by for a short length of time before starting the festival.
 				try
@@ -1932,7 +1932,7 @@ public class SevenSignsFestival implements SpawnListener
 					}
 					else
 					{
-						festivalInst.sendMessageToParticipants("The Festival of Darkness will end in " + end + " minute(s).");
+						festivalInst.sendMessageToParticipants(end + " 分钟后黑暗的祭典将要结束.");
 					}
 				}
 				
@@ -1968,7 +1968,7 @@ public class SevenSignsFestival implements SpawnListener
 				for (L2DarknessFestival festivalInst : _festivalInstances.values())
 				{
 					festivalInst.spawnFestivalMonsters(FESTIVAL_DEFAULT_RESPAWN, 3);
-					festivalInst.sendMessageToParticipants("The chests have spawned! Be quick, the festival will end soon."); // FIXME What is the correct npcString?
+					festivalInst.sendMessageToParticipants("宝箱已经出来了！黑暗的祭典即将结束."); // FIXME What is the correct npcString?
 				}
 				
 				elapsedTime += Config.ALT_FESTIVAL_CHEST_SPAWN - Config.ALT_FESTIVAL_SECOND_SWARM;
@@ -1999,7 +1999,7 @@ public class SevenSignsFestival implements SpawnListener
 				// Allow signups for the next festival cycle.
 				_festivalInitialized = false;
 				
-				sendMessageToAll("Festival Witch", NpcStringId.THAT_WILL_DO_ILL_MOVE_YOU_TO_THE_OUTSIDE_SOON);
+				sendMessageToAll("祭典的巫女", NpcStringId.THAT_WILL_DO_ILL_MOVE_YOU_TO_THE_OUTSIDE_SOON);
 			}
 			catch (Exception e)
 			{
@@ -2311,7 +2311,7 @@ public class SevenSignsFestival implements SpawnListener
 		{
 			if ((_participants != null) && !_participants.isEmpty())
 			{
-				_witchInst.broadcastPacket(new CreatureSay(_witchInst.getObjectId(), Say2.NPC_ALL, "Festival Witch", npcStringId));
+				_witchInst.broadcastPacket(new CreatureSay(_witchInst.getObjectId(), Say2.NPC_ALL, "祭典的巫女", npcStringId));
 			}
 		}
 		
@@ -2319,7 +2319,7 @@ public class SevenSignsFestival implements SpawnListener
 		{
 			if ((_participants != null) && !_participants.isEmpty())
 			{
-				_witchInst.broadcastPacket(new CreatureSay(_witchInst.getObjectId(), Say2.NPC_ALL, "Festival Witch", npcString));
+				_witchInst.broadcastPacket(new CreatureSay(_witchInst.getObjectId(), Say2.NPC_ALL, "祭典的巫女", npcString));
 			}
 		}
 		
@@ -2338,7 +2338,7 @@ public class SevenSignsFestival implements SpawnListener
 						}
 						
 						relocatePlayer(participant, false);
-						participant.sendMessage("The festival has ended. Your party leader must now register your score before the next festival takes place.");
+						participant.sendMessage("黑暗的祭典已结束。队长必须在下一场开始前完成分数登记.");
 					}
 					catch (NullPointerException e)
 					{
@@ -2393,7 +2393,7 @@ public class SevenSignsFestival implements SpawnListener
 				
 				participant.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 				participant.teleToLocation(new Location(origPosition._x, origPosition._y, origPosition._z), true);
-				participant.sendMessage("You have been removed from the festival arena.");
+				participant.sendMessage("已离开黑暗的祭典.");
 			}
 			catch (Exception e)
 			{
@@ -2401,7 +2401,7 @@ public class SevenSignsFestival implements SpawnListener
 				try
 				{
 					participant.teleToLocation(TeleportWhereType.TOWN);
-					participant.sendMessage("You have been removed from the festival arena.");
+					participant.sendMessage("已离开黑暗的祭典.");
 				}
 				catch (NullPointerException e2)
 				{

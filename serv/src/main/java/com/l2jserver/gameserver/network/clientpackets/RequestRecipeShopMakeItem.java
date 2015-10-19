@@ -71,7 +71,7 @@ public final class RequestRecipeShopMakeItem extends L2GameClientPacket
 		
 		if (activeChar.getPrivateStoreType() != PrivateStoreType.NONE)
 		{
-			activeChar.sendMessage("You cannot create items while trading.");
+			activeChar.sendMessage("交易中无法制作。");
 			return;
 		}
 		if (manufacturer.getPrivateStoreType() != PrivateStoreType.MANUFACTURE)
@@ -82,7 +82,7 @@ public final class RequestRecipeShopMakeItem extends L2GameClientPacket
 		
 		if (activeChar.isInCraftMode() || manufacturer.isInCraftMode())
 		{
-			activeChar.sendMessage("You are currently in Craft Mode.");
+			activeChar.sendMessage("目前为工房模式。");
 			return;
 		}
 		if (Util.checkIfInRange(150, activeChar, manufacturer, true))

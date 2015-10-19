@@ -75,7 +75,7 @@ public final class RequestRestart extends L2GameClientPacket
 		
 		if (player.getPrivateStoreType() != PrivateStoreType.NONE)
 		{
-			player.sendMessage("Cannot restart while trading");
+			player.sendMessage("交易时无法重新开始");
 			sendPacket(RestartResponse.valueOf(false));
 			return;
 		}
@@ -99,7 +99,7 @@ public final class RequestRestart extends L2GameClientPacket
 		{
 			if (SevenSignsFestival.getInstance().isFestivalInitialized())
 			{
-				player.sendMessage("You cannot restart while you are a participant in a festival.");
+				player.sendMessage("无法在黑暗的祭典中重新开始。");
 				sendPacket(RestartResponse.valueOf(false));
 				return;
 			}
@@ -108,7 +108,7 @@ public final class RequestRestart extends L2GameClientPacket
 			
 			if (playerParty != null)
 			{
-				player.getParty().broadcastString(player.getName() + " has been removed from the upcoming festival.");
+				player.getParty().broadcastString(player.getName() + " 在下一场的黑暗祭典被移除。");
 			}
 		}
 		

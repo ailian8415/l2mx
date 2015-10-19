@@ -149,7 +149,7 @@ public class RecipeController
 		{
 			SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S2_S1);
 			sm.addItemName(recipeList.getItemId());
-			sm.addString("You are busy creating.");
+			sm.addString("目前处于忙碌状态无法进行制作.");
 			player.sendPacket(sm);
 			return;
 		}
@@ -300,7 +300,7 @@ public class RecipeController
 		{
 			if (!Config.IS_CRAFTING_ENABLED)
 			{
-				_target.sendMessage("Item creation is currently disabled.");
+				_target.sendMessage("制作物品的功能目前关闭.");
 				abort();
 				return;
 			}
@@ -323,12 +323,12 @@ public class RecipeController
 			{
 				if (_target != _player)
 				{
-					_target.sendMessage("Manufacture aborted");
-					_player.sendMessage("Manufacture aborted");
+					_target.sendMessage("制作取消");
+					_player.sendMessage("制作取消");
 				}
 				else
 				{
-					_player.sendMessage("Item creation aborted");
+					_player.sendMessage("制作取消");
 				}
 				
 				abort();
@@ -504,7 +504,7 @@ public class RecipeController
 				}
 				else
 				{
-					_target.sendMessage("Manufacturer " + _player.getName() + " used " + count + " " + item.getItemName());
+					_target.sendMessage("「" + _player.getName() + "」使用「" + count + "」个「" + item.getItemName() + "」来制作");
 				}
 			}
 		}
@@ -592,7 +592,7 @@ public class RecipeController
 				else
 				{
 					// there is an unknown StatUse value
-					_target.sendMessage("Recipe error!!!, please tell this to your GM.");
+					_target.sendMessage("制作发生错误！请通知管理员.");
 					ret = false;
 					abort();
 				}

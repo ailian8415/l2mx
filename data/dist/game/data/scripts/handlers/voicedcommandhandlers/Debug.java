@@ -42,12 +42,12 @@ public class Debug implements IVoicedCommandHandler
 			if (activeChar.isDebug())
 			{
 				activeChar.setDebug(null);
-				activeChar.sendMessage("Debugging disabled.");
+				activeChar.sendMessage("调试模式已禁用.");
 			}
 			else
 			{
 				activeChar.setDebug(activeChar);
-				activeChar.sendMessage("Debugging enabled.");
+				activeChar.sendMessage("调试模式已开启.");
 			}
 		}
 		return true;

@@ -134,10 +134,10 @@ public final class Wedding extends AbstractNpcAI
 					couple.marry();
 					
 					// Messages to the couple
-					player.sendMessage("Congratulations you are married!");
+					player.sendMessage("恭喜你们结婚了!");
 					player.setMarried(true);
 					player.setMarryRequest(false);
-					partner.sendMessage("Congratulations you are married!");
+					partner.sendMessage("恭喜你们结婚了!");
 					partner.setMarried(true);
 					partner.setMarryRequest(false);
 					
@@ -153,7 +153,7 @@ public final class Wedding extends AbstractNpcAI
 						partner.doCast(skill);
 					}
 					
-					Broadcast.toAllOnlinePlayers("Congratulations to " + player.getName() + " and " + partner.getName() + "! They have been married.");
+					Broadcast.toAllOnlinePlayers("恭喜「" + player.getName() + "」和「" + partner.getName() + "」！他们结婚了。");
 					
 					htmltext = sendHtml(partner, "Accepted.html", null, null);
 				}
@@ -166,8 +166,8 @@ public final class Wedding extends AbstractNpcAI
 				player.setMarryAccepted(false);
 				partner.setMarryAccepted(false);
 				
-				player.sendMessage("You declined your partner's marriage request.");
-				partner.sendMessage("Your partner declined your marriage request.");
+				player.sendMessage("你拒绝.");
+				partner.sendMessage("你的伴侣拒绝！.");
 				
 				htmltext = sendHtml(partner, "Declined.html", null, null);
 				break;

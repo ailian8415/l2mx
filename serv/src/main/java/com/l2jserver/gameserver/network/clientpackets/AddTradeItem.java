@@ -83,7 +83,7 @@ public final class AddTradeItem extends L2GameClientPacket
 		
 		if (!player.getAccessLevel().allowTransaction())
 		{
-			player.sendMessage("Transactions are disabled for your Access Level.");
+			player.sendMessage("没有相关权限.");
 			player.cancelActiveTrade();
 			return;
 		}

@@ -1136,7 +1136,7 @@ public class L2Npc extends L2Character
 		{
 			if (Config.LIST_PET_RENT_NPC.contains(npcId))
 			{
-				html.replace("_Quest", "_RentPet\">Rent Pet</a><br><a action=\"bypass -h npc_%objectId%_Quest");
+				html.replace("_Quest", "_RentPet\">宠物出租</a><br><a action=\"bypass -h npc_%objectId%_Quest");
 			}
 		}
 		
@@ -1444,7 +1444,7 @@ public class L2Npc extends L2Character
 		{
 			if (Config.CHECK_KNOWN && activeChar.isGM())
 			{
-				activeChar.sendMessage("Added NPC: " + getName());
+				activeChar.sendMessage("增加NPC：" + getName());
 			}
 			
 			if (getRunSpeed() == 0)
@@ -1481,7 +1481,7 @@ public class L2Npc extends L2Character
 		if (html == null)
 		{
 			LOG.warn("Npc {} missing noTeach html!", npcId);
-			noTeachMsg.setHtml("<html><body>I cannot teach you any skills.<br>You must find your current class teachers.</body></html>");
+			noTeachMsg.setHtml("<html><body>我无法教你任何东西。<br>你必须寻找你所属职业的教师。</body></html>");
 		}
 		else
 		{

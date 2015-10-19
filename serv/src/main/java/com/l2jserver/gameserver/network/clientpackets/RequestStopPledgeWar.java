@@ -57,14 +57,14 @@ public final class RequestStopPledgeWar extends L2GameClientPacket
 		
 		if (clan == null)
 		{
-			player.sendMessage("No such clan.");
+			player.sendMessage("无此血盟");
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}
 		
 		if (!playerClan.isAtWarWith(clan.getId()))
 		{
-			player.sendMessage("You aren't at war with this clan.");
+			player.sendMessage("并无与此血盟发生战争");
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}

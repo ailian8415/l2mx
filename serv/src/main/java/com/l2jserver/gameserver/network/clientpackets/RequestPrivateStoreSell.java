@@ -87,7 +87,7 @@ public final class RequestPrivateStoreSell extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("privatestoresell"))
 		{
-			player.sendMessage("You are selling items too fast.");
+			player.sendMessage("你贩卖物品的速度太快");
 			return;
 		}
 		
@@ -126,7 +126,7 @@ public final class RequestPrivateStoreSell extends L2GameClientPacket
 		
 		if (!player.getAccessLevel().allowTransaction())
 		{
-			player.sendMessage("Transactions are disabled for your Access Level.");
+			player.sendMessage("没有相关权限。");
 			sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}

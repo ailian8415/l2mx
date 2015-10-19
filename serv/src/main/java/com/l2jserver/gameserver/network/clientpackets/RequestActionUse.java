@@ -368,7 +368,7 @@ public final class RequestActionUse extends L2GameClientPacket
 				}
 				else
 				{
-					activeChar.sendMessage("This feature is disabled.");
+					activeChar.sendMessage("此功能已关闭.");
 				}
 				break;
 			case 67: // Steer

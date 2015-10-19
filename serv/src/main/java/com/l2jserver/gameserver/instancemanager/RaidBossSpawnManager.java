@@ -430,11 +430,11 @@ public class RaidBossSpawnManager
 	 */
 	public String getRaidBossStatus(int bossId)
 	{
-		String msg = "RaidBoss Status..." + Config.EOL;
+		String msg = "á÷ÁÔÊ×Áì×´Ì¬..." + Config.EOL;
 		
 		if (_bosses == null)
 		{
-			msg += "None";
+			msg += "ÎÞ";
 			return msg;
 		}
 		

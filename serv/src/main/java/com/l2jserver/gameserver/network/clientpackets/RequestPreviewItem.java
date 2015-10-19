@@ -123,7 +123,7 @@ public final class RequestPreviewItem extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("buy"))
 		{
-			activeChar.sendMessage("You are buying too fast.");
+			activeChar.sendMessage("你购买的速度太快。");
 			return;
 		}
 		

@@ -142,7 +142,7 @@ public class Shutdown extends Thread
 		if (_counterInstance != null)
 		{
 			_counterInstance._abort();
-			Broadcast.toAllOnlinePlayers("Server aborts " + MODE_TEXT[_shutdownMode] + " and continues normal operation!", false);
+			Broadcast.toAllOnlinePlayers("服务端取消 " + MODE_TEXT[_shutdownMode] + " 继续正常运作!", false);
 		}
 	}
 	
@@ -381,7 +381,7 @@ public class Shutdown extends Thread
 		if (_counterInstance != null)
 		{
 			_counterInstance._abort();
-			Broadcast.toAllOnlinePlayers("Server aborts " + MODE_TEXT[_shutdownMode] + " and continues normal operation!", false);
+			Broadcast.toAllOnlinePlayers("服务端放弃 " + MODE_TEXT[_shutdownMode] + " 正常运行!", false);
 		}
 	}
 	

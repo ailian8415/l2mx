@@ -76,7 +76,7 @@ public class Time implements IUserCommandHandler
 		activeChar.sendPacket(sm);
 		if (Config.L2JMOD_DISPLAY_SERVER_TIME)
 		{
-			activeChar.sendMessage("Server time is " + fmt.format(new Date(System.currentTimeMillis())));
+			activeChar.sendMessage("当前游戏时间：" + fmt.format(new Date(System.currentTimeMillis())));
 		}
 		return true;
 	}

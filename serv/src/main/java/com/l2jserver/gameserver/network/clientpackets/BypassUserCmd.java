@@ -53,7 +53,7 @@ public class BypassUserCmd extends L2GameClientPacket
 		{
 			if (player.isGM())
 			{
-				player.sendMessage("User commandID " + _command + " not implemented yet.");
+				player.sendMessage("Ö¸Áî¡¸" + _command + "¡¹ÉÐÎ´Êµ×°¡£");
 			}
 		}
 		else

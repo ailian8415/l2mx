@@ -171,7 +171,7 @@ public final class UserInfo extends L2GameServerPacket
 		String title = _activeChar.getTitle();
 		if (_activeChar.isInvisible())
 		{
-			title = "Invisible";
+			title = "ÒþÉí×´Ì¬";
 		}
 		if (_activeChar.getPoly().isMorphed())
 		{

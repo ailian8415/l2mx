@@ -80,7 +80,7 @@ public class Festival implements IBypassHandler
 					// Check if a festival is in progress, then don't allow registration yet.
 					if (SevenSignsFestival.getInstance().isFestivalInitialized())
 					{
-						activeChar.sendMessage("You cannot sign up while a festival is in progress.");
+						activeChar.sendMessage("黑暗的祭典已开始，无法再登记参加.");
 						return true;
 					}
 					
@@ -153,7 +153,7 @@ public class Festival implements IBypassHandler
 					// Check if a festival is in progress, if it is don't register the score.
 					if (SevenSignsFestival.getInstance().isFestivalInProgress())
 					{
-						activeChar.sendMessage("You cannot register a score while a festival is in progress.");
+						activeChar.sendMessage("黑暗的祭典进行中，无法登记分数.");
 						return true;
 					}
 					
@@ -185,7 +185,7 @@ public class Festival implements IBypassHandler
 					// Check if the player collected any blood offerings during the festival.
 					if (bloodOfferings == null)
 					{
-						activeChar.sendMessage("You do not have any blood offerings to contribute.");
+						activeChar.sendMessage("并无任何贡献.");
 						return true;
 					}
 					
@@ -210,7 +210,7 @@ public class Festival implements IBypassHandler
 					}
 					break;
 				case 4: // Current High Scores
-					final StringBuilder strBuffer = StringUtil.startAppend(500, "<html><body>Festival Guide:<br>These are the top scores of the week, for the ");
+					final StringBuilder strBuffer = StringUtil.startAppend(500, "<html><body>祭典的引导者:<br>本周最高纪录如下 ");
 					
 					final StatsSet dawnData = SevenSignsFestival.getInstance().getHighestScoreData(SevenSigns.CABAL_DAWN, npc.getFestivalType());
 					final StatsSet duskData = SevenSignsFestival.getInstance().getHighestScoreData(SevenSigns.CABAL_DUSK, npc.getFestivalType());
@@ -226,24 +226,24 @@ public class Festival implements IBypassHandler
 						overallScore = overallData.getInt("score");
 					}
 					
-					StringUtil.append(strBuffer, SevenSignsFestival.getFestivalName(npc.getFestivalType()), " festival.<br>");
+					StringUtil.append(strBuffer, SevenSignsFestival.getFestivalName(npc.getFestivalType()), " , .<br>");
 					
 					if (dawnScore > 0)
 					{
-						StringUtil.append(strBuffer, "Dawn: ", calculateDate(dawnData.getString("date")), ". Score ", String.valueOf(dawnScore), "<br>", dawnData.getString("members"), "<br>");
+						StringUtil.append(strBuffer, "黎明: ", calculateDate(dawnData.getString("date")), ". 分数 ", String.valueOf(dawnScore), "<br>", dawnData.getString("members"), "<br>");
 					}
 					else
 					{
-						strBuffer.append("Dawn: No record exists. Score 0<br>");
+						strBuffer.append("黎明：没有纪录，分数 0<br>");
 					}
 					
 					if (duskScore > 0)
 					{
-						StringUtil.append(strBuffer, "Dusk: ", calculateDate(duskData.getString("date")), ". Score ", String.valueOf(duskScore), "<br>", duskData.getString("members"), "<br>");
+						StringUtil.append(strBuffer, "黄昏: ", calculateDate(duskData.getString("date")), ". 分数 ", String.valueOf(duskScore), "<br>", duskData.getString("members"), "<br>");
 					}
 					else
 					{
-						strBuffer.append("Dusk: No record exists. Score 0<br>");
+						strBuffer.append("黄昏：没有纪录，分数 0<br>");
 					}
 					
 					if ((overallScore > 0) && (overallData != null))
@@ -251,21 +251,21 @@ public class Festival implements IBypassHandler
 						final String cabalStr;
 						if (overallData.getString("cabal").equals("dawn"))
 						{
-							cabalStr = "Children of Dawn";
+							cabalStr = "黎明的君主们";
 						}
 						else
 						{
-							cabalStr = "Children of Dusk";
+							cabalStr = "黄昏的革命军";
 						}
 						
-						StringUtil.append(strBuffer, "Consecutive top scores: ", calculateDate(overallData.getString("date")), ". Score ", String.valueOf(overallScore), "<br>Affilated side: ", cabalStr, "<br>", overallData.getString("members"), "<br>");
+						StringUtil.append(strBuffer, "<FONT color=LEVEL>历代最高纪录</FONT>", calculateDate(overallData.getString("date")), ". 分数 ", String.valueOf(overallScore), "<br>所属阵营: ", cabalStr, "<br>", overallData.getString("members"), "<br>");
 					}
 					else
 					{
-						strBuffer.append("Consecutive top scores: No record exists. Score 0<br>");
+						strBuffer.append("<FONT color=LEVEL>历代最高纪录</FONT>：无。分数 0<br>");
 					}
 					
-					StringUtil.append(strBuffer, "<a action=\"bypass -h npc_", String.valueOf(npc.getObjectId()), "_Chat 0\">Go back.</a></body></html>");
+					StringUtil.append(strBuffer, "<a action=\"bypass -h npc_", String.valueOf(npc.getObjectId()), "_Chat 0\">返回.</a></body></html>");
 					
 					final NpcHtmlMessage html = new NpcHtmlMessage(npc.getObjectId());
 					html.setHtml(strBuffer.toString());
@@ -317,14 +317,14 @@ public class Festival implements IBypassHandler
 						}
 						else
 						{
-							activeChar.sendMessage("Only the party leader can leave a festival when a party has minimum number of members.");
+							activeChar.sendMessage("如果队员只剩下挑战的最少人数，就只有队长可以离开黑暗的祭典.");
 						}
 					}
 					break;
 				case 0: // Distribute Accumulated Bonus
 					if (!SevenSigns.getInstance().isSealValidationPeriod())
 					{
-						activeChar.sendMessage("Bonuses cannot be paid during the competition period.");
+						activeChar.sendMessage("只有在封印有效期间才能结算.");
 						return true;
 					}
 					

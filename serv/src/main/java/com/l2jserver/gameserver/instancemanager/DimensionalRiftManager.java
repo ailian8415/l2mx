@@ -289,7 +289,7 @@ public final class DimensionalRiftManager
 		// max parties inside is rooms count - 1
 		if (!isAllowedEnter(type))
 		{
-			player.sendMessage("Rift is full. Try later.");
+			player.sendMessage("次元的裂痕空间已满，请稍后再试。.");
 			return;
 		}
 		
@@ -433,7 +433,7 @@ public final class DimensionalRiftManager
 		if (!player.isGM())
 		{
 			_log.warning("Player " + player.getName() + "(" + player.getObjectId() + ") was cheating in dimension rift area!");
-			Util.handleIllegalPlayerAction(player, "Warning!! Character " + player.getName() + " tried to cheat in dimensional rift.", Config.DEFAULT_PUNISH);
+			Util.handleIllegalPlayerAction(player, "警告!! 玩家「" + player.getName() + "」企图使用非法手段进入次元裂缝.", Config.DEFAULT_PUNISH);
 		}
 	}
 	

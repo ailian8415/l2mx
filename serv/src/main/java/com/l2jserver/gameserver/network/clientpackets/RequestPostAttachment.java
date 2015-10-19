@@ -75,7 +75,7 @@ public final class RequestPostAttachment extends L2GameClientPacket
 		
 		if (!activeChar.getAccessLevel().allowTransaction())
 		{
-			activeChar.sendMessage("Transactions are disabled for your Access Level");
+			activeChar.sendMessage("没有相关权限");
 			return;
 		}
 		

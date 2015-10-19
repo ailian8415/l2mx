@@ -56,7 +56,7 @@ public final class RequestWithDrawalParty extends L2GameClientPacket
 		{
 			if (party.isInDimensionalRift() && !party.getDimensionalRift().getRevivedAtWaitingRoom().contains(player))
 			{
-				player.sendMessage("You can't exit party when you are in Dimensional Rift.");
+				player.sendMessage("无法在次元的裂痕离开队伍。");
 			}
 			else
 			{

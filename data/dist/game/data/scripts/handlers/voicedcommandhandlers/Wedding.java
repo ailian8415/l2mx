@@ -99,7 +99,7 @@ public class Wedding implements IVoicedCommandHandler
 		
 		if (activeChar.isMarried())
 		{
-			activeChar.sendMessage("You are now divorced.");
+			activeChar.sendMessage("你们现在离婚了");
 			
 			AdenaAmount = (activeChar.getAdena() / 100) * Config.L2JMOD_WEDDING_DIVORCE_COSTS;
 			activeChar.getInventory().reduceAdena("Wedding", AdenaAmount, activeChar, null);
@@ -107,7 +107,7 @@ public class Wedding implements IVoicedCommandHandler
 		}
 		else
 		{
-			activeChar.sendMessage("You have broken up as a couple.");
+			activeChar.sendMessage("你们不是夫妻了。");
 		}
 		
 		final L2PcInstance partner = L2World.getInstance().getPlayer(_partnerId);
@@ -116,11 +116,11 @@ public class Wedding implements IVoicedCommandHandler
 			partner.setPartnerId(0);
 			if (partner.isMarried())
 			{
-				partner.sendMessage("Your spouse has decided to divorce you.");
+				partner.sendMessage("你的配偶决定与你离婚。");
 			}
 			else
 			{
-				partner.sendMessage("Your fiance has decided to break the engagement with you.");
+				partner.sendMessage("你的伴侣决定与你取消婚约。");
 			}
 			
 			// give adena
@@ -137,17 +137,17 @@ public class Wedding implements IVoicedCommandHandler
 	{
 		if (activeChar.getTarget() == null)
 		{
-			activeChar.sendMessage("You have no one targeted.");
+			activeChar.sendMessage("没有选择目标。");
 			return false;
 		}
 		else if (!(activeChar.getTarget() instanceof L2PcInstance))
 		{
-			activeChar.sendMessage("You can only ask another player to engage you.");
+			activeChar.sendMessage("你只能跟玩家订婚。");
 			return false;
 		}
 		else if (activeChar.getPartnerId() != 0)
 		{
-			activeChar.sendMessage("You are already engaged.");
+			activeChar.sendMessage("你已经订婚了。");
 			if (Config.L2JMOD_WEDDING_PUNISH_INFIDELITY)
 			{
 				activeChar.startAbnormalVisualEffect(true, AbnormalVisualEffect.BIG_HEAD); // give player a Big Head
@@ -182,31 +182,31 @@ public class Wedding implements IVoicedCommandHandler
 		// check if player target himself
 		if (ptarget.getObjectId() == activeChar.getObjectId())
 		{
-			activeChar.sendMessage("Is there something wrong with you, are you trying to go out with youself?");
+			activeChar.sendMessage("目标错误。");
 			return false;
 		}
 		
 		if (ptarget.isMarried())
 		{
-			activeChar.sendMessage("Player already married.");
+			activeChar.sendMessage("玩家已经结婚了。");
 			return false;
 		}
 		
 		if (ptarget.isEngageRequest())
 		{
-			activeChar.sendMessage("Player already asked by someone else.");
+			activeChar.sendMessage("玩家已经邀请其他人。");
 			return false;
 		}
 		
 		if (ptarget.getPartnerId() != 0)
 		{
-			activeChar.sendMessage("Player already engaged with someone else.");
+			activeChar.sendMessage("玩家已经与其他人订婚。");
 			return false;
 		}
 		
 		if ((ptarget.getAppearance().getSex() == activeChar.getAppearance().getSex()) && !Config.L2JMOD_WEDDING_SAMESEX)
 		{
-			activeChar.sendMessage("Gay marriage is not allowed on this server!");
+			activeChar.sendMessage("本服不允许同性结婚！");
 			return false;
 		}
 		
@@ -234,14 +234,14 @@ public class Wedding implements IVoicedCommandHandler
 		
 		if (!foundOnFriendList)
 		{
-			activeChar.sendMessage("The player you want to ask is not on your friends list, you must first be on each others friends list before you choose to engage.");
+			activeChar.sendMessage("请求的对象必须在好友名单内。");
 			return false;
 		}
 		
 		ptarget.setEngageRequest(true, activeChar.getObjectId());
 		ptarget.addAction(PlayerAction.USER_ENGAGE);
 		
-		final ConfirmDlg dlg = new ConfirmDlg(activeChar.getName() + " is asking to engage you. Do you want to start a new relationship?");
+		final ConfirmDlg dlg = new ConfirmDlg("「" + activeChar.getName() + "」向你订婚，请问你愿意接受吗？");
 		dlg.addTime(15 * 1000);
 		ptarget.sendPacket(dlg);
 		return true;
@@ -251,86 +251,86 @@ public class Wedding implements IVoicedCommandHandler
 	{
 		if (!activeChar.isMarried())
 		{
-			activeChar.sendMessage("You're not married.");
+			activeChar.sendMessage("你没有结婚。");
 			return false;
 		}
 		
 		if (activeChar.getPartnerId() == 0)
 		{
-			activeChar.sendMessage("Couldn't find your fiance in the Database - Inform a Gamemaster.");
+			activeChar.sendMessage("数据库中找不到你伴侣的资料。");
 			_log.severe("Married but couldn't find parter for " + activeChar.getName());
 			return false;
 		}
 		
 		if (GrandBossManager.getInstance().getZone(activeChar) != null)
 		{
-			activeChar.sendMessage("You are inside a Boss Zone.");
+			activeChar.sendMessage("你在 Boss 区域。");
 			return false;
 		}
 		
 		if (activeChar.isCombatFlagEquipped())
 		{
-			activeChar.sendMessage("While you are holding a Combat Flag or Territory Ward you can't go to your love!");
+			activeChar.sendMessage("无法在拥有斗争旗帜时进行传送。");
 			return false;
 		}
 		
 		if (activeChar.isCursedWeaponEquipped())
 		{
-			activeChar.sendMessage("While you are holding a Cursed Weapon you can't go to your love!");
+			activeChar.sendMessage("你持有受诅咒的武器，无法进行传送。");
 			return false;
 		}
 		
 		if (GrandBossManager.getInstance().getZone(activeChar) != null)
 		{
-			activeChar.sendMessage("You are inside a Boss Zone.");
+			activeChar.sendMessage("你的伴侣在 Boss 区域。");
 			return false;
 		}
 		
 		if (activeChar.isJailed())
 		{
-			activeChar.sendMessage("You are in Jail!");
+			activeChar.sendMessage("你在监禁中！");
 			return false;
 		}
 		
 		if (activeChar.isInOlympiadMode())
 		{
-			activeChar.sendMessage("You are in the Olympiad now.");
+			activeChar.sendMessage("你在奥林匹克竞赛中。");
 			return false;
 		}
 		
 		if (L2Event.isParticipant(activeChar))
 		{
-			activeChar.sendMessage("You are in an event.");
+			activeChar.sendMessage("你在参加活动中。");
 			return false;
 		}
 		
 		if (activeChar.isInDuel())
 		{
-			activeChar.sendMessage("You are in a duel!");
+			activeChar.sendMessage("你在决斗中！");
 			return false;
 		}
 		
 		if (activeChar.inObserverMode())
 		{
-			activeChar.sendMessage("You are in the observation.");
+			activeChar.sendMessage("你在观赏比赛中。");
 			return false;
 		}
 		
 		if ((SiegeManager.getInstance().getSiege(activeChar) != null) && SiegeManager.getInstance().getSiege(activeChar).isInProgress())
 		{
-			activeChar.sendMessage("You are in a siege, you cannot go to your partner.");
+			activeChar.sendMessage("你在攻城战中，所以无法前往。");
 			return false;
 		}
 		
 		if (activeChar.isFestivalParticipant())
 		{
-			activeChar.sendMessage("You are in a festival.");
+			activeChar.sendMessage("你在黑暗的祭典。");
 			return false;
 		}
 		
 		if (activeChar.isInParty() && activeChar.getParty().isInDimensionalRift())
 		{
-			activeChar.sendMessage("You are in the dimensional rift.");
+			activeChar.sendMessage("你在次元的裂缝。");
 			return false;
 		}
 		
@@ -343,62 +343,62 @@ public class Wedding implements IVoicedCommandHandler
 		
 		if (activeChar.isInsideZone(ZoneId.NO_SUMMON_FRIEND))
 		{
-			activeChar.sendMessage("You are in area which blocks summoning.");
+			activeChar.sendMessage("你目前身在无法召唤的地区。");
 			return false;
 		}
 		
 		final L2PcInstance partner = L2World.getInstance().getPlayer(activeChar.getPartnerId());
 		if ((partner == null) || !partner.isOnline())
 		{
-			activeChar.sendMessage("Your partner is not online.");
+			activeChar.sendMessage("你的伴侣不在线");
 			return false;
 		}
 		
 		if (activeChar.getInstanceId() != partner.getInstanceId())
 		{
-			activeChar.sendMessage("Your partner is in another World!");
+			activeChar.sendMessage("你的伴侣是在另一个世界！");
 			return false;
 		}
 		
 		if (partner.isJailed())
 		{
-			activeChar.sendMessage("Your partner is in Jail.");
+			activeChar.sendMessage("你的伴侣监禁中。");
 			return false;
 		}
 		
 		if (partner.isCursedWeaponEquipped())
 		{
-			activeChar.sendMessage("Your partner is holding a Cursed Weapon and you can't go to your love!");
+			activeChar.sendMessage("你的伴侣持有受诅咒的武器，无法进行传送。");
 			return false;
 		}
 		
 		if (GrandBossManager.getInstance().getZone(partner) != null)
 		{
-			activeChar.sendMessage("Your partner is inside a Boss Zone.");
+			activeChar.sendMessage("你的伴侣在 Boss 区域里面。");
 			return false;
 		}
 		
 		if (partner.isInOlympiadMode())
 		{
-			activeChar.sendMessage("Your partner is in the Olympiad now.");
+			activeChar.sendMessage("你的伴侣在奥林匹亚竞赛中。");
 			return false;
 		}
 		
 		if (L2Event.isParticipant(partner))
 		{
-			activeChar.sendMessage("Your partner is in an event.");
+			activeChar.sendMessage("你的伴侣在参与活动中。");
 			return false;
 		}
 		
 		if (partner.isInDuel())
 		{
-			activeChar.sendMessage("Your partner is in a duel.");
+			activeChar.sendMessage("你的伴侣在决斗中。");
 			return false;
 		}
 		
 		if (partner.isFestivalParticipant())
 		{
-			activeChar.sendMessage("Your partner is in a festival.");
+			activeChar.sendMessage("你的伴侣在黑暗的祭典。");
 			return false;
 		}
 		
@@ -410,7 +410,7 @@ public class Wedding implements IVoicedCommandHandler
 		
 		if (partner.inObserverMode())
 		{
-			activeChar.sendMessage("Your partner is in the observation.");
+			activeChar.sendMessage("你的伴侣在次元的裂缝。");
 			return false;
 		}
 		
@@ -430,7 +430,7 @@ public class Wedding implements IVoicedCommandHandler
 			{
 				if (playerCabal != compWinner)
 				{
-					activeChar.sendMessage("Your Partner is in a Seven Signs Dungeon and you are not in the winner Cabal!");
+					activeChar.sendMessage("你的伴侣在攻城战中，所以无法前往。");
 					return false;
 				}
 			}
@@ -438,7 +438,7 @@ public class Wedding implements IVoicedCommandHandler
 			{
 				if (playerCabal == SevenSigns.CABAL_NULL)
 				{
-					activeChar.sendMessage("Your Partner is in a Seven Signs Dungeon and you are not registered!");
+					activeChar.sendMessage("你的伴侣在七封印的地监，而你没有加入任何一方！");
 					return false;
 				}
 			}
@@ -446,18 +446,18 @@ public class Wedding implements IVoicedCommandHandler
 		
 		if (!TvTEvent.onEscapeUse(partner.getObjectId()))
 		{
-			activeChar.sendMessage("Your partner is in an event.");
+			activeChar.sendMessage("你的伴侣在参与活动中");
 			return false;
 		}
 		
 		if (partner.isInsideZone(ZoneId.NO_SUMMON_FRIEND))
 		{
-			activeChar.sendMessage("Your partner is in area which blocks summoning.");
+			activeChar.sendMessage("您的伴侣目前身在无法召唤的地区。");
 			return false;
 		}
 		
 		final int teleportTimer = Config.L2JMOD_WEDDING_TELEPORT_DURATION * 1000;
-		activeChar.sendMessage("After " + (teleportTimer / 60000) + " min. you will be teleported to your partner.");
+		activeChar.sendMessage("「" + (teleportTimer / 60000) + "」分钟后，将传送到你的伴侣身边。");
 		activeChar.getInventory().reduceAdena("Wedding", Config.L2JMOD_WEDDING_TELEPORT_PRICE, activeChar, null);
 		
 		activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
@@ -502,7 +502,7 @@ public class Wedding implements IVoicedCommandHandler
 			
 			if ((SiegeManager.getInstance().getSiege(_partnerLoc) != null) && SiegeManager.getInstance().getSiege(_partnerLoc).isInProgress())
 			{
-				_activeChar.sendMessage("Your partner is in siege, you can't go to your partner.");
+				_activeChar.sendMessage("你的伴侣在攻城战中，所以无法前往。");
 				return;
 			}
 			

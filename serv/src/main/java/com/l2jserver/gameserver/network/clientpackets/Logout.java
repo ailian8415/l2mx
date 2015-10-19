@@ -92,7 +92,7 @@ public final class Logout extends L2GameClientPacket
 		
 		if (L2Event.isParticipant(player))
 		{
-			player.sendMessage("A superior power doesn't allow you to leave the event.");
+			player.sendMessage("无法在活动中登出.");
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}
@@ -104,14 +104,14 @@ public final class Logout extends L2GameClientPacket
 		{
 			if (SevenSignsFestival.getInstance().isFestivalInitialized())
 			{
-				player.sendMessage("You cannot log out while you are a participant in a Festival.");
+				player.sendMessage("无法在黑暗的祭典中登出.");
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 				return;
 			}
 			
 			if (player.isInParty())
 			{
-				player.getParty().broadcastPacket(SystemMessage.sendString(player.getName() + " has been removed from the upcoming Festival."));
+				player.getParty().broadcastPacket(SystemMessage.sendString(player.getName() + " 在下一场的黑暗祭典被移除."));
 			}
 		}
 		

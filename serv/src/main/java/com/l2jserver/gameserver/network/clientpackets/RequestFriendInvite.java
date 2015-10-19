@@ -69,7 +69,7 @@ public final class RequestFriendInvite extends L2GameClientPacket
 		// Target blocked active player.
 		if (BlockList.isBlocked(friend, activeChar))
 		{
-			activeChar.sendMessage("You are in target's block list.");
+			activeChar.sendMessage("你在对方的隔绝名单。");
 			return;
 		}
 		SystemMessage sm;

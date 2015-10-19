@@ -55,7 +55,7 @@ public final class RequestGiveItemToPet extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("giveitemtopet"))
 		{
-			player.sendMessage("You are giving items to pet too fast.");
+			player.sendMessage("你丢物品给宠物的速度太快.");
 			return;
 		}
 		
@@ -71,7 +71,7 @@ public final class RequestGiveItemToPet extends L2GameClientPacket
 		
 		if (player.getPrivateStoreType() != PrivateStoreType.NONE)
 		{
-			player.sendMessage("You cannot exchange items while trading.");
+			player.sendMessage("交易时不可变换物品.");
 			return;
 		}
 		

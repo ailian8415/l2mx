@@ -274,7 +274,7 @@ public class L2VillageMasterInstance extends L2NpcInstance
 			}
 			else
 			{
-				msg.setHtml("<html><body>You don't have clan leader delegation applications submitted yet!</body></html>");
+				msg.setHtml("<html><body>你没有提交委托血盟盟主的申请!</body></html>");
 			}
 			
 			player.sendPacket(msg);
@@ -398,7 +398,7 @@ public class L2VillageMasterInstance extends L2NpcInstance
 						else
 						{
 							// TODO: Retail message
-							player.sendMessage("There are no sub classes available at this time.");
+							player.sendMessage("无法追加副职业.");
 						}
 						return;
 					}
@@ -454,7 +454,7 @@ public class L2VillageMasterInstance extends L2NpcInstance
 						{
 							SubClass subClass = subList.next();
 							
-							StringUtil.append(content3, "Sub-class ", String.valueOf(classIndex++), "<br>", "<a action=\"bypass -h npc_%objectId%_Subclass 6 ", String.valueOf(subClass.getClassIndex()), "\">", ClassListData.getInstance().getClass(subClass.getClassId()).getClientCode(), "</a><br>");
+							StringUtil.append(content3, "副职业 ", String.valueOf(classIndex++), "<br>", "<a action=\"bypass -h npc_%objectId%_Subclass 6 ", String.valueOf(subClass.getClassIndex()), "\">", ClassListData.getInstance().getClass(subClass.getClassId()).getClientCode(), "</a><br>");
 						}
 						html.replace("%list%", content3.toString());
 					}
@@ -609,7 +609,7 @@ public class L2VillageMasterInstance extends L2NpcInstance
 					if ((subsAvailable == null) || subsAvailable.isEmpty())
 					{
 						// TODO: Retail message
-						player.sendMessage("There are no sub classes available at this time.");
+						player.sendMessage("无法追加副职业.");
 						return;
 					}
 					
@@ -670,7 +670,7 @@ public class L2VillageMasterInstance extends L2NpcInstance
 						 */
 						player.setActiveClass(0); // Also updates _classIndex plus switching _classid to baseclass.
 						
-						player.sendMessage("The sub class could not be added, you have been reverted to your base class.");
+						player.sendMessage("为追加副职业，必须先恢复原本的主职业。.");
 						return;
 					}
 					break;

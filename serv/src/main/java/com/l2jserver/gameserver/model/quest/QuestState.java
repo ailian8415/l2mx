@@ -1217,7 +1217,7 @@ public final class QuestState
 		if (text == null)
 		{
 			_log.warning("missing html page data/scripts/quests/255_Tutorial/" + html);
-			text = "<html><body>File data/scripts/quests/255_Tutorial/" + html + " not found or file is empty.</body></html>";
+			text = "<html><body>文件：/scripts/quests/255_Tutorial/" + html + " 不存在，请通知GM修复.</body></html>";
 		}
 		_player.sendPacket(new TutorialShowHtml(text));
 	}

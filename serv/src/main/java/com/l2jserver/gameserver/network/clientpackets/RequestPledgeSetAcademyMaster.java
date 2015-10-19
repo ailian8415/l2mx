@@ -115,7 +115,7 @@ public final class RequestPledgeSetAcademyMaster extends L2GameClientPacket
 			if ((apprenticeMember.getSponsor() != 0) || (sponsorMember.getApprentice() != 0) || (apprenticeMember.getApprentice() != 0) || (sponsorMember.getSponsor() != 0))
 			{
 				// TODO retail message
-				activeChar.sendMessage("Remove previous connections first.");
+				activeChar.sendMessage("请先移除之前的关联。");
 				return;
 			}
 			if (apprentice != null)

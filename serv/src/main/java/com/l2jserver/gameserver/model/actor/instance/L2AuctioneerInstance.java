@@ -66,7 +66,7 @@ public final class L2AuctioneerInstance extends L2Npc
 		if (condition <= COND_ALL_FALSE)
 		{
 			// TODO: html
-			player.sendMessage("条件错误.");
+			player.sendMessage("不能参加拍卖.");
 			return;
 		}
 		else if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
@@ -130,12 +130,12 @@ public final class L2AuctioneerInstance extends L2Npc
 					}
 					catch (Exception e)
 					{
-						player.sendMessage("竞价无效!");
+						player.sendMessage("投标错误!");
 					}
 				}
 				catch (Exception e)
 				{
-					player.sendMessage("拍卖时间无效!");
+					player.sendMessage("拍卖期间错误!");
 				}
 				return;
 			}
@@ -149,7 +149,7 @@ public final class L2AuctioneerInstance extends L2Npc
 				}
 				catch (Exception e)
 				{
-					player.sendMessage("拍卖无效");
+					player.sendMessage("拍卖错误");
 				}
 				return;
 			}
@@ -189,7 +189,7 @@ public final class L2AuctioneerInstance extends L2Npc
 						html.replace("%AGIT_LEASE%", String.valueOf(ClanHallManager.getInstance().getAuctionableHallById(a.getItemId()).getLease()));
 						html.replace("%AGIT_LOCATION%", ClanHallManager.getInstance().getAuctionableHallById(a.getItemId()).getLocation());
 						html.replace("%AGIT_AUCTION_END%", String.valueOf(format.format(a.getEndDate())));
-						html.replace("%AGIT_AUCTION_REMAIN%", String.valueOf((a.getEndDate() - System.currentTimeMillis()) / 3600000) + " hours " + String.valueOf((((a.getEndDate() - System.currentTimeMillis()) / 60000) % 60)) + " minutes");
+						html.replace("%AGIT_AUCTION_REMAIN%", String.valueOf((a.getEndDate() - System.currentTimeMillis()) / 3600000) + " 时 " + String.valueOf((((a.getEndDate() - System.currentTimeMillis()) / 60000) % 60)) + " 分");
 						html.replace("%AGIT_AUCTION_MINBID%", String.valueOf(a.getStartingBid()));
 						html.replace("%AGIT_AUCTION_COUNT%", String.valueOf(a.getBidders().size()));
 						html.replace("%AGIT_AUCTION_DESC%", ClanHallManager.getInstance().getAuctionableHallById(a.getItemId()).getDesc());
@@ -206,7 +206,7 @@ public final class L2AuctioneerInstance extends L2Npc
 				}
 				catch (Exception e)
 				{
-					player.sendMessage("拍卖无效!");
+					player.sendMessage("拍卖错误!");
 				}
 				return;
 			}
@@ -232,12 +232,12 @@ public final class L2AuctioneerInstance extends L2Npc
 					}
 					catch (Exception e)
 					{
-						player.sendMessage("竞价无效!");
+						player.sendMessage("投标错误!");
 					}
 				}
 				catch (Exception e)
 				{
-					player.sendMessage("拍卖无效!");
+					player.sendMessage("拍卖错误!");
 				}
 				return;
 			}
@@ -318,7 +318,7 @@ public final class L2AuctioneerInstance extends L2Npc
 					items.append(getObjectId());
 					items.append("_list ");
 					items.append(j);
-					items.append("\"> Page ");
+					items.append("\">第', '页");
 					items.append(j);
 					items.append(" </a></center></td>");
 				}
@@ -562,7 +562,7 @@ public final class L2AuctioneerInstance extends L2Npc
 				if (AuctionManager.getInstance().getAuction(player.getClan().getHideoutId()) != null)
 				{
 					AuctionManager.getInstance().getAuction(player.getClan().getHideoutId()).cancelAuction();
-					player.sendMessage("Your auction has been canceled");
+					player.sendMessage("你的拍卖已取消。");
 				}
 				return;
 			}

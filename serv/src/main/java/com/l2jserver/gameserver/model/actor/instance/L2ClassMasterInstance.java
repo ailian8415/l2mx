@@ -208,47 +208,47 @@ public final class L2ClassMasterInstance extends L2MerchantInstance
 				case 0:
 					if (Config.CLASS_MASTER_SETTINGS.isAllowed(1))
 					{
-						sb.append("条件不符，当你等级到达20时，再回来找我转职吧.<br>");
+						sb.append("请你达到等级「20」以后再来找我吧。<br>");
 					}
 					else if (Config.CLASS_MASTER_SETTINGS.isAllowed(2))
 					{
-						sb.append("等你完成第一次转职后再回来.<br>");
+						sb.append("请你完成一次转职后再来找我吧。<br>");
 					}
 					else if (Config.CLASS_MASTER_SETTINGS.isAllowed(3))
 					{
-						sb.append("等你完成第二次转职后再回来.<br>");
+						sb.append("请你完成二次转职后再来找我吧。<br>");
 					}
 					else
 					{
-						sb.append("对不起，我无法帮你转职.<br>");
+						sb.append("我无法帮你转职。<br>");
 					}
 					break;
 				case 1:
 					if (Config.CLASS_MASTER_SETTINGS.isAllowed(2))
 					{
-						sb.append("条件不符，当你等级到达40时，再回来找我转职吧.<br>");
+						sb.append("请你达到等级「40」以后再来找我吧。<br>");
 					}
 					else if (Config.CLASS_MASTER_SETTINGS.isAllowed(3))
 					{
-						sb.append("等你完成第二次转职后再回来.<br>");
+						sb.append("请你完成二次转职后再来找我吧。<br>");
 					}
 					else
 					{
-						sb.append("对不起，我无法帮你转职.<br>");
+						sb.append("我无法帮你转职。<br>");
 					}
 					break;
 				case 2:
 					if (Config.CLASS_MASTER_SETTINGS.isAllowed(3))
 					{
-						sb.append("条件不符，当你等级到达76时，再回来找我转职吧.<br>");
+						sb.append("请你达到等级「76」以后再来找我吧。<br>");
 					}
 					else
 					{
-						sb.append("对不起，我无法帮你转职.<br>");
+						sb.append("我无法帮你转职。<br>");
 					}
 					break;
 				case 3:
-					sb.append("对不起，你已完成说有转职.<br>");
+					sb.append("很抱歉，已经没有可以让你转职的职业了。<br>");
 					break;
 			}
 			sb.append("</body></html>");
@@ -468,7 +468,7 @@ public final class L2ClassMasterInstance extends L2MerchantInstance
 	{
 		if ((Config.CLASS_MASTER_SETTINGS.getRequireItems(level) == null) || Config.CLASS_MASTER_SETTINGS.getRequireItems(level).isEmpty())
 		{
-			return "<tr><td>none</td></tr>";
+			return "<tr><td>无</td></tr>";
 		}
 		final StringBuilder sb = new StringBuilder();
 		for (ItemHolder holder : Config.CLASS_MASTER_SETTINGS.getRequireItems(level))

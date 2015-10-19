@@ -67,7 +67,7 @@ public class SetVCmd implements IVoicedCommandHandler
 				}
 				
 				player.getClanPrivileges().setBitmask(n);
-				activeChar.sendMessage("Your clan privileges have been set to " + n + " by " + activeChar.getName() + ".");
+				activeChar.sendMessage("你的血盟权限被" + activeChar.getName() + "设定为 " + n + " 。");
 			}
 			else if (params.startsWith("title"))
 			{

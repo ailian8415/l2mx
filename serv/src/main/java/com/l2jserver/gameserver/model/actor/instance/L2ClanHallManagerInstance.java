@@ -262,7 +262,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						{
 							if (getClanHall().getOwnerId() == 0)
 							{
-								player.sendMessage("这个血盟根据地没有主人，你不能改变设置.");
+								player.sendMessage("此根据地并无主人，因此无法更改.");
 								return;
 							}
 							val = st.nextToken();
@@ -270,7 +270,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "回复HP 0");
+								html.replace("%apply%", "recovery hp 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -278,7 +278,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "回复MP 0");
+								html.replace("%apply%", "recovery mp 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -286,7 +286,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "回复经验 0");
+								html.replace("%apply%", "recovery exp 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -295,7 +295,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "壁炉 (HP回复)");
+								html.replace("%name%", "壁炉（HP 恢复设备）");
 								int percent = Integer.parseInt(val);
 								int cost;
 								switch (percent)
@@ -342,8 +342,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								}
 								
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "为血盟根据的中的血盟成员额外增加.<font color=\"00FFFF\">" + String.valueOf(percent) + "% 的HP回复</font>");
-								html.replace("%apply%", "回复HP " + String.valueOf(percent));
+								html.replace("%use%", "血盟成员恢复 HP 时多增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%。</font>");
+								html.replace("%apply%", "recovery hp " + String.valueOf(percent));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -352,7 +352,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "地毯 (回复MP)");
+								html.replace("%name%", "地毯（MP 恢复设备）");
 								int percent = Integer.parseInt(val);
 								int cost;
 								switch (percent)
@@ -373,9 +373,9 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										cost = Config.CH_MPREG5_FEE;
 										break;
 								}
-								html.replace("%cost%", String.valueOf(cost) + "</font>价格 /" + String.valueOf(Config.CH_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "为血盟根据的中的血盟成员额外增加<font color=\"00FFFF\">" + String.valueOf(percent) + "% 的MP回复</font>");
-								html.replace("%apply%", "回复MP " + String.valueOf(percent));
+								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
+								html.replace("%use%", "血盟成员恢复 MP 时多增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%。</font>");
+								html.replace("%apply%", "recovery mp " + String.valueOf(percent));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -384,7 +384,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "吊灯 (经验回复)");
+								html.replace("%name%", "吊灯（EXP 恢复设备）");
 								int percent = Integer.parseInt(val);
 								int cost;
 								switch (percent)
@@ -412,8 +412,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										break;
 								}
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "为血盟根据的中的血盟成员额外增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%的经验回复</font>");
-								html.replace("%apply%", "回复经验 " + String.valueOf(percent));
+								html.replace("%use%", "血盟成员复活时 EXP 多增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%。</font>");
+								html.replace("%apply%", "recovery exp " + String.valueOf(percent));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -639,21 +639,21 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						if (getClanHall().getFunction(ClanHall.FUNC_RESTORE_HP) != null)
 						{
 							html.replace("%hp_recovery%", String.valueOf(getClanHall().getFunction(ClanHall.FUNC_RESTORE_HP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_RESTORE_HP).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%hp_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_RESTORE_HP).getEndTime()));
+							html.replace("%hp_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_RESTORE_HP).getEndTime()));
 							int grade = getClanHall().getGrade();
 							switch (grade)
 							{
 								case 0:
-									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">停用</a>]" + hp_grade0);
+									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">取消</a>]" + hp_grade0);
 									break;
 								case 1:
-									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">停用</a>]" + hp_grade1);
+									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">取消</a>]" + hp_grade1);
 									break;
 								case 2:
-									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">停用</a>]" + hp_grade2);
+									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">取消</a>]" + hp_grade2);
 									break;
 								case 3:
-									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">停用</a>]" + hp_grade3);
+									html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">取消</a>]" + hp_grade3);
 									break;
 							}
 						}
@@ -681,21 +681,21 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						if (getClanHall().getFunction(ClanHall.FUNC_RESTORE_EXP) != null)
 						{
 							html.replace("%exp_recovery%", String.valueOf(getClanHall().getFunction(ClanHall.FUNC_RESTORE_EXP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_RESTORE_EXP).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%exp_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_RESTORE_EXP).getEndTime()));
+							html.replace("%exp_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_RESTORE_EXP).getEndTime()));
 							int grade = getClanHall().getGrade();
 							switch (grade)
 							{
 								case 0:
-									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">停用</a>]" + exp_grade0);
+									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">取消</a>]" + exp_grade0);
 									break;
 								case 1:
-									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">停用</a>]" + exp_grade1);
+									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">取消</a>]" + exp_grade1);
 									break;
 								case 2:
-									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">停用</a>]" + exp_grade2);
+									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">取消</a>]" + exp_grade2);
 									break;
 								case 3:
-									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">停用</a>]" + exp_grade3);
+									html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">取消</a>]" + exp_grade3);
 									break;
 							}
 						}
@@ -723,21 +723,21 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						if (getClanHall().getFunction(ClanHall.FUNC_RESTORE_MP) != null)
 						{
 							html.replace("%mp_recovery%", String.valueOf(getClanHall().getFunction(ClanHall.FUNC_RESTORE_MP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_RESTORE_MP).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%mp_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_RESTORE_MP).getEndTime()));
+							html.replace("%mp_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_RESTORE_MP).getEndTime()));
 							int grade = getClanHall().getGrade();
 							switch (grade)
 							{
 								case 0:
-									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">停用</a>]" + mp_grade0);
+									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">取消</a>]" + mp_grade0);
 									break;
 								case 1:
-									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">停用</a>]" + mp_grade1);
+									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">取消</a>]" + mp_grade1);
 									break;
 								case 2:
-									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">停用</a>]" + mp_grade2);
+									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">取消</a>]" + mp_grade2);
 									break;
 								case 3:
-									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">停用</a>]" + mp_grade3);
+									html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">取消</a>]" + mp_grade3);
 									break;
 							}
 						}
@@ -770,7 +770,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						{
 							if (getClanHall().getOwnerId() == 0)
 							{
-								player.sendMessage("这个血盟根据地没有主人，你不能改变设置.");
+								player.sendMessage("此根据地并无主人，因此无法更改.");
 								return;
 							}
 							val = st.nextToken();
@@ -778,7 +778,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "其他道具 0");
+								html.replace("%apply%", "other item 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -786,7 +786,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "其他传送 0");
+								html.replace("%apply%", "other tele 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -794,7 +794,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "其他维护 0");
+								html.replace("%apply%", "other support 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -803,7 +803,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "魔法设备 (物品生产设备)");
+								html.replace("%name%", "魔法设备（物品生产设备）");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -819,8 +819,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										break;
 								}
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_ITEM_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "允许早特定的时间内购买特殊道具.");
-								html.replace("%apply%", "其他道具 " + String.valueOf(stage));
+								html.replace("%use%", "允许在固定的时间内购买特别的物品.");
+								html.replace("%apply%", "other item " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -829,7 +829,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "徽章 (辅助魔法)");
+								html.replace("%name%", "徽章（辅助魔法）");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -860,8 +860,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										break;
 								}
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "允许使用魔法.");
-								html.replace("%apply%", "其他维护 " + String.valueOf(stage));
+								html.replace("%use%", "施展辅助魔法.");
+								html.replace("%apply%", "other support " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -870,7 +870,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "镜子 (传送设备)");
+								html.replace("%name%", "镜子（传送设备）");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -883,8 +883,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										break;
 								}
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "用于血盟成员冲送至目的地 <font color=\"00FFFF\">阶段 " + String.valueOf(stage) + "</font> 目标区域");
-								html.replace("%apply%", "其他传送 " + String.valueOf(stage));
+								html.replace("%use%", "传送血盟成员到 <font color=\"00FFFF\">阶段 " + String.valueOf(stage) + "</font> 的位置");
+								html.replace("%apply%", "other tele " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -894,7 +894,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								{
 									if (getClanHall().getOwnerId() == 0)
 									{
-										player.sendMessage("这个血盟根据地没有主人，你不能改变设置.");
+										player.sendMessage("此根据地并无主人，因此无法更改.");
 										return;
 									}
 									if (Config.DEBUG)
@@ -1064,17 +1064,17 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						}
 						final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 						html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/edit_other.htm");
-						String tele = "[<a action=\"bypass -h npc_%objectId%_manage other edit_tele 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_tele 2\">Level 2</a>]";
-						String support_grade0 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 2\">Level 2</a>]";
-						String support_grade1 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 2\">Level 2</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 4\">Level 4</a>]";
-						String support_grade2 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 3\">Level 3</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 4\">Level 4</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 5\">Level 5</a>]";
-						String support_grade3 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 3\">Level 3</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 5\">Level 5</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 7\">Level 7</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 8\">Level 8</a>]";
-						String item = "[<a action=\"bypass -h npc_%objectId%_manage other edit_item 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_item 2\">Level 2</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_item 3\">Level 3</a>]";
+						String tele = "[<a action=\"bypass -h npc_%objectId%_manage other edit_tele 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_tele 2\">等级 2</a>]";
+						String support_grade0 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 2\">等级 2</a>]";
+						String support_grade1 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 2\">等级 2</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 4\">等级 4</a>]";
+						String support_grade2 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 3\">等级 3</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 4\">等级 4</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 5\">等级 5</a>]";
+						String support_grade3 = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 3\">等级 3</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 5\">等级 5</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 7\">等级 7</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 8\">等级 8</a>]";
+						String item = "[<a action=\"bypass -h npc_%objectId%_manage other edit_item 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_item 2\">等级 2</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_item 3\">等级 3</a>]";
 						if (getClanHall().getFunction(ClanHall.FUNC_TELEPORT) != null)
 						{
 							html.replace("%tele%", "阶段 " + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_TELEPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_TELEPORT).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%tele_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_TELEPORT).getEndTime()));
-							html.replace("%change_tele%", "[<a action=\"bypass -h npc_%objectId%_manage other tele_cancel\">停用</a>]" + tele);
+							html.replace("%tele_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_TELEPORT).getEndTime()));
+							html.replace("%change_tele%", "[<a action=\"bypass -h npc_%objectId%_manage other tele_cancel\">取消</a>]" + tele);
 						}
 						else
 						{
@@ -1084,22 +1084,22 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						}
 						if (getClanHall().getFunction(ClanHall.FUNC_SUPPORT) != null)
 						{
-							html.replace("%support%", "阶段e " + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_SUPPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_SUPPORT).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%support_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_SUPPORT).getEndTime()));
+							html.replace("%support%", "阶段 " + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_SUPPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_SUPPORT).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
+							html.replace("%support_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_SUPPORT).getEndTime()));
 							int grade = getClanHall().getGrade();
 							switch (grade)
 							{
 								case 0:
-									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">停用</a>]" + support_grade0);
+									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">取消</a>]" + support_grade0);
 									break;
 								case 1:
-									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">停用</a>]" + support_grade1);
+									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">取消</a>]" + support_grade1);
 									break;
 								case 2:
-									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">停用</a>]" + support_grade2);
+									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">取消</a>]" + support_grade2);
 									break;
 								case 3:
-									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">停用</a>]" + support_grade3);
+									html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">取消</a>]" + support_grade3);
 									break;
 							}
 						}
@@ -1127,8 +1127,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						if (getClanHall().getFunction(ClanHall.FUNC_ITEM_CREATE) != null)
 						{
 							html.replace("%item%", "阶段 " + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_ITEM_CREATE).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_ITEM_CREATE).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_ITEM_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%item_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_ITEM_CREATE).getEndTime()));
-							html.replace("%change_item%", "[<a action=\"bypass -h npc_%objectId%_manage other item_cancel\">停用</a>]" + item);
+							html.replace("%item_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_ITEM_CREATE).getEndTime()));
+							html.replace("%change_item%", "[<a action=\"bypass -h npc_%objectId%_manage other item_cancel\">取消</a>]" + item);
 						}
 						else
 						{
@@ -1144,7 +1144,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						{
 							if (getClanHall().getOwnerId() == 0)
 							{
-								player.sendMessage("这个血盟根据地没有主人，你不能改变设置.");
+								player.sendMessage("此根据地并无主人，因此无法更改。");
 								return;
 							}
 							val = st.nextToken();
@@ -1152,7 +1152,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "装饰窗帘 0");
+								html.replace("%apply%", "deco curtains 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -1160,7 +1160,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-cancel.htm");
-								html.replace("%apply%", "装饰灯具 0");
+								html.replace("%apply%", "deco fixtures 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -1169,7 +1169,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "窗帘 (装饰品)");
+								html.replace("%name%", "窗帘（装饰）");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -1182,8 +1182,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										break;
 								}
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_CURTAIN_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "用来装饰血盟根据地.");
-								html.replace("%apply%", "装饰窗帘 " + String.valueOf(stage));
+								html.replace("%use%", "装饰根据地.");
+								html.replace("%apply%", "deco curtains " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -1192,7 +1192,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/functions-apply.htm");
-								html.replace("%name%", "Front Platform (装饰品)");
+								html.replace("%name%", "阳台（装饰）");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -1205,8 +1205,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 										break;
 								}
 								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.CH_FRONT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
-								html.replace("%use%", "用来装饰血盟根据地.");
-								html.replace("%apply%", "灯具 (装饰品) " + String.valueOf(stage));
+								html.replace("%use%", "装饰根据地.");
+								html.replace("%apply%", "deco fixtures " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -1311,13 +1311,13 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						}
 						final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 						html.setFile(player.getHtmlPrefix(), "data/html/clanHallManager/deco.htm");
-						String curtains = "[<a action=\"bypass -h npc_%objectId%_manage deco edit_curtains 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage deco edit_curtains 2\">Level 2</a>]";
-						String fixtures = "[<a action=\"bypass -h npc_%objectId%_manage deco edit_fixtures 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage deco edit_fixtures 2\">Level 2</a>]";
+						String curtains = "[<a action=\"bypass -h npc_%objectId%_manage deco edit_curtains 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage deco edit_curtains 2\">等级 2</a>]";
+						String fixtures = "[<a action=\"bypass -h npc_%objectId%_manage deco edit_fixtures 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage deco edit_fixtures 2\">等级 2</a>]";
 						if (getClanHall().getFunction(ClanHall.FUNC_DECO_CURTAINS) != null)
 						{
 							html.replace("%curtain%", "阶段 " + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_DECO_CURTAINS).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_DECO_CURTAINS).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_CURTAIN_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%curtain_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_DECO_CURTAINS).getEndTime()));
-							html.replace("%change_curtain%", "[<a action=\"bypass -h npc_%objectId%_manage deco curtains_cancel\">停用</a>]" + curtains);
+							html.replace("%curtain_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_DECO_CURTAINS).getEndTime()));
+							html.replace("%change_curtain%", "[<a action=\"bypass -h npc_%objectId%_manage deco curtains_cancel\">取消</a>]" + curtains);
 						}
 						else
 						{
@@ -1328,8 +1328,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 						if (getClanHall().getFunction(ClanHall.FUNC_DECO_FRONTPLATEFORM) != null)
 						{
 							html.replace("%fixture%", "阶段 " + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_DECO_FRONTPLATEFORM).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getClanHall().getFunction(ClanHall.FUNC_DECO_FRONTPLATEFORM).getLease()) + "</font>金币 /" + String.valueOf(Config.CH_FRONT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
-							html.replace("%fixture_period%", "下一次收费时间为 " + format.format(getClanHall().getFunction(ClanHall.FUNC_DECO_FRONTPLATEFORM).getEndTime()));
-							html.replace("%change_fixture%", "[<a action=\"bypass -h npc_%objectId%_manage deco fixtures_cancel\">停用</a>]" + fixtures);
+							html.replace("%fixture_period%", "收取下一次的费用 " + format.format(getClanHall().getFunction(ClanHall.FUNC_DECO_FRONTPLATEFORM).getEndTime()));
+							html.replace("%change_fixture%", "[<a action=\"bypass -h npc_%objectId%_manage deco fixtures_cancel\">取消</a>]" + fixtures);
 						}
 						else
 						{
@@ -1363,7 +1363,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 				if (player.isCursedWeaponEquipped())
 				{
 					// Custom system message
-					player.sendMessage("持有被诅咒武器这无法使用治愈和BUFF功能");
+					player.sendMessage("装备诅咒武器时无法获得外部的辅助魔法");
 					return;
 				}
 				setTarget(player);
@@ -1420,12 +1420,12 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
 					}
 					catch (Exception e)
 					{
-						player.sendMessage("技能等级无效, 请联系管理员!");
+						player.sendMessage("技能等级无效，请联系管理员!");
 					}
 				}
 				catch (Exception e)
 				{
-					player.sendMessage("技能等级无效, 请联系管理员!");
+					player.sendMessage("技能等级无效，请联系管理员!");
 				}
 				return;
 			}

@@ -39,12 +39,12 @@ public class Hellbound implements IVoicedCommandHandler
 	{
 		if (HellboundEngine.getInstance().isLocked())
 		{
-			activeChar.sendMessage("Hellbound is currently locked.");
+			activeChar.sendMessage("地狱边界处于锁定状态.");
 			return true;
 		}
 		
 		final int maxTrust = HellboundEngine.getInstance().getMaxTrust();
-		activeChar.sendMessage("Hellbound level: " + HellboundEngine.getInstance().getLevel() + " trust: " + HellboundEngine.getInstance().getTrust() + (maxTrust > 0 ? "/" + maxTrust : ""));
+		activeChar.sendMessage("地狱边界当前信任度等级: " + HellboundEngine.getInstance().getLevel() + "最大信任度等级" + HellboundEngine.getInstance().getTrust() + (maxTrust > 0 ? "/" + maxTrust : ""));
 		return true;
 	}
 	

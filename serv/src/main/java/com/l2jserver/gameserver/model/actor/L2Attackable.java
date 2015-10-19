@@ -265,7 +265,7 @@ public class L2Attackable extends L2Npc
 							_commandChannelTimer = new CommandChannelTimer(this);
 							_commandChannelLastAttack = System.currentTimeMillis();
 							ThreadPoolManager.getInstance().scheduleGeneral(_commandChannelTimer, 10000); // check for last attack
-							_firstCommandChannelAttacked.broadcastPacket(new CreatureSay(0, Say2.PARTYROOM_ALL, "", "You have looting rights!")); // TODO: retail msg
+							_firstCommandChannelAttacked.broadcastPacket(new CreatureSay(0, Say2.PARTYROOM_ALL, "", "你得到优先权！")); // TODO: retail msg
 						}
 					}
 				}

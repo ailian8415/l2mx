@@ -125,7 +125,7 @@ public final class L2TeleporterInstance extends L2Npc
 				}
 				else
 				{
-					player.sendMessage("你没有使用此传送的相关权限级别.");
+					player.sendMessage("你没有相关权限使用此传送.");
 				}
 				return;
 			}

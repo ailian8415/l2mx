@@ -137,7 +137,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				{
 					if (activeChar.isGM())
 					{
-						activeChar.sendMessage("The command " + command.substring(6) + " does not exist!");
+						activeChar.sendMessage("指令「" + command.substring(6) + "」不存在！");
 					}
 					_log.warning(activeChar + " requested not registered admin command '" + command + "'");
 					return;
@@ -145,7 +145,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				
 				if (!AdminData.getInstance().hasAccess(command, activeChar.getAccessLevel()))
 				{
-					activeChar.sendMessage("You don't have the access rights to use this command!");
+					activeChar.sendMessage("你没有权限使用此指令!");
 					_log.warning("Character " + activeChar.getName() + " tried to use admin command " + command + ", without proper access level!");
 					return;
 				}
@@ -154,7 +154,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				{
 					activeChar.setAdminConfirmCmd(_command);
 					ConfirmDlg dlg = new ConfirmDlg(SystemMessageId.S1);
-					dlg.addString("Are you sure you want execute command " + _command.substring(6) + " ?");
+					dlg.addString("你确定要执行指令 " + _command.substring(6) + " ?");
 					activeChar.addAction(PlayerAction.ADMIN_COMMAND);
 					activeChar.sendPacket(dlg);
 				}

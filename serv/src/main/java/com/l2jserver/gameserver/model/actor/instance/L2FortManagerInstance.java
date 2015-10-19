@@ -374,7 +374,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 						{
 							if (getFort().getOwnerClan() == null)
 							{
-								player.sendMessage("此城堡尚无主人，你无法修改配置.");
+								player.sendMessage("此城堡并无主人，因此无法更改.");
 								return;
 							}
 							val = st.nextToken();
@@ -382,7 +382,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-cancel.htm");
-								html.replace("%apply%", "回复HP 0");
+								html.replace("%apply%", "recovery hp 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -390,7 +390,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-cancel.htm");
-								html.replace("%apply%", "回复MP 0");
+								html.replace("%apply%", "recovery mp 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -398,7 +398,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 							{
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-cancel.htm");
-								html.replace("%apply%", "回复经验 0");
+								html.replace("%apply%", "recovery exp 0");
 								sendHtmlMessage(player, html);
 								return;
 							}
@@ -407,7 +407,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-apply.htm");
-								html.replace("%name%", "(HP回复)");
+								html.replace("%name%", "(HP 恢复设备)");
 								int percent = Integer.parseInt(val);
 								int cost;
 								switch (percent)
@@ -420,8 +420,8 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										break;
 								}
 								
-								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
-								html.replace("%use%", "Provides additional HP recovery for clan members in the fortress.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
+								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.FS_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
+								html.replace("%use%", "城堡的血盟成员恢复 HP 时多增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%。</font>");
 								html.replace("%apply%", "recovery hp " + String.valueOf(percent));
 								sendHtmlMessage(player, html);
 								return;
@@ -431,7 +431,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-apply.htm");
-								html.replace("%name%", "(MP Recovery)");
+								html.replace("%name%", "(MP 恢复设备)");
 								int percent = Integer.parseInt(val);
 								int cost;
 								switch (percent)
@@ -443,8 +443,8 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										cost = Config.FS_MPREG2_FEE;
 										break;
 								}
-								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
-								html.replace("%use%", "Provides additional MP recovery for clan members in the fortress.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
+								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.FS_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
+								html.replace("%use%", "城堡的血盟成员恢复 MP 时多增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%。</font>");
 								html.replace("%apply%", "recovery mp " + String.valueOf(percent));
 								sendHtmlMessage(player, html);
 								return;
@@ -454,7 +454,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-apply.htm");
-								html.replace("%name%", "(EXP Recovery Device)");
+								html.replace("%name%", "(EXP 恢复设备)");
 								int percent = Integer.parseInt(val);
 								int cost;
 								switch (percent)
@@ -466,8 +466,8 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										cost = Config.FS_EXPREG2_FEE;
 										break;
 								}
-								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
-								html.replace("%use%", "Restores the Exp of any clan member who is resurrected in the fortress.<font color=\"00FFFF\">" + String.valueOf(percent) + "%</font>");
+								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.FS_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
+								html.replace("%use%", "城堡的血盟成员复活时 EXP 多增加<font color=\"00FFFF\">" + String.valueOf(percent) + "%。</font>");
 								html.replace("%apply%", "recovery exp " + String.valueOf(percent));
 								sendHtmlMessage(player, html);
 								return;
@@ -615,38 +615,38 @@ public class L2FortManagerInstance extends L2MerchantInstance
 						String mp = "[<a action=\"bypass -h npc_%objectId%_manage recovery edit_mp 40\">40%</a>][<a action=\"bypass -h npc_%objectId%_manage recovery edit_mp 50\">50%</a>]";
 						if (getFort().getFunction(Fort.FUNC_RESTORE_HP) != null)
 						{
-							html.replace("%hp_recovery%", String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_HP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_HP).getLease()) + "</font>Adena /" + String.valueOf(Config.FS_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day)");
-							html.replace("%hp_period%", "Withdraw the fee for the next time at " + format.format(getFort().getFunction(Fort.FUNC_RESTORE_HP).getEndTime()));
-							html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">Deactivate</a>]" + hp);
+							html.replace("%hp_recovery%", String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_HP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_HP).getLease()) + "</font>金币/" + String.valueOf(Config.FS_HPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
+							html.replace("%hp_period%", "收取下一次的费用: " + format.format(getFort().getFunction(Fort.FUNC_RESTORE_HP).getEndTime()));
+							html.replace("%change_hp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery hp_cancel\">取消</a>]" + hp);
 						}
 						else
 						{
-							html.replace("%hp_recovery%", "none");
-							html.replace("%hp_period%", "none");
+							html.replace("%hp_recovery%", "无");
+							html.replace("%hp_period%", "无");
 							html.replace("%change_hp%", hp);
 						}
 						if (getFort().getFunction(Fort.FUNC_RESTORE_EXP) != null)
 						{
-							html.replace("%exp_recovery%", String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_EXP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_EXP).getLease()) + "</font>Adena /" + String.valueOf(Config.FS_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day)");
-							html.replace("%exp_period%", "Withdraw the fee for the next time at " + format.format(getFort().getFunction(Fort.FUNC_RESTORE_EXP).getEndTime()));
-							html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">Deactivate</a>]" + exp);
+							html.replace("%exp_recovery%", String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_EXP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_EXP).getLease()) + "</font>金币 /" + String.valueOf(Config.FS_EXPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
+							html.replace("%exp_period%", "收取下一次的费用: " + format.format(getFort().getFunction(Fort.FUNC_RESTORE_EXP).getEndTime()));
+							html.replace("%change_exp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery exp_cancel\">取消</a>]" + exp);
 						}
 						else
 						{
-							html.replace("%exp_recovery%", "none");
-							html.replace("%exp_period%", "none");
+							html.replace("%exp_recovery%", "无");
+							html.replace("%exp_period%", "无");
 							html.replace("%change_exp%", exp);
 						}
 						if (getFort().getFunction(Fort.FUNC_RESTORE_MP) != null)
 						{
-							html.replace("%mp_recovery%", String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_MP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_MP).getLease()) + "</font>Adena /" + String.valueOf(Config.FS_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day)");
-							html.replace("%mp_period%", "Withdraw the fee for the next time at " + format.format(getFort().getFunction(Fort.FUNC_RESTORE_MP).getEndTime()));
-							html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">Deactivate</a>]" + mp);
+							html.replace("%mp_recovery%", String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_MP).getLvl()) + "%</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_RESTORE_MP).getLease()) + "</font>金币 /" + String.valueOf(Config.FS_MPREG_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
+							html.replace("%mp_period%", "收取下一次的费用: " + format.format(getFort().getFunction(Fort.FUNC_RESTORE_MP).getEndTime()));
+							html.replace("%change_mp%", "[<a action=\"bypass -h npc_%objectId%_manage recovery mp_cancel\">取消</a>]" + mp);
 						}
 						else
 						{
-							html.replace("%mp_recovery%", "none");
-							html.replace("%mp_period%", "none");
+							html.replace("%mp_recovery%", "无");
+							html.replace("%mp_period%", "无");
 							html.replace("%change_mp%", mp);
 						}
 						sendHtmlMessage(player, html);
@@ -657,7 +657,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 						{
 							if (getFort().getOwnerClan() == null)
 							{
-								player.sendMessage("This fortress has no owner, you cannot change the configuration.");
+								player.sendMessage("此城堡并无主人，因此无法更改。");
 								return;
 							}
 							val = st.nextToken();
@@ -682,7 +682,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-apply.htm");
-								html.replace("%name%", "Insignia (Supplementary Magic)");
+								html.replace("%name%", "徽章 (辅助魔法)");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -694,8 +694,8 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										cost = Config.FS_SUPPORT2_FEE;
 										break;
 								}
-								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
-								html.replace("%use%", "Enables the use of supplementary magic.");
+								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.FS_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
+								html.replace("%use%", "施展辅助魔法.");
 								html.replace("%apply%", "other support " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
@@ -705,7 +705,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 								val = st.nextToken();
 								final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 								html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-apply.htm");
-								html.replace("%name%", "Mirror (Teleportation Device)");
+								html.replace("%name%", "镜子（传送设备）");
 								int stage = Integer.parseInt(val);
 								int cost;
 								switch (stage)
@@ -717,8 +717,8 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										cost = Config.FS_TELE2_FEE;
 										break;
 								}
-								html.replace("%cost%", String.valueOf(cost) + "</font>Adena /" + String.valueOf(Config.FS_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day</font>)");
-								html.replace("%use%", "Teleports clan members in a fort to the target <font color=\"00FFFF\">Stage " + String.valueOf(stage) + "</font> staging area");
+								html.replace("%cost%", String.valueOf(cost) + "</font>金币 /" + String.valueOf(Config.FS_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天</font>)");
+								html.replace("%use%", "传送城堡的血盟成员到 <font color=\"00FFFF\">阶段 " + String.valueOf(stage) + "</font> 的位置");
 								html.replace("%apply%", "other tele " + String.valueOf(stage));
 								sendHtmlMessage(player, html);
 								return;
@@ -740,7 +740,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										if (getFort().getFunction(Fort.FUNC_TELEPORT).getLvl() == Integer.parseInt(val))
 										{
 											html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-used.htm");
-											html.replace("%val%", "Stage " + String.valueOf(val));
+											html.replace("%val%", "阶段 " + String.valueOf(val));
 											sendHtmlMessage(player, html);
 											return;
 										}
@@ -785,7 +785,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 										if (getFort().getFunction(Fort.FUNC_SUPPORT).getLvl() == Integer.parseInt(val))
 										{
 											html.setFile(player.getHtmlPrefix(), "data/html/fortress/functions-used.htm");
-											html.replace("%val%", "Stage " + String.valueOf(val));
+											html.replace("%val%", "阶段 " + String.valueOf(val));
 											sendHtmlMessage(player, html);
 											return;
 										}
@@ -819,30 +819,30 @@ public class L2FortManagerInstance extends L2MerchantInstance
 						}
 						final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 						html.setFile(player.getHtmlPrefix(), "data/html/fortress/edit_other.htm");
-						String tele = "[<a action=\"bypass -h npc_%objectId%_manage other edit_tele 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_tele 2\">Level 2</a>]";
-						String support = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 1\">Level 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 2\">Level 2</a>]";
+						String tele = "[<a action=\"bypass -h npc_%objectId%_manage other edit_tele 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_tele 2\">等级 2</a>]";
+						String support = "[<a action=\"bypass -h npc_%objectId%_manage other edit_support 1\">等级 1</a>][<a action=\"bypass -h npc_%objectId%_manage other edit_support 2\">等级 2</a>]";
 						if (getFort().getFunction(Fort.FUNC_TELEPORT) != null)
 						{
-							html.replace("%tele%", "Stage " + String.valueOf(getFort().getFunction(Fort.FUNC_TELEPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_TELEPORT).getLease()) + "</font>Adena /" + String.valueOf(Config.FS_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day)");
-							html.replace("%tele_period%", "Withdraw the fee for the next time at " + format.format(getFort().getFunction(Fort.FUNC_TELEPORT).getEndTime()));
-							html.replace("%change_tele%", "[<a action=\"bypass -h npc_%objectId%_manage other tele_cancel\">Deactivate</a>]" + tele);
+							html.replace("%tele%", "阶段 " + String.valueOf(getFort().getFunction(Fort.FUNC_TELEPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_TELEPORT).getLease()) + "</font>金币 /" + String.valueOf(Config.FS_TELE_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
+							html.replace("%tele_period%", "收取下一次的费用: " + format.format(getFort().getFunction(Fort.FUNC_TELEPORT).getEndTime()));
+							html.replace("%change_tele%", "[<a action=\"bypass -h npc_%objectId%_manage other tele_cancel\">取消</a>]" + tele);
 						}
 						else
 						{
-							html.replace("%tele%", "none");
-							html.replace("%tele_period%", "none");
+							html.replace("%tele%", "无");
+							html.replace("%tele_period%", "无");
 							html.replace("%change_tele%", tele);
 						}
 						if (getFort().getFunction(Fort.FUNC_SUPPORT) != null)
 						{
-							html.replace("%support%", "Stage " + String.valueOf(getFort().getFunction(Fort.FUNC_SUPPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_SUPPORT).getLease()) + "</font>Adena /" + String.valueOf(Config.FS_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " Day)");
-							html.replace("%support_period%", "Withdraw the fee for the next time at " + format.format(getFort().getFunction(Fort.FUNC_SUPPORT).getEndTime()));
-							html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">Deactivate</a>]" + support);
+							html.replace("%support%", "阶段 " + String.valueOf(getFort().getFunction(Fort.FUNC_SUPPORT).getLvl()) + "</font> (<font color=\"FFAABB\">" + String.valueOf(getFort().getFunction(Fort.FUNC_SUPPORT).getLease()) + "</font>金币 /" + String.valueOf(Config.FS_SUPPORT_FEE_RATIO / 1000 / 60 / 60 / 24) + " 天)");
+							html.replace("%support_period%", "收取下一次的费用: " + format.format(getFort().getFunction(Fort.FUNC_SUPPORT).getEndTime()));
+							html.replace("%change_support%", "[<a action=\"bypass -h npc_%objectId%_manage other support_cancel\">取消</a>]" + support);
 						}
 						else
 						{
-							html.replace("%support%", "none");
-							html.replace("%support_period%", "none");
+							html.replace("%support%", "无");
+							html.replace("%support_period%", "无");
 							html.replace("%change_support%", support);
 						}
 						sendHtmlMessage(player, html);

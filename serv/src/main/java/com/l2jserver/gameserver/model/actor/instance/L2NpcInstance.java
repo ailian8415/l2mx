@@ -134,7 +134,7 @@ public class L2NpcInstance extends L2Npc
 		if (((L2NpcInstance) npc).getClassesToTeach().isEmpty())
 		{
 			final NpcHtmlMessage html = new NpcHtmlMessage(npc.getObjectId());
-			final String sb = StringUtil.concat("<html><body>对不起，我无法教你. 我的职业列表为空.<br>请询问管理员. 将我的NPC ID及职业列表添加到 skill_learn.sql.<br>NpcId:", String.valueOf(npcId), ", 你的职业ID:", String.valueOf(player.getClassId().getId()), "</body></html>");
+			final String sb = StringUtil.concat("<html><body>我无法教你任何东西。<br>请询问管理员. 请告知管理者修正", String.valueOf(npcId), ", 你的职业:", String.valueOf(player.getClassId().getId()), "</body></html>");
 			html.setHtml(sb);
 			player.sendPacket(html);
 			return;

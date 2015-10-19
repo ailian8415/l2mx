@@ -256,7 +256,7 @@ public final class WyvernManager extends AbstractNpcAI
 				{
 					if (!Config.ALLOW_WYVERN_DURING_SIEGE && (isInSiege(npc) || player.isInSiege()))
 					{
-						player.sendMessage("You cannot summon wyvern while in siege.");
+						player.sendMessage("无法在攻城战时骑乘飞龙.");
 						return null;
 					}
 					if ((MANAGERS.get(npc.getId()) == ManagerType.CASTLE) && SevenSigns.getInstance().isSealValidationPeriod() && ((SevenSigns.getInstance()).getSealOwner(SevenSigns.SEAL_STRIFE) == SevenSigns.CABAL_DUSK))

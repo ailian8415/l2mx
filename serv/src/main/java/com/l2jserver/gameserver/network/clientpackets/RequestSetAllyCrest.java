@@ -60,7 +60,7 @@ public final class RequestSetAllyCrest extends L2GameClientPacket
 		
 		if (_length < 0)
 		{
-			activeChar.sendMessage("File transfer error.");
+			activeChar.sendMessage("µµ°¸×ª»»´íÎó¡£");
 			return;
 		}
 		

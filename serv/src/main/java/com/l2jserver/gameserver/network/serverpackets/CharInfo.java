@@ -165,7 +165,7 @@ public class CharInfo extends L2GameServerPacket
 			writeD(-1); // High Five NPCString ID
 			writeS(_activeChar.getAppearance().getVisibleName());
 			writeD(-1); // High Five NPCString ID
-			writeS(gmSeeInvis ? "Invisible" : _activeChar.getAppearance().getVisibleTitle());
+			writeS(gmSeeInvis ? "ÒþÉí×´Ì¬" : _activeChar.getAppearance().getVisibleTitle());
 			
 			writeD(_activeChar.getAppearance().getTitleColor()); // Title color 0=client default
 			writeD(_activeChar.getPvpFlag()); // pvp flag
@@ -247,7 +247,7 @@ public class CharInfo extends L2GameServerPacket
 			writeD(_activeChar.getAppearance().getHairColor());
 			writeD(_activeChar.getAppearance().getFace());
 			
-			writeS(gmSeeInvis ? "Invisible" : _activeChar.getAppearance().getVisibleTitle());
+			writeS(gmSeeInvis ? "ÒþÉí×´Ì¬" : _activeChar.getAppearance().getVisibleTitle());
 			
 			if (!_activeChar.isCursedWeaponEquipped())
 			{

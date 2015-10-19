@@ -112,14 +112,14 @@ public class TvTManager
 	{
 		if (!TvTEvent.startParticipation())
 		{
-			Broadcast.toAllOnlinePlayers("TvT Event: Event was cancelled.");
+			Broadcast.toAllOnlinePlayers("TvT 活动：活动已取消");
 			_log.warning("TvTEventEngine[TvTManager.run()]: Error spawning event npc for participation.");
 			
 			scheduleEventStart();
 		}
 		else
 		{
-			Broadcast.toAllOnlinePlayers("TvT Event: Registration opened for " + Config.TVT_EVENT_PARTICIPATION_TIME + " minute(s).");
+			Broadcast.toAllOnlinePlayers("TvT 活动：开放登记 " + Config.TVT_EVENT_PARTICIPATION_TIME + " 分钟.");
 			
 			// schedule registration end
 			_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_PARTICIPATION_TIME));
@@ -134,14 +134,14 @@ public class TvTManager
 	{
 		if (!TvTEvent.startFight())
 		{
-			Broadcast.toAllOnlinePlayers("TvT Event: Event cancelled due to lack of Participation.");
+			Broadcast.toAllOnlinePlayers("TvT 活动：因为参赛者人数不足，所以活动取消。");
 			_log.info("TvTEventEngine[TvTManager.run()]: Lack of registration, abort event.");
 			
 			scheduleEventStart();
 		}
 		else
 		{
-			TvTEvent.sysMsgToAllParticipants("TvT Event: Teleporting participants to an arena in " + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + " second(s).");
+			TvTEvent.sysMsgToAllParticipants("TvT 活动：" + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + " 秒后将传送到比赛地区。");
 			_task.setStartTime(System.currentTimeMillis() + (60000L * Config.TVT_EVENT_RUNNING_TIME));
 			ThreadPoolManager.getInstance().executeGeneral(_task);
 		}
@@ -153,7 +153,7 @@ public class TvTManager
 	public void endEvent()
 	{
 		Broadcast.toAllOnlinePlayers(TvTEvent.calculateRewards());
-		TvTEvent.sysMsgToAllParticipants("TvT Event: Teleporting back to the registration npc in " + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + " second(s).");
+		TvTEvent.sysMsgToAllParticipants("TvT 活动: " + Config.TVT_EVENT_START_LEAVE_TELEPORT_DELAY + " 秒后将传送回到登记地区。");
 		TvTEvent.stopFight();
 		
 		scheduleEventStart();
@@ -258,33 +258,33 @@ public class TvTManager
 			{
 				if (TvTEvent.isParticipating())
 				{
-					Broadcast.toAllOnlinePlayers("TvT Event: " + (time / 60 / 60) + " hour(s) until registration is closed!");
+					Broadcast.toAllOnlinePlayers("TvT 活动: " + (time / 60 / 60) + " 小时后，登记时间结束！");
 				}
 				else if (TvTEvent.isStarted())
 				{
-					TvTEvent.sysMsgToAllParticipants("TvT Event: " + (time / 60 / 60) + " hour(s) until event is finished!");
+					TvTEvent.sysMsgToAllParticipants("TvT 活动: " + (time / 60 / 60) + " 小时后，活动结束！");
 				}
 			}
 			else if (time >= 60)
 			{
 				if (TvTEvent.isParticipating())
 				{
-					Broadcast.toAllOnlinePlayers("TvT Event: " + (time / 60) + " minute(s) until registration is closed!");
+					Broadcast.toAllOnlinePlayers("TvT 活动: " + (time / 60) + " 分钟后，登记时间结束！");
 				}
 				else if (TvTEvent.isStarted())
 				{
-					TvTEvent.sysMsgToAllParticipants("TvT Event: " + (time / 60) + " minute(s) until the event is finished!");
+					TvTEvent.sysMsgToAllParticipants("TvT 活动: " + (time / 60) + " 分钟后，活动结束！");
 				}
 			}
 			else
 			{
 				if (TvTEvent.isParticipating())
 				{
-					Broadcast.toAllOnlinePlayers("TvT Event: " + time + " second(s) until registration is closed!");
+					Broadcast.toAllOnlinePlayers("TvT 活动: " + time + " 秒后，登记时间结束！");
 				}
 				else if (TvTEvent.isStarted())
 				{
-					TvTEvent.sysMsgToAllParticipants("TvT Event: " + time + " second(s) until the event is finished!");
+					TvTEvent.sysMsgToAllParticipants("TvT 活动: " + time + " 秒后，活动结束！");
 				}
 			}
 		}

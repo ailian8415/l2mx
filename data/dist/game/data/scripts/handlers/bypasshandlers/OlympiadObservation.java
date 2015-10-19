@@ -86,7 +86,7 @@ public class OlympiadObservation implements IBypassHandler
 				
 				if (activeChar.isOnEvent())
 				{
-					activeChar.sendMessage("You can not observe games while registered on an event");
+					activeChar.sendMessage("你已经登记比赛,无法观看比赛。");
 					return false;
 				}
 				

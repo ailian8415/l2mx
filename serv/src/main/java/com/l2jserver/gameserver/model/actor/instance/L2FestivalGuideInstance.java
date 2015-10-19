@@ -217,15 +217,15 @@ public final class L2FestivalGuideInstance extends L2Npc
 			int dawnScore = SevenSignsFestival.getInstance().getHighestScore(SevenSigns.CABAL_DAWN, i);
 			int duskScore = SevenSignsFestival.getInstance().getHighestScore(SevenSigns.CABAL_DUSK, i);
 			String festivalName = SevenSignsFestival.getFestivalName(i);
-			String winningCabal = "Children of Dusk";
+			String winningCabal = "黄昏的革命军";
 			
 			if (dawnScore > duskScore)
 			{
-				winningCabal = "Children of Dawn";
+				winningCabal = "黎明的君主们";
 			}
 			else if (dawnScore == duskScore)
 			{
-				winningCabal = "None";
+				winningCabal = "无";
 			}
 			
 			StringUtil.append(tableHtml, "<tr><td width=\"100\" align=\"center\">", festivalName, "</td><td align=\"center\" width=\"35\">", String.valueOf(duskScore), "</td><td align=\"center\" width=\"35\">", String.valueOf(dawnScore), "</td><td align=\"center\" width=\"130\">", winningCabal, "</td></tr>");

@@ -80,7 +80,7 @@ public class RequestExEnchantItemAttribute extends L2GameClientPacket
 			// Cancel trade
 			player.cancelActiveTrade();
 			player.setActiveEnchantAttrItemId(L2PcInstance.ID_NONE);
-			player.sendMessage("You cannot add elemental power while trading.");
+			player.sendMessage("交易时无法强化。");
 			return;
 		}
 		

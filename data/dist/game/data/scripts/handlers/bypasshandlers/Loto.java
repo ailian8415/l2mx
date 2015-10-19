@@ -264,7 +264,7 @@ public class Loto implements IBypassHandler
 				}
 				if ((item.getId() == 4442) && (item.getCustomType1() < lotonumber))
 				{
-					message = message + "<a action=\"bypass -h npc_%objectId%_Loto " + item.getObjectId() + "\">" + item.getCustomType1() + " Event Number ";
+					message = message + "<a action=\"bypass -h npc_%objectId%_Loto " + item.getObjectId() + "\">" + item.getCustomType1() + " 活动号码 ";
 					int[] numbers = Lottery.getInstance().decodeNumbers(item.getEnchantLevel(), item.getCustomType2());
 					for (int i = 0; i < 5; i++)
 					{
@@ -276,16 +276,16 @@ public class Loto implements IBypassHandler
 						switch ((int) check[0])
 						{
 							case 1:
-								message += "- 1st Prize";
+								message += "- 1等奖";
 								break;
 							case 2:
-								message += "- 2nd Prize";
+								message += "- 2等奖";
 								break;
 							case 3:
-								message += "- 3th Prize";
+								message += "- 3等奖";
 								break;
 							case 4:
-								message += "- 4th Prize";
+								message += "- 4等奖";
 								break;
 						}
 						message += " " + check[1] + "a.";
@@ -295,7 +295,7 @@ public class Loto implements IBypassHandler
 			}
 			if (message.isEmpty())
 			{
-				message += "There has been no winning lottery ticket.<br>";
+				message += "没有中奖的彩券。<br>";
 			}
 			html.replace("%result%", message);
 		}

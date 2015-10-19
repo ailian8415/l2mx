@@ -110,13 +110,13 @@ public final class RequestDropItem extends L2GameClientPacket
 		
 		if (Config.JAIL_DISABLE_TRANSACTION && activeChar.isJailed())
 		{
-			activeChar.sendMessage("You cannot drop items in Jail.");
+			activeChar.sendMessage("无法在 GM 谘询处及监禁区域丢弃物品。");
 			return;
 		}
 		
 		if (!activeChar.getAccessLevel().allowTransaction())
 		{
-			activeChar.sendMessage("Transactions are disabled for your Access Level.");
+			activeChar.sendMessage("没有相关权限。");
 			activeChar.sendPacket(SystemMessageId.NOTHING_HAPPENED);
 			return;
 		}
@@ -179,7 +179,7 @@ public final class RequestDropItem extends L2GameClientPacket
 		
 		if (!activeChar.getInventory().canManipulateWithItemId(item.getId()))
 		{
-			activeChar.sendMessage("You cannot use this item.");
+			activeChar.sendMessage("你不能使用该物品。");
 			return;
 		}
 		
@@ -221,7 +221,7 @@ public final class RequestDropItem extends L2GameClientPacket
 		
 		if ((dropedItem != null) && (dropedItem.getId() == Inventory.ADENA_ID) && (dropedItem.getCount() >= 1000000))
 		{
-			String msg = "Character (" + activeChar.getName() + ") has dropped (" + dropedItem.getCount() + ")adena at (" + _x + "," + _y + "," + _z + ")";
+			String msg = "玩家 (" + activeChar.getName() + ") 丢弃 (" + dropedItem.getCount() + ") 金币在 (" + _x + "," + _y + "," + _z + ")";
 			_log.warning(msg);
 			AdminData.getInstance().broadcastMessageToGMs(msg);
 		}

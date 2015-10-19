@@ -74,7 +74,7 @@ public final class RequestPledgeSetMemberPowerGrade extends L2GameClientPacket
 		if (member.getPledgeType() == L2Clan.SUBUNIT_ACADEMY)
 		{
 			// also checked from client side
-			activeChar.sendMessage("You cannot change academy member grade");
+			activeChar.sendMessage("无法变更学院成员的等级。");
 			return;
 		}
 		

@@ -89,7 +89,7 @@ public final class RequestDuelStart extends L2GameClientPacket
 			// Player must be in a party & the party leader
 			if (!activeChar.isInParty() || !activeChar.getParty().isLeader(activeChar))
 			{
-				activeChar.sendMessage("You have to be the leader of a party in order to request a party duel.");
+				activeChar.sendMessage("只有队长才能提出队伍决斗。");
 				return;
 			}
 			// Target must be in a party
@@ -101,7 +101,7 @@ public final class RequestDuelStart extends L2GameClientPacket
 			// Target may not be of the same party
 			else if (activeChar.getParty().containsPlayer(targetChar))
 			{
-				activeChar.sendMessage("This player is a member of your own party.");
+				activeChar.sendMessage("玩家是你的队员。");
 				return;
 			}
 			
@@ -110,7 +110,7 @@ public final class RequestDuelStart extends L2GameClientPacket
 			{
 				if (!temp.canDuel())
 				{
-					activeChar.sendMessage("Not all the members of your party are ready for a duel.");
+					activeChar.sendMessage("仍有队员没有准备好决斗。");
 					return;
 				}
 			}

@@ -55,7 +55,7 @@ public class Unstuck implements IUserCommandHandler
 		}
 		else if (activeChar.isJailed())
 		{
-			activeChar.sendMessage("You cannot use this function while you are jailed.");
+			activeChar.sendMessage("监禁期间你不能这样做.");
 			return false;
 		}
 		
@@ -83,7 +83,7 @@ public class Unstuck implements IUserCommandHandler
 				activeChar.doCast(GM_escape);
 				return true;
 			}
-			activeChar.sendMessage("You use Escape: 1 second.");
+			activeChar.sendMessage("使用逃生: 1 秒.");
 		}
 		else if ((Config.UNSTUCK_INTERVAL == 300) && (escape != null))
 		{
@@ -94,11 +94,11 @@ public class Unstuck implements IUserCommandHandler
 		{
 			if (Config.UNSTUCK_INTERVAL > 100)
 			{
-				activeChar.sendMessage("You use Escape: " + (unstuckTimer / 60000) + " minutes.");
+				activeChar.sendMessage((unstuckTimer / 60000) + " 分钟后逃生。");
 			}
 			else
 			{
-				activeChar.sendMessage("You use Escape: " + (unstuckTimer / 1000) + " seconds.");
+				activeChar.sendMessage("You use Escape: " + (unstuckTimer / 1000) + " 秒后逃生。");
 			}
 		}
 		activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);

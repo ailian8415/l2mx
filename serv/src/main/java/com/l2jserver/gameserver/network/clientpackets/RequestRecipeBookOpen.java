@@ -56,7 +56,7 @@ public final class RequestRecipeBookOpen extends L2GameClientPacket
 		
 		if (activeChar.getActiveRequester() != null)
 		{
-			activeChar.sendMessage("You may not alter your recipe book while trading.");
+			activeChar.sendMessage("交易中无法制作。");
 			return;
 		}
 		

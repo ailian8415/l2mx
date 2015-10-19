@@ -37,8 +37,8 @@ public class SiegeStatus implements IUserCommandHandler
 		99
 	};
 	
-	private static final String INSIDE_SIEGE_ZONE = "Castle Siege in Progress";
-	private static final String OUTSIDE_SIEGE_ZONE = "No Castle Siege Area";
+	private static final String INSIDE_SIEGE_ZONE = "攻城中";
+	private static final String OUTSIDE_SIEGE_ZONE = "非攻城中";
 	
 	@Override
 	public boolean useUserCommand(int id, L2PcInstance activeChar)
