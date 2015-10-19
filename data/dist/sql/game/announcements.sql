@@ -10,6 +10,5 @@ CREATE TABLE IF NOT EXISTS `announcements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO announcements (`type`, `author`, `content`) VALUES 
-(0, 'L2mx', 'æ„Ÿè°¢ä½¿ç”¨L2mxå¤©å ‚IIæœåŠ¡ç«¯.'),
-(1, 'L2mx', 'http://https://github.com/ailian8415/'),
-(2, 'L2mx', 'å¦‚æœ‰éœ€æ±‚å¯è”ç³»ç´«è½©ã«å½©å… 739736414');
+(0, 'L2mx', '¸ĞĞ»Ê¹ÓÃL2mxÌìÌÃII·şÎñ¶Ë.'),
+(1, 'L2mx', 'http://https://github.com/ailian8415/');
