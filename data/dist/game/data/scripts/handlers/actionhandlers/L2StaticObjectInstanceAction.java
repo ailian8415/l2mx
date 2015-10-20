@@ -63,7 +63,7 @@ public class L2StaticObjectInstanceAction implements IActionHandler
 					
 					if (content == null)
 					{
-						html.setHtml("<html><body>Signboard is missing:<br>" + filename + "</body></html>");
+						html.setHtml("<html><body>æˆ∂∑≥°ø¥∞Â“≈ ß:<br>" + filename + "</body></html>");
 					}
 					else
 					{

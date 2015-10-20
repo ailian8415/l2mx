@@ -72,7 +72,7 @@ public class ChatTell implements IChatHandler
 		{
 			if (Config.JAIL_DISABLE_CHAT && receiver.isJailed() && !activeChar.canOverrideCond(PcCondOverride.CHAT_CONDITIONS))
 			{
-				activeChar.sendMessage("Player is in jail.");
+				activeChar.sendMessage("玩家监禁中。");
 				return;
 			}
 			if (receiver.isChatBanned())
@@ -82,7 +82,7 @@ public class ChatTell implements IChatHandler
 			}
 			if ((receiver.getClient() == null) || receiver.getClient().isDetached())
 			{
-				activeChar.sendMessage("Player is in offline mode.");
+				activeChar.sendMessage("玩家目前为离线交易模式");
 				return;
 			}
 			if (!BlockList.isBlocked(receiver, activeChar))

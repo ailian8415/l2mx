@@ -101,44 +101,44 @@ public class AdminAnnouncements implements IAdminCommandHandler
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String annInitDelay = st.nextToken();
 						if (!Util.isDigit(annInitDelay))
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						int initDelay = Integer.parseInt(annInitDelay) * 1000;
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String annDelay = st.nextToken();
 						if (!Util.isDigit(annDelay))
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						int delay = Integer.parseInt(annDelay) * 1000;
 						if ((delay < (10 * 1000)) && ((type == AnnouncementType.AUTO_NORMAL) || (type == AnnouncementType.AUTO_CRITICAL)))
 						{
-							activeChar.sendMessage("Delay cannot be less then 10 seconds!");
+							activeChar.sendMessage("延时不可低于10秒!");
 							break;
 						}
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String annRepeat = st.nextToken();
 						if (!Util.isDigit(annRepeat))
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						int repeat = Integer.parseInt(annRepeat);
@@ -149,7 +149,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String content = st.nextToken();
@@ -175,13 +175,13 @@ public class AdminAnnouncements implements IAdminCommandHandler
 					{
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces edit <id>");
+							activeChar.sendMessage("语法: //announces edit <id>");
 							break;
 						}
 						String annId = st.nextToken();
 						if (!Util.isDigit(annId))
 						{
-							activeChar.sendMessage("Syntax: //announces edit <id>");
+							activeChar.sendMessage("语法: //announces edit <id>");
 							break;
 						}
 						int id = Integer.parseInt(annId);
@@ -262,44 +262,44 @@ public class AdminAnnouncements implements IAdminCommandHandler
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String annInitDelay = st.nextToken();
 						if (!Util.isDigit(annInitDelay))
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						int initDelay = Integer.parseInt(annInitDelay);
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String annDelay = st.nextToken();
 						if (!Util.isDigit(annDelay))
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						int delay = Integer.parseInt(annDelay);
 						if ((delay < 10) && ((type == AnnouncementType.AUTO_NORMAL) || (type == AnnouncementType.AUTO_CRITICAL)))
 						{
-							activeChar.sendMessage("公告延时不能低于 10 秒!");
+							activeChar.sendMessage("延时不能低于 10 秒!");
 							break;
 						}
 						// ************************************
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						String annRepeat = st.nextToken();
 						if (!Util.isDigit(annRepeat))
 						{
-							activeChar.sendMessage("Syntax: //announces add <type> <delay> <repeat> <text>");
+							activeChar.sendMessage("语法: //announces add <类型> <延时> <重复> <内容>");
 							break;
 						}
 						int repeat = Integer.parseInt(annRepeat);
@@ -340,13 +340,13 @@ public class AdminAnnouncements implements IAdminCommandHandler
 					{
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces remove <announcement id>");
+							activeChar.sendMessage("语法: //announces remove <announcement id>");
 							break;
 						}
 						String token = st.nextToken();
 						if (!Util.isDigit(token))
 						{
-							activeChar.sendMessage("Syntax: //announces remove <announcement id>");
+							activeChar.sendMessage("语法: //announces remove <announcement id>");
 							break;
 						}
 						int id = Integer.parseInt(token);
@@ -378,7 +378,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 						String token = st.nextToken();
 						if (!Util.isDigit(token))
 						{
-							activeChar.sendMessage("Syntax: //announces show <announcement id>");
+							activeChar.sendMessage("语法: //announces show <announcement id>");
 							break;
 						}
 						int id = Integer.parseInt(token);
@@ -406,13 +406,13 @@ public class AdminAnnouncements implements IAdminCommandHandler
 					{
 						if (!st.hasMoreTokens())
 						{
-							activeChar.sendMessage("Syntax: //announces show <announcement id>");
+							activeChar.sendMessage("语法: //announces show <announcement id>");
 							break;
 						}
 						String token = st.nextToken();
 						if (!Util.isDigit(token))
 						{
-							activeChar.sendMessage("Syntax: //announces show <announcement id>");
+							activeChar.sendMessage("语法: //announces show <announcement id>");
 							break;
 						}
 						int id = Integer.parseInt(token);
@@ -481,12 +481,12 @@ public class AdminAnnouncements implements IAdminCommandHandler
 							}
 							if (announcement.getType() == AnnouncementType.EVENT)
 							{
-								sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"演示\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+								sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"预览\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
 								sb.append("<td width=60></td>");
 							}
 							else
 							{
-								sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"演示\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+								sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"预览\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
 								sb.append("<td width=60><button action=\"bypass -h admin_announces edit " + announcement.getId() + "\" value=\"编辑\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
 							}
 							sb.append("<td width=60><button action=\"bypass -h admin_announces remove " + announcement.getId() + "\" value=\"移除\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");

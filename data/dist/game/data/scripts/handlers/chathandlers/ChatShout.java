@@ -68,7 +68,7 @@ public class ChatShout implements IChatHandler
 		{
 			if (!activeChar.canOverrideCond(PcCondOverride.CHAT_CONDITIONS) && !activeChar.getFloodProtectors().getGlobalChat().tryPerformAction("global chat"))
 			{
-				activeChar.sendMessage("Do not spam shout channel.");
+				activeChar.sendMessage("ÇëÎðÁ¬Ðø·¢ÑÔ¡£");
 				return;
 			}
 			

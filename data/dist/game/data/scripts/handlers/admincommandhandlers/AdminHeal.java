@@ -61,7 +61,7 @@ public class AdminHeal implements IAdminCommandHandler
 				{
 					_log.warning("Heal error: " + e);
 				}
-				activeChar.sendMessage("Incorrect target/radius specified.");
+				activeChar.sendMessage("错误的目标/范围参数.");
 			}
 		}
 		return true;
@@ -109,7 +109,7 @@ public class AdminHeal implements IAdminCommandHandler
 						}
 					}
 					
-					activeChar.sendMessage("Healed within " + radius + " unit radius.");
+					activeChar.sendMessage("恢复范围「" + radius + "」内的体力。");
 					return;
 				}
 				catch (NumberFormatException nbe)

@@ -68,7 +68,7 @@ public class ChatTrade implements IChatHandler
 		{
 			if (!activeChar.canOverrideCond(PcCondOverride.CHAT_CONDITIONS) && !activeChar.getFloodProtectors().getGlobalChat().tryPerformAction("global chat"))
 			{
-				activeChar.sendMessage("Do not spam trade channel.");
+				activeChar.sendMessage("ÇëÎðÁ¬Ðø·¢ÑÔ¡£");
 				return;
 			}
 			

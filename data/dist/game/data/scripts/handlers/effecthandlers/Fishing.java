@@ -81,7 +81,7 @@ public final class Fishing extends AbstractEffect
 		
 		if (!Config.ALLOWFISHING && !player.canOverrideCond(PcCondOverride.SKILL_CONDITIONS))
 		{
-			player.sendMessage("Fishing is disabled!");
+			player.sendMessage("钓鱼系统已关闭!");
 			return;
 		}
 		

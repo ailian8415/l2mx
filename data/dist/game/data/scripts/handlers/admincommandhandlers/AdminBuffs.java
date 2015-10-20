@@ -280,9 +280,9 @@ public class AdminBuffs implements IAdminCommandHandler
 			int pagenr = x + 1;
 			if (page == pagenr)
 			{
-				html.append("<td>Page ");
+				html.append("<td>ตฺ ");
 				html.append(pagenr);
-				html.append("</td>");
+				html.append("าณ</td>");
 			}
 			else
 			{
@@ -290,9 +290,9 @@ public class AdminBuffs implements IAdminCommandHandler
 				html.append(target.getName());
 				html.append(" ");
 				html.append(x + 1);
-				html.append("\"> าณ ");
+				html.append("\"> ตฺ ");
 				html.append(pagenr);
-				html.append(" </a></td>");
+				html.append("าณ</a></td>");
 			}
 		}
 		

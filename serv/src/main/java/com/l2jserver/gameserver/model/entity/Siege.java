@@ -947,7 +947,7 @@ public class Siege implements Siegable
 	{
 		if (getCastle().getOwnerId() <= 0)
 		{
-			player.sendMessage("You cannot register as a defender because " + getCastle().getName() + " is owned by NPC.");
+			player.sendMessage("无法登记为守城方，因为「" + getCastle().getName() + "」是属于 NPC 的。");
 			return;
 		}
 		

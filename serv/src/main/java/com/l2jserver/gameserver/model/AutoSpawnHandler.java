@@ -507,7 +507,7 @@ public class AutoSpawnHandler
 					// Announce to all players that the spawn has taken place, with the nearest town location.
 					if (spawnInst.isBroadcasting())
 					{
-						Broadcast.toAllOnlinePlayers("The " + npcInst.getName() + " has spawned near " + nearestTown + "!");
+						Broadcast.toAllOnlinePlayers("「" + npcInst.getName() + "」出现在「" + nearestTown + "」的地区！!");
 					}
 				}
 				

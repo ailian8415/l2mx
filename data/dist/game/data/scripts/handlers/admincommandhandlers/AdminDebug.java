@@ -76,12 +76,12 @@ public class AdminDebug implements IAdminCommandHandler
 		if (target.isDebug())
 		{
 			target.setDebug(null);
-			activeChar.sendMessage("Stop debugging " + target.getName());
+			activeChar.sendMessage("停止调试 " + target.getName());
 		}
 		else
 		{
 			target.setDebug(activeChar);
-			activeChar.sendMessage("Start debugging " + target.getName());
+			activeChar.sendMessage("开始调试  " + target.getName());
 		}
 	}
 }

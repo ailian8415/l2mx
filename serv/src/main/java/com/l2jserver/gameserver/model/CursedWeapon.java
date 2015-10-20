@@ -722,7 +722,7 @@ public class CursedWeapon implements INamable
 		}
 		else
 		{
-			player.sendMessage(_name + " isn't in the World.");
+			player.sendMessage("¡¸"+ _name + "¡¹ÉĞÎ´³öÏÖ¡£");
 		}
 	}
 	

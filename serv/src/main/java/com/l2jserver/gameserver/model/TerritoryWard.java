@@ -130,7 +130,7 @@ public class TerritoryWard
 		}
 		else if (TerritoryWarManager.getInstance().getRegisteredTerritoryId(player) == 0)
 		{
-			player.sendMessage("Non participants can't pickup Territory Wards!");
+			player.sendMessage("没有任何玩家登记参与领地战!");
 			player.destroyItem("CombatFlag", item, null, true);
 			spawnMe();
 			return false;

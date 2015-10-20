@@ -328,18 +328,18 @@ public class TvTEvent
 				// set state to rewarding
 				setState(EventState.REWARDING);
 				// return here, the fight can't be completed
-				return "TvT Event: Event has ended. No team won due to inactivity!";
+				return "TvT 活动：没有任何团队参加比赛，因此活动结束！";
 			}
 			
 			// Both teams have equals points
-			sysMsgToAllParticipants("TvT Event: Event has ended, both teams have tied.");
+			sysMsgToAllParticipants("TvT 活动：活动结束，有两个团队平手！");
 			if (Config.TVT_REWARD_TEAM_TIE)
 			{
 				rewardTeam(_teams[0]);
 				rewardTeam(_teams[1]);
-				return "TvT Event: Event has ended with both teams tying.";
+				return "TvT 活动：当有两个团队平手时，活动就会结束。";
 			}
-			return "TvT Event: Event has ended with both teams tying.";
+			return "TvT 活动：当有两个团队平手时，活动就会结束。";
 		}
 		
 		// Set state REWARDING so nobody can point anymore
@@ -351,7 +351,7 @@ public class TvTEvent
 		
 		// Notify to scripts.
 		EventDispatcher.getInstance().notifyEventAsync(new OnTvTEventFinish());
-		return "TvT Event: Event finish. Team " + team.getName() + " won with " + team.getPoints() + " kills.";
+		return "TvT 活动：活动结束。「" + team.getName() + "」团队获得「" + team.getPoints() + "」点分数。";
 	}
 	
 	private static void rewardTeam(TvTEventTeam team)
@@ -846,7 +846,7 @@ public class TvTEvent
 			
 			killerTeam.increasePoints();
 			
-			CreatureSay cs = new CreatureSay(killerPlayerInstance.getObjectId(), Say2.TELL, killerPlayerInstance.getName(), "I have killed " + killedPlayerInstance.getName() + "!");
+			CreatureSay cs = new CreatureSay(killerPlayerInstance.getObjectId(), Say2.TELL, killerPlayerInstance.getName(), "击倒 " + killedPlayerInstance.getName() + "!");
 			
 			for (L2PcInstance playerInstance : _teams[killerTeamId].getParticipatedPlayers().values())
 			{

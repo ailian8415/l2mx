@@ -183,7 +183,7 @@ public class BlockList
 		
 		if (listOwner.getBlockList().getBlockList().contains(targetId))
 		{
-			listOwner.sendMessage("Already in ignore list.");
+			listOwner.sendMessage("已经在忽略清单。");
 			return;
 		}
 		

@@ -133,7 +133,7 @@ public class AdminDoorControl implements IAdminCommandHandler
 				}
 				else
 				{
-					activeChar.sendMessage("Incorrect target.");
+					activeChar.sendMessage("Ä¿±ê´íÎó");
 				}
 			}
 		}

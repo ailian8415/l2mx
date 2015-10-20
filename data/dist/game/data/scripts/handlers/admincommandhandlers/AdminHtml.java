@@ -108,7 +108,7 @@ public class AdminHtml implements IAdminCommandHandler
 		}
 		else
 		{
-			html.setHtml("<html><body>My text is missing:<br>" + path + "</body></html>");
+			html.setHtml("<html><body>ÎÄµµ:<br>" + path + "¶ªÊ§</body></html>");
 		}
 		activeChar.sendPacket(html);
 	}

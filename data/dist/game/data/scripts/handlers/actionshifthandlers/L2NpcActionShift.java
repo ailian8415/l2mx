@@ -111,38 +111,38 @@ public class L2NpcActionShift implements IActionShiftHandler
 			
 			if (((L2Npc) target).getSpawn() != null)
 			{
-				html.replace("%territory%", ((L2Npc) target).getSpawn().getSpawnTerritory() == null ? "None" : ((L2Npc) target).getSpawn().getSpawnTerritory().getName());
+				html.replace("%territory%", ((L2Npc) target).getSpawn().getSpawnTerritory() == null ? "无" : ((L2Npc) target).getSpawn().getSpawnTerritory().getName());
 				if (((L2Npc) target).getSpawn().isTerritoryBased())
 				{
-					html.replace("%spawntype%", "Random");
+					html.replace("%spawntype%", "随机");
 					final Location spawnLoc = ((L2Npc) target).getSpawn().getLocation(target);
 					html.replace("%spawn%", spawnLoc.getX() + " " + spawnLoc.getY() + " " + spawnLoc.getZ());
 				}
 				else
 				{
-					html.replace("%spawntype%", "Fixed");
+					html.replace("%spawntype%", "固定");
 					html.replace("%spawn%", ((L2Npc) target).getSpawn().getX() + " " + ((L2Npc) target).getSpawn().getY() + " " + ((L2Npc) target).getSpawn().getZ());
 				}
 				html.replace("%loc2d%", String.valueOf((int) target.calculateDistance(((L2Npc) target).getSpawn().getLocation(target), false, false)));
 				html.replace("%loc3d%", String.valueOf((int) target.calculateDistance(((L2Npc) target).getSpawn().getLocation(target), true, false)));
 				if (((L2Npc) target).getSpawn().getRespawnMinDelay() == 0)
 				{
-					html.replace("%resp%", "None");
+					html.replace("%resp%", "无");
 				}
 				else if (((L2Npc) target).getSpawn().hasRespawnRandom())
 				{
-					html.replace("%resp%", String.valueOf(((L2Npc) target).getSpawn().getRespawnMinDelay() / 1000) + "-" + String.valueOf((((L2Npc) target).getSpawn().getRespawnMaxDelay() / 1000) + " sec"));
+					html.replace("%resp%", String.valueOf(((L2Npc) target).getSpawn().getRespawnMinDelay() / 1000) + "-" + String.valueOf((((L2Npc) target).getSpawn().getRespawnMaxDelay() / 1000) + " 秒"));
 				}
 				else
 				{
-					html.replace("%resp%", String.valueOf(((L2Npc) target).getSpawn().getRespawnMinDelay() / 1000) + " sec");
+					html.replace("%resp%", String.valueOf(((L2Npc) target).getSpawn().getRespawnMinDelay() / 1000) + " 秒");
 				}
 			}
 			else
 			{
 				html.replace("%territory%", "<font color=FF0000>--</font>");
 				html.replace("%spawntype%", "<font color=FF0000>--</font>");
-				html.replace("%spawn%", "<font color=FF0000>null</font>");
+				html.replace("%spawn%", "<font color=FF0000>无</font>");
 				html.replace("%loc2d%", "<font color=FF0000>--</font>");
 				html.replace("%loc3d%", "<font color=FF0000>--</font>");
 				html.replace("%resp%", "<font color=FF0000>--</font>");
@@ -155,11 +155,11 @@ public class L2NpcActionShift implements IActionShiftHandler
 				String clansString = clans != null ? Util.implode(clans.toArray(), ", ") : "";
 				String ignoreClanNpcIdsString = ignoreClanNpcIds != null ? Util.implode(ignoreClanNpcIds.toArray(), ", ") : "";
 				
-				html.replace("%ai_intention%", "<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color=FFAA00>Intention:</font></td><td align=right width=170>" + String.valueOf(((L2Npc) target).getAI().getIntention().name()) + "</td></tr></table></td></tr>");
+				html.replace("%ai_intention%", "<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color=FFAA00>目标:</font></td><td align=right width=170>" + String.valueOf(((L2Npc) target).getAI().getIntention().name()) + "</td></tr></table></td></tr>");
 				html.replace("%ai%", "<tr><td><table width=270 border=0><tr><td width=100><font color=FFAA00>AI</font></td><td align=right width=170>" + ((L2Npc) target).getAI().getClass().getSimpleName() + "</td></tr></table></td></tr>");
-				html.replace("%ai_type%", "<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color=FFAA00>AIType</font></td><td align=right width=170>" + String.valueOf(((L2Npc) target).getAiType()) + "</td></tr></table></td></tr>");
-				html.replace("%ai_clan%", "<tr><td><table width=270 border=0><tr><td width=100><font color=FFAA00>Clan & Range:</font></td><td align=right width=170>" + clansString + " " + String.valueOf(((L2Npc) target).getTemplate().getClanHelpRange()) + "</td></tr></table></td></tr>");
-				html.replace("%ai_enemy_clan%", "<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color=FFAA00>Ignore & Range:</font></td><td align=right width=170>" + ignoreClanNpcIdsString + " " + String.valueOf(((L2Npc) target).getTemplate().getAggroRange()) + "</td></tr></table></td></tr>");
+				html.replace("%ai_type%", "<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color=FFAA00>AI类型</font></td><td align=right width=170>" + String.valueOf(((L2Npc) target).getAiType()) + "</td></tr></table></td></tr>");
+				html.replace("%ai_clan%", "<tr><td><table width=270 border=0><tr><td width=100><font color=FFAA00>团队 & 范围:</font></td><td align=right width=170>" + clansString + " " + String.valueOf(((L2Npc) target).getTemplate().getClanHelpRange()) + "</td></tr></table></td></tr>");
+				html.replace("%ai_enemy_clan%", "<tr><td><table width=270 border=0 bgcolor=131210><tr><td width=100><font color=FFAA00>主动性 & 范围:</font></td><td align=right width=170>" + ignoreClanNpcIdsString + " " + String.valueOf(((L2Npc) target).getTemplate().getAggroRange()) + "</td></tr></table></td></tr>");
 			}
 			else
 			{
@@ -173,7 +173,7 @@ public class L2NpcActionShift implements IActionShiftHandler
 			final String routeName = WalkingManager.getInstance().getRouteName((L2Npc) target);
 			if (!routeName.isEmpty())
 			{
-				html.replace("%route%", "<tr><td><table width=270 border=0><tr><td width=100><font color=LEVEL>Route:</font></td><td align=right width=170>" + routeName + "</td></tr></table></td></tr>");
+				html.replace("%route%", "<tr><td><table width=270 border=0><tr><td width=100><font color=LEVEL>路径:</font></td><td align=right width=170>" + routeName + "</td></tr></table></td></tr>");
 			}
 			else
 			{

@@ -57,7 +57,7 @@ public final class TradeRequest extends L2GameClientPacket
 		
 		if (!player.getAccessLevel().allowTransaction())
 		{
-			player.sendMessage("Transactions are disabled for your current Access Level.");
+			player.sendMessage("没有相关权限。");
 			sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}
@@ -102,7 +102,7 @@ public final class TradeRequest extends L2GameClientPacket
 		final L2PcInstance partner = target.getActingPlayer();
 		if (partner.isInOlympiadMode() || player.isInOlympiadMode())
 		{
-			player.sendMessage("A user currently participating in the Olympiad cannot accept or request a trade.");
+			player.sendMessage("无法在奥林匹克竞赛中交易。");
 			return;
 		}
 		
@@ -125,19 +125,19 @@ public final class TradeRequest extends L2GameClientPacket
 		// L2J Customs: Karma punishment
 		if (!Config.ALT_GAME_KARMA_PLAYER_CAN_TRADE && (player.getKarma() > 0))
 		{
-			player.sendMessage("You cannot trade while you are in a chaotic state.");
+			player.sendMessage("邪恶的玩家无法使用交易");
 			return;
 		}
 		
 		if (!Config.ALT_GAME_KARMA_PLAYER_CAN_TRADE && (partner.getKarma() > 0))
 		{
-			player.sendMessage("You cannot request a trade while your target is in a chaotic state.");
+			player.sendMessage("无法与邪恶的玩家进行交易。");
 			return;
 		}
 		
 		if (Config.JAIL_DISABLE_TRANSACTION && (player.isJailed() || partner.isJailed()))
 		{
-			player.sendMessage("You cannot trade while you are in in Jail.");
+			player.sendMessage("监禁中进行交易。");
 			return;
 		}
 		
@@ -172,7 +172,7 @@ public final class TradeRequest extends L2GameClientPacket
 		
 		if (partner.getTradeRefusal())
 		{
-			player.sendMessage("That person is in trade refusal mode.");
+			player.sendMessage("对方目前为交易拒绝状态。");
 			return;
 		}
 		

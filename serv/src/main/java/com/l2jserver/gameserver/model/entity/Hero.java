@@ -253,19 +253,19 @@ public class Hero
 						L2NpcTemplate template = NpcData.getInstance().getTemplate(param);
 						if (template != null)
 						{
-							_diaryentry.set("action", template.getName() + " was defeated");
+							_diaryentry.set("action", "对抗" + template.getName() + " 获得胜利");
 						}
 					}
 					else if (action == ACTION_HERO_GAINED)
 					{
-						_diaryentry.set("action", "Gained Hero status");
+						_diaryentry.set("action", "取得英雄资格");
 					}
 					else if (action == ACTION_CASTLE_TAKEN)
 					{
 						Castle castle = CastleManager.getInstance().getCastleById(param);
 						if (castle != null)
 						{
-							_diaryentry.set("action", castle.getName() + " Castle was successfuly taken");
+							_diaryentry.set("action", "参加" + castle.getName() + " 攻城战，领导盟友走向胜利");
 						}
 					}
 					diary.add(_diaryentry);
@@ -342,17 +342,17 @@ public class Hero
 							fight.set("classed", classed);
 							if (winner == 1)
 							{
-								fight.set("result", "<font color=\"00ff00\">victory</font>");
+								fight.set("result", "<font color=\"00ff00\">胜</font>");
 								_victorys++;
 							}
 							else if (winner == 2)
 							{
-								fight.set("result", "<font color=\"ff0000\">loss</font>");
+								fight.set("result", "<font color=\"ff0000\">败</font>");
 								_losses++;
 							}
 							else if (winner == 0)
 							{
-								fight.set("result", "<font color=\"ffff00\">draw</font>");
+								fight.set("result", "<font color=\"ffff00\">合</font>");
 								_draws++;
 							}
 							
@@ -378,17 +378,17 @@ public class Hero
 							fight.set("classed", classed);
 							if (winner == 1)
 							{
-								fight.set("result", "<font color=\"ff0000\">loss</font>");
+								fight.set("result", "<font color=\"ff0000\">败</font>");
 								_losses++;
 							}
 							else if (winner == 2)
 							{
-								fight.set("result", "<font color=\"00ff00\">victory</font>");
+								fight.set("result", "<font color=\"00ff00\">胜</font>");
 								_victorys++;
 							}
 							else if (winner == 0)
 							{
-								fight.set("result", "<font color=\"ffff00\">draw</font>");
+								fight.set("result", "<font color=\"ffff00\">和</font>");
 								_draws++;
 							}
 							
@@ -479,7 +479,7 @@ public class Hero
 						{
 							StringUtil.append(fList, "<table width=270>");
 						}
-						StringUtil.append(fList, "<tr><td width=270><font color=\"LEVEL\">" + diaryEntry.getString("date") + ":xx</font></td></tr>");
+						StringUtil.append(fList, "<tr><td width=270><font color=\"LEVEL\">" + diaryEntry.getString("date") + ":时</font></td></tr>");
 						StringUtil.append(fList, "<tr><td width=270>" + diaryEntry.getString("action") + "</td></tr>");
 						StringUtil.append(fList, "<tr><td>&nbsp;</td></tr></table>");
 						StringUtil.append(fList, "</td></tr>");
@@ -493,7 +493,7 @@ public class Hero
 					
 					if (breakat < (list.size() - 1))
 					{
-						diaryReply.replace("%buttprev%", "<button value=\"Prev\" action=\"bypass _diary?class=" + heroclass + "&page=" + (page + 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
+						diaryReply.replace("%buttprev%", "<button value=\"上一页\" action=\"bypass _diary?class=" + heroclass + "&page=" + (page + 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
 					}
 					else
 					{
@@ -502,7 +502,7 @@ public class Hero
 					
 					if (page > 1)
 					{
-						diaryReply.replace("%buttnext%", "<button value=\"Next\" action=\"bypass _diary?class=" + heroclass + "&page=" + (page - 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
+						diaryReply.replace("%buttnext%", "<button value=\"下一页\" action=\"bypass _diary?class=" + heroclass + "&page=" + (page - 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
 					}
 					else
 					{
@@ -567,7 +567,7 @@ public class Hero
 						{
 							StringUtil.append(fList, "<table width=270>");
 						}
-						StringUtil.append(fList, "<tr><td width=220><font color=\"LEVEL\">" + fight.getString("start") + "</font>&nbsp;&nbsp;" + fight.getString("result") + "</td><td width=50 align=right>" + (fight.getInt("classed") > 0 ? "<font color=\"FFFF99\">cls</font>" : "<font color=\"999999\">non-cls<font>") + "</td></tr>");
+						StringUtil.append(fList, "<tr><td width=220><font color=\"LEVEL\">" + fight.getString("start") + "</font>&nbsp;&nbsp;" + fight.getString("result") + "</td><td width=50 align=right>" + (fight.getInt("classed") > 0 ? "<font color=\"FFFF99\">职业类别</font>" : "<font color=\"999999\">不限职业<font>") + "</td></tr>");
 						StringUtil.append(fList, "<tr><td width=220>vs " + fight.getString("oponent") + " (" + fight.getString("oponentclass") + ")</td><td width=50 align=right>(" + fight.getString("time") + ")</td></tr>");
 						StringUtil.append(fList, "<tr><td colspan=2>&nbsp;</td></tr></table>");
 						StringUtil.append(fList, "</td></tr>");
@@ -581,7 +581,7 @@ public class Hero
 					
 					if (breakat < (heroFights.size() - 1))
 					{
-						FightReply.replace("%buttprev%", "<button value=\"Prev\" action=\"bypass _match?class=" + heroclass + "&page=" + (page + 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
+						FightReply.replace("%buttprev%", "<button value=\"上一页\" action=\"bypass _match?class=" + heroclass + "&page=" + (page + 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
 					}
 					else
 					{
@@ -590,7 +590,7 @@ public class Hero
 					
 					if (page > 1)
 					{
-						FightReply.replace("%buttnext%", "<button value=\"Next\" action=\"bypass _match?class=" + heroclass + "&page=" + (page - 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
+						FightReply.replace("%buttnext%", "<button value=\"下一页\" action=\"bypass _match?class=" + heroclass + "&page=" + (page - 1) + "\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
 					}
 					else
 					{
@@ -800,7 +800,7 @@ public class Hero
 			final StatsSet diaryEntry = new StatsSet();
 			final String date = (new SimpleDateFormat("yyyy-MM-dd HH")).format(new Date(System.currentTimeMillis()));
 			diaryEntry.set("date", date);
-			diaryEntry.set("action", template.getName() + " was defeated");
+			diaryEntry.set("action", "对抗" + template.getName() + " 获得胜利");
 			// Add to old list
 			list.add(diaryEntry);
 		}
@@ -818,7 +818,7 @@ public class Hero
 			final StatsSet diaryEntry = new StatsSet();
 			final String date = (new SimpleDateFormat("yyyy-MM-dd HH")).format(new Date(System.currentTimeMillis()));
 			diaryEntry.set("date", date);
-			diaryEntry.set("action", castle.getName() + " Castle was successfuly taken");
+			diaryEntry.set("action", "参加" + castle.getName() + "攻城战，领导盟友走向胜利。");
 			// Add to old list
 			list.add(diaryEntry);
 		}

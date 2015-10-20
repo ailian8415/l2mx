@@ -64,11 +64,11 @@ public class AdminDisconnect implements IAdminCommandHandler
 		
 		if (player == activeChar)
 		{
-			activeChar.sendMessage("You cannot logout your own character.");
+			activeChar.sendMessage("无法对自己强制登出。");
 		}
 		else
 		{
-			activeChar.sendMessage("Character " + player.getName() + " disconnected from server.");
+			activeChar.sendMessage("玩家「" + player.getName() + "」与服务端中断连线。");
 			
 			player.logout();
 		}

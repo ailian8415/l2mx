@@ -115,13 +115,13 @@ public class AdminEffects implements IAdminCommandHandler
 				activeChar.broadcastUserInfo();
 				activeChar.decayMe();
 				activeChar.spawnMe();
-				activeChar.sendMessage("You are now invisible.");
+				activeChar.sendMessage("进入隐身状态.");
 			}
 			else
 			{
 				activeChar.setInvisible(false);
 				activeChar.broadcastUserInfo();
-				activeChar.sendMessage("You are now visible.");
+				activeChar.sendMessage("解除隐身状态.");
 			}
 			
 			command = "";
@@ -133,13 +133,13 @@ public class AdminEffects implements IAdminCommandHandler
 			activeChar.broadcastUserInfo();
 			activeChar.decayMe();
 			activeChar.spawnMe();
-			activeChar.sendMessage("You are now invisible.");
+			activeChar.sendMessage("进入隐身状态.");
 		}
 		else if (command.startsWith("admin_vis"))
 		{
 			activeChar.setInvisible(false);
 			activeChar.broadcastUserInfo();
-			activeChar.sendMessage("You are now visible.");
+			activeChar.sendMessage("解除隐身状态.");
 		}
 		else if (command.startsWith("admin_setinvis"))
 		{
@@ -150,7 +150,7 @@ public class AdminEffects implements IAdminCommandHandler
 			}
 			final L2Character target = (L2Character) activeChar.getTarget();
 			target.setInvisible(!target.isInvisible());
-			activeChar.sendMessage("You've made " + target.getName() + " " + (target.isInvisible() ? "invisible" : "visible") + ".");
+			activeChar.sendMessage("将目标「" + target.getName() + "」状态改为 " + (target.isInvisible() ? "隐身" : "可见") + ".");
 			
 			if (target.isPlayer())
 			{
@@ -472,7 +472,7 @@ public class AdminEffects implements IAdminCommandHandler
 						{
 							if (performSocial(social, player, activeChar))
 							{
-								activeChar.sendMessage(player.getName() + " was affected by your request.");
+								activeChar.sendMessage("「" + player.getName() + " 」出现所要求的动作。");
 							}
 						}
 						else
@@ -488,11 +488,11 @@ public class AdminEffects implements IAdminCommandHandler
 										performSocial(social, object, activeChar);
 									}
 								}
-								activeChar.sendMessage(radius + " units radius affected by your request.");
+								activeChar.sendMessage(radius + "范围内出现/消失所要求的效果。");
 							}
 							catch (NumberFormatException nbe)
 							{
-								activeChar.sendMessage("Incorrect parameter");
+								activeChar.sendMessage("参数错误");
 							}
 						}
 					}
@@ -507,7 +507,7 @@ public class AdminEffects implements IAdminCommandHandler
 					
 					if (performSocial(social, obj, activeChar))
 					{
-						activeChar.sendMessage(obj.getName() + " was affected by your request.");
+						activeChar.sendMessage("「" + obj.getName() + " 」出现所要求的动作。");
 					}
 					else
 					{
@@ -564,14 +564,14 @@ public class AdminEffects implements IAdminCommandHandler
 							performAbnormalVisualEffect(ave, object);
 						}
 					}
-					activeChar.sendMessage("Affected all characters in radius " + param2 + " by " + param1 + " abnormal visual effect.");
+					activeChar.sendMessage("半径" + param2 + " 到 " + param1 + " 范围内角色出现/消失所要求的效果.");
 				}
 				else
 				{
 					final L2Object obj = activeChar.getTarget() != null ? activeChar.getTarget() : activeChar;
 					if (performAbnormalVisualEffect(ave, obj))
 					{
-						activeChar.sendMessage(obj.getName() + " affected by " + param1 + " abnormal visual effect.");
+						activeChar.sendMessage("「" + obj.getName() + " 到" + param1 + " 范围内出现/消失所要求的效果。");
 					}
 					else
 					{
@@ -611,7 +611,7 @@ public class AdminEffects implements IAdminCommandHandler
 				{
 					L2Character target = (L2Character) obj;
 					target.broadcastPacket(new MagicSkillUse(target, activeChar, skill, level, hittime, 0));
-					activeChar.sendMessage(obj.getName() + " performs MSU " + skill + "/" + level + " by your request.");
+					activeChar.sendMessage(obj.getName() + "出现技能效果" + skill + "/" + level + "");
 				}
 				
 			}
@@ -764,7 +764,7 @@ public class AdminEffects implements IAdminCommandHandler
 		PlaySound _snd = new PlaySound(1, sound, 0, 0, 0, 0, 0);
 		activeChar.sendPacket(_snd);
 		activeChar.broadcastPacket(_snd);
-		activeChar.sendMessage("Playing " + sound + ".");
+		activeChar.sendMessage("播放 " + sound + ".");
 	}
 	
 	@Override

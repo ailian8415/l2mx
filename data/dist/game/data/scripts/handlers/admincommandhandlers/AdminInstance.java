@@ -63,17 +63,17 @@ public class AdminInstance implements IAdminCommandHandler
 					final int id = Integer.parseInt(parts[1]);
 					if ((id < 300000) && InstanceManager.getInstance().createInstanceFromTemplate(id, parts[2]))
 					{
-						activeChar.sendMessage("Instance created.");
+						activeChar.sendMessage("创建副本.");
 					}
 					else
 					{
-						activeChar.sendMessage("Failed to create instance.");
+						activeChar.sendMessage("创建副本失败.");
 					}
 					return true;
 				}
 				catch (Exception e)
 				{
-					activeChar.sendMessage("Failed loading: " + parts[1] + " " + parts[2]);
+					activeChar.sendMessage("读取: " + parts[1] + " " + parts[2] + "失败");
 					return false;
 				}
 			}
@@ -82,7 +82,7 @@ public class AdminInstance implements IAdminCommandHandler
 		{
 			for (Instance temp : InstanceManager.getInstance().getInstances().values())
 			{
-				activeChar.sendMessage("Id: " + temp.getId() + " Name: " + temp.getName());
+				activeChar.sendMessage("Id: " + temp.getId() + " 名称: " + temp.getName());
 			}
 		}
 		else if (command.startsWith("admin_setinstance"))
@@ -92,24 +92,24 @@ public class AdminInstance implements IAdminCommandHandler
 				int val = Integer.parseInt(st.nextToken());
 				if (InstanceManager.getInstance().getInstance(val) == null)
 				{
-					activeChar.sendMessage("Instance " + val + " doesnt exist.");
+					activeChar.sendMessage("副本 " + val + " 不存在.");
 					return false;
 				}
 				
 				L2Object target = activeChar.getTarget();
 				if ((target == null) || (target instanceof L2Summon)) // Don't separate summons from masters
 				{
-					activeChar.sendMessage("Incorrect target.");
+					activeChar.sendMessage("目标错误.");
 					return false;
 				}
 				target.setInstanceId(val);
 				if (target instanceof L2PcInstance)
 				{
 					L2PcInstance player = (L2PcInstance) target;
-					player.sendMessage("Admin set your instance to:" + val);
+					player.sendMessage("管理员设置你的即时地区为：" + val);
 					player.teleToLocation(player.getLocation());
 				}
-				activeChar.sendMessage("Moved " + target.getName() + " to instance " + target.getInstanceId() + ".");
+				activeChar.sendMessage("移动「" + target.getName() + "」到副本" + target.getInstanceId() + ".");
 				return true;
 			}
 			catch (Exception e)
@@ -123,7 +123,7 @@ public class AdminInstance implements IAdminCommandHandler
 			{
 				int val = Integer.parseInt(st.nextToken());
 				InstanceManager.getInstance().destroyInstance(val);
-				activeChar.sendMessage("Instance destroyed");
+				activeChar.sendMessage("删除副本");
 			}
 			catch (Exception e)
 			{
@@ -139,7 +139,7 @@ public class AdminInstance implements IAdminCommandHandler
 		else if (command.startsWith("admin_ghoston"))
 		{
 			activeChar.getAppearance().setGhostMode(true);
-			activeChar.sendMessage("Ghost mode enabled");
+			activeChar.sendMessage("静行模式开启。");
 			activeChar.broadcastUserInfo();
 			activeChar.decayMe();
 			activeChar.spawnMe();
@@ -148,7 +148,7 @@ public class AdminInstance implements IAdminCommandHandler
 		else if (command.startsWith("admin_ghostoff"))
 		{
 			activeChar.getAppearance().setGhostMode(false);
-			activeChar.sendMessage("Ghost mode disabled");
+			activeChar.sendMessage("静行模式关闭。");
 			activeChar.broadcastUserInfo();
 			activeChar.decayMe();
 			activeChar.spawnMe();

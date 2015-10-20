@@ -116,7 +116,7 @@ public class SupportMagic implements IBypassHandler
 		}
 		else if (player.getClassId().level() == 3)
 		{
-			player.sendMessage("Only adventurers who have not completed their 3rd class transfer may receive these buffs."); // Custom message
+			player.sendMessage("使魔专用辅助魔法仅限用于召唤兽身上。若是没有召唤兽，就无法对召唤兽施展魔法。"); // Custom message
 			return;
 		}
 		

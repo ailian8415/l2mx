@@ -86,7 +86,7 @@ public final class SendWareHouseDepositList extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("deposit"))
 		{
-			player.sendMessage("You are depositing items too fast.");
+			player.sendMessage("你寄存物品的速度太快。");
 			return;
 		}
 		
@@ -105,7 +105,7 @@ public final class SendWareHouseDepositList extends L2GameClientPacket
 		
 		if (!isPrivate && !player.getAccessLevel().allowTransaction())
 		{
-			player.sendMessage("Transactions are disabled for your Access Level.");
+			player.sendMessage("没有相关权限。");
 			return;
 		}
 		

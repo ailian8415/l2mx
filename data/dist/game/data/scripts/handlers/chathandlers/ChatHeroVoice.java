@@ -55,7 +55,7 @@ public class ChatHeroVoice implements IChatHandler
 			
 			if (!activeChar.getFloodProtectors().getHeroVoice().tryPerformAction("hero voice"))
 			{
-				activeChar.sendMessage("Action failed. Heroes are only able to speak in the global channel once every 10 seconds.");
+				activeChar.sendMessage("操作失败，英雄只能在全域频道每10秒发话一次。");
 				return;
 			}
 			

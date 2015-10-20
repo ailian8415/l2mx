@@ -65,7 +65,7 @@ public class AdminHellbound implements IAdminCommandHandler
 				}
 				
 				HellboundEngine.getInstance().setLevel(level);
-				activeChar.sendMessage("Hellbound level set to " + level);
+				activeChar.sendMessage("地狱边界等级设置为 " + level);
 				return true;
 			}
 			catch (Exception e)

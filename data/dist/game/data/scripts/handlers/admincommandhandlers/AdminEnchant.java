@@ -141,7 +141,7 @@ public class AdminEnchant implements IAdminCommandHandler
 					// check value
 					if ((ench < 0) || (ench > 65535))
 					{
-						activeChar.sendMessage("You must set the enchant level to be between 0-65535.");
+						activeChar.sendMessage("强化等级范围只限于 0-65535 之间。");
 					}
 					else
 					{
@@ -154,7 +154,7 @@ public class AdminEnchant implements IAdminCommandHandler
 					{
 						_log.warning("Set enchant error: " + e);
 					}
-					activeChar.sendMessage("Please specify a new enchant value.");
+					activeChar.sendMessage("请输入一个新的有效强化值");
 				}
 				catch (NumberFormatException e)
 				{
@@ -162,7 +162,7 @@ public class AdminEnchant implements IAdminCommandHandler
 					{
 						_log.warning("Set enchant error: " + e);
 					}
-					activeChar.sendMessage("Please specify a valid new enchant value.");
+					activeChar.sendMessage("请输入一个新的有效强化值");
 				}
 			}
 			
@@ -221,8 +221,8 @@ public class AdminEnchant implements IAdminCommandHandler
 			player.broadcastPacket(new ExBrExtraUserInfo(player));
 			
 			// informations
-			activeChar.sendMessage("Changed enchantment of " + player.getName() + "'s " + itemInstance.getItem().getName() + " from " + curEnchant + " to " + ench + ".");
-			player.sendMessage("Admin has changed the enchantment of your " + itemInstance.getItem().getName() + " from " + curEnchant + " to " + ench + ".");
+			activeChar.sendMessage("强化「" + player.getName() + "」的「" + itemInstance.getItem().getName() + "」，从 " + curEnchant + " 变为 " + ench + ".");
+			player.sendMessage("管理员强化你的「" + itemInstance.getItem().getName() + "」，从 " + curEnchant + " 变为 " + ench + ".");
 		}
 	}
 	

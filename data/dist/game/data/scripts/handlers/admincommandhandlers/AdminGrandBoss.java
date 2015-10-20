@@ -95,7 +95,7 @@ public class AdminGrandBoss implements IAdminCommandHandler
 					}
 					else
 					{
-						activeChar.sendMessage("Wrong ID!");
+						activeChar.sendMessage("ID¥ÌŒÛ!");
 					}
 				}
 				else
@@ -126,7 +126,7 @@ public class AdminGrandBoss implements IAdminCommandHandler
 						}
 						default:
 						{
-							activeChar.sendMessage("Wrong ID!");
+							activeChar.sendMessage("ID¥ÌŒÛ!");
 						}
 					}
 				}
@@ -156,7 +156,7 @@ public class AdminGrandBoss implements IAdminCommandHandler
 						}
 						default:
 						{
-							activeChar.sendMessage("Wrong ID!");
+							activeChar.sendMessage("ID¥ÌŒÛ!");
 						}
 					}
 				}
@@ -188,7 +188,7 @@ public class AdminGrandBoss implements IAdminCommandHandler
 						}
 						default:
 						{
-							activeChar.sendMessage("Wrong ID!");
+							activeChar.sendMessage("ID¥ÌŒÛ!");
 						}
 					}
 				}
@@ -257,25 +257,25 @@ public class AdminGrandBoss implements IAdminCommandHandler
 					case 0:
 					{
 						textColor = "00FF00"; // Green
-						text = "Alive";
+						text = "ø…ÃÙ’Ω";
 						break;
 					}
 					case 1:
 					{
 						textColor = "FFFF00"; // Yellow
-						text = "Waiting";
+						text = "≥¡ÀØ÷–";
 						break;
 					}
 					case 2:
 					{
 						textColor = "FF9900"; // Orange
-						text = "In Fight";
+						text = "ÃÙ’Ω÷–";
 						break;
 					}
 					case 3:
 					{
 						textColor = "FF0000"; // Red
-						text = "Dead";
+						text = "“—À¿Õˆ";
 						break;
 					}
 				}
@@ -288,13 +288,13 @@ public class AdminGrandBoss implements IAdminCommandHandler
 					case 0:
 					{
 						textColor = "00FF00"; // Green
-						text = "Alive";
+						text = "ø…ÃÙ’Ω";
 						break;
 					}
 					case 1:
 					{
 						textColor = "FF0000"; // Red
-						text = "Dead";
+						text = "“—À¿Õˆ";
 						break;
 					}
 				}
@@ -313,7 +313,7 @@ public class AdminGrandBoss implements IAdminCommandHandler
 		}
 		else
 		{
-			activeChar.sendMessage("Wrong ID!");
+			activeChar.sendMessage("ID¥ÌŒÛ!");
 		}
 	}
 	

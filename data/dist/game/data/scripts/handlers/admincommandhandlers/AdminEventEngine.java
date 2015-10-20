@@ -131,7 +131,7 @@ public class AdminEventEngine implements IAdminCommandHandler
 						adminReply.replace("%eventCreator%", br.readLine());
 						adminReply.replace("%eventInfo%", br.readLine());
 						adminReply.replace("npc_%objectId%_event_participate", "admin_event"); // Weird, but nice hack, isnt it? :)
-						adminReply.replace("button value=\"Participate\"", "button value=\"Back\"");
+						adminReply.replace("button value=\"²Î¼Ó\"", "button value=\"·µ»Ø\"");
 						activeChar.sendPacket(adminReply);
 					}
 				}

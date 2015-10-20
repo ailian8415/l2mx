@@ -79,13 +79,13 @@ public class AdminAdmin implements IAdminCommandHandler
 		else if (command.startsWith("admin_gmliston"))
 		{
 			AdminData.getInstance().showGm(activeChar);
-			activeChar.sendMessage("已登记到GM列表");
+			activeChar.sendMessage("加入 GM 列表");
 			AdminHtml.showAdminHtml(activeChar, "gm_menu.htm");
 		}
 		else if (command.startsWith("admin_gmlistoff"))
 		{
 			AdminData.getInstance().hideGm(activeChar);
-			activeChar.sendMessage("已从GM列表中除名");
+			activeChar.sendMessage("离开 GM 列表");
 			AdminHtml.showAdminHtml(activeChar, "gm_menu.htm");
 		}
 		else if (command.startsWith("admin_silence"))
@@ -117,7 +117,7 @@ public class AdminAdmin implements IAdminCommandHandler
 			{
 				_log.warning("An error occured while ending olympiad: " + e);
 			}
-			activeChar.sendMessage("成为英雄.");
+			activeChar.sendMessage("设置英雄.");
 		}
 		else if (command.startsWith("admin_sethero"))
 		{
@@ -162,12 +162,12 @@ public class AdminAdmin implements IAdminCommandHandler
 				if (st.nextToken().equalsIgnoreCase("on"))
 				{
 					activeChar.setDietMode(true);
-					activeChar.sendMessage("Diet mode on");
+					activeChar.sendMessage("无负重模式启用");
 				}
 				else if (st.nextToken().equalsIgnoreCase("off"))
 				{
 					activeChar.setDietMode(false);
-					activeChar.sendMessage("Diet mode off");
+					activeChar.sendMessage("无负重模式关闭");
 				}
 			}
 			catch (Exception ex)
@@ -175,12 +175,12 @@ public class AdminAdmin implements IAdminCommandHandler
 				if (activeChar.getDietMode())
 				{
 					activeChar.setDietMode(false);
-					activeChar.sendMessage("Diet mode off");
+					activeChar.sendMessage("无负重模式关闭");
 				}
 				else
 				{
 					activeChar.setDietMode(true);
-					activeChar.sendMessage("Diet mode on");
+					activeChar.sendMessage("无负重模式启用");
 				}
 			}
 			finally
@@ -239,7 +239,7 @@ public class AdminAdmin implements IAdminCommandHandler
 			}
 			catch (Exception e)
 			{
-				activeChar.sendMessage("Usage: //setconfig <parameter> <value>");
+				activeChar.sendMessage("用法: //setconfig <参数> <值>");
 			}
 			finally
 			{
@@ -268,7 +268,7 @@ public class AdminAdmin implements IAdminCommandHandler
 			{
 				if (cmd.length == 2)
 				{
-					activeChar.sendMessage("Usage: //set parameter=value");
+					activeChar.sendMessage("用法: //set parameter=value");
 				}
 			}
 			finally
@@ -339,7 +339,7 @@ public class AdminAdmin implements IAdminCommandHandler
 	public void showConfigPage(L2PcInstance activeChar)
 	{
 		final NpcHtmlMessage adminReply = new NpcHtmlMessage();
-		StringBuilder replyMSG = new StringBuilder("<html><title>L2JMR天堂II服务端配置设定</title><body>");
+		StringBuilder replyMSG = new StringBuilder("<html><title>L2JMX天堂II服务端配置设定</title><body>");
 		replyMSG.append("<center><table width=270><tr><td width=60><button value=\"首页\" action=\"bypass -h admin_admin\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td width=150>服务器配置控制</td><td width=60><button value=\"返回\" action=\"bypass -h admin_admin4\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr></table></center><br>");
 		replyMSG.append("<center><table width=260><tr><td width=140></td><td width=40></td><td width=40></td></tr>");
 		replyMSG.append("<tr><td><font color=\"00AA00\">掉落相关:</font></td><td></td><td></td></tr>");

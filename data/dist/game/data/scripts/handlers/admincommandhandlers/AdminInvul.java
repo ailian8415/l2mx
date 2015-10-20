@@ -70,7 +70,7 @@ public class AdminInvul implements IAdminCommandHandler
 		if (activeChar.isInvul())
 		{
 			activeChar.setIsInvul(false);
-			text = activeChar.getName() + " is now mortal";
+			text = activeChar.getName() + " 取消无敌";
 			if (Config.DEBUG)
 			{
 				_log.fine("GM: Gm removed invul mode from character " + activeChar.getName() + "(" + activeChar.getObjectId() + ")");
@@ -79,7 +79,7 @@ public class AdminInvul implements IAdminCommandHandler
 		else
 		{
 			activeChar.setIsInvul(true);
-			text = activeChar.getName() + " is now invulnerable";
+			text = activeChar.getName() + " 启动无敌";
 			if (Config.DEBUG)
 			{
 				_log.fine("GM: Gm activated invul mode for character " + activeChar.getName() + "(" + activeChar.getObjectId() + ")");

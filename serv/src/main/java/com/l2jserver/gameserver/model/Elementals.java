@@ -183,19 +183,19 @@ public final class Elementals
 		switch (element)
 		{
 			case FIRE:
-				return "Fire";
+				return "火";
 			case WATER:
-				return "Water";
+				return "水";
 			case WIND:
-				return "Wind";
+				return "风";
 			case EARTH:
-				return "Earth";
+				return "地";
 			case DARK:
-				return "Dark";
+				return "黑暗";
 			case HOLY:
-				return "Holy";
+				return "神圣";
 		}
-		return "None";
+		return "火";
 	}
 	
 	public static byte getElementId(String name)

@@ -84,7 +84,7 @@ public final class SendWareHouseWithDrawList extends L2GameClientPacket
 		
 		if (!getClient().getFloodProtectors().getTransaction().tryPerformAction("withdraw"))
 		{
-			player.sendMessage("You are withdrawing items too fast.");
+			player.sendMessage("你取回物品的速度太快。");
 			return;
 		}
 		
@@ -102,7 +102,7 @@ public final class SendWareHouseWithDrawList extends L2GameClientPacket
 		
 		if (!(warehouse instanceof PcWarehouse) && !player.getAccessLevel().allowTransaction())
 		{
-			player.sendMessage("Transactions are disabled for your Access Level.");
+			player.sendMessage("没有相关权限。");
 			return;
 		}
 		

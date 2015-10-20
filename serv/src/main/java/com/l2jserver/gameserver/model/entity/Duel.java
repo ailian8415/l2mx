@@ -356,7 +356,7 @@ public class Duel
 		{
 			if (sendMessage)
 			{
-				String engagedInPvP = "The duel was canceled because a duelist engaged in PvP combat.";
+				String engagedInPvP = "决斗已取消，因位决斗者正在进行 PvP 竞赛。";
 				_playerA.sendMessage(engagedInPvP);
 				_playerB.sendMessage(engagedInPvP);
 			}

@@ -109,7 +109,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 			}
 			catch (NumberFormatException nfe)
 			{
-				activeChar.sendMessage("Specify a valid number.");
+				activeChar.sendMessage("请指定一个有效数值.");
 			}
 			AdminHtml.showAdminHtml(activeChar, "itemcreation.htm");
 		}
@@ -124,7 +124,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 				}
 				else
 				{
-					activeChar.sendMessage("Invalid target.");
+					activeChar.sendMessage("目标错误.");
 					return false;
 				}
 				
@@ -151,7 +151,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 			}
 			catch (NumberFormatException nfe)
 			{
-				activeChar.sendMessage("Specify a valid number.");
+				activeChar.sendMessage("请指定一个有效数值。");
 			}
 			AdminHtml.showAdminHtml(activeChar, "itemcreation.htm");
 		}
@@ -178,12 +178,12 @@ public class AdminCreateItem implements IAdminCommandHandler
 			L2Item template = ItemTable.getInstance().getTemplate(idval);
 			if (template == null)
 			{
-				activeChar.sendMessage("This item doesn't exist.");
+				activeChar.sendMessage("这个物品不存在。");
 				return false;
 			}
 			if ((numval > 10) && !template.isStackable())
 			{
-				activeChar.sendMessage("This item does not stack - Creation aborted.");
+				activeChar.sendMessage("这个物品不可堆叠的 - 创造取消。");
 				return false;
 			}
 			for (L2PcInstance onlinePlayer : L2World.getInstance().getPlayers())
@@ -191,11 +191,11 @@ public class AdminCreateItem implements IAdminCommandHandler
 				if ((activeChar != onlinePlayer) && onlinePlayer.isOnline() && ((onlinePlayer.getClient() != null) && !onlinePlayer.getClient().isDetached()))
 				{
 					onlinePlayer.getInventory().addItem("Admin", idval, numval, onlinePlayer, activeChar);
-					onlinePlayer.sendMessage("Admin spawned " + numval + " " + template.getName() + " in your inventory.");
+					onlinePlayer.sendMessage("管理员创造「" + numval + "」个「" + template.getName() + "」给你。");
 					counter++;
 				}
 			}
-			activeChar.sendMessage(counter + " players rewarded with " + template.getName());
+			activeChar.sendMessage(counter + "个玩家得到：" + template.getName());
 		}
 		return true;
 	}
@@ -211,12 +211,12 @@ public class AdminCreateItem implements IAdminCommandHandler
 		L2Item template = ItemTable.getInstance().getTemplate(id);
 		if (template == null)
 		{
-			activeChar.sendMessage("This item doesn't exist.");
+			activeChar.sendMessage("这个物品不存在。");
 			return;
 		}
 		if ((num > 10) && !template.isStackable())
 		{
-			activeChar.sendMessage("This item does not stack - Creation aborted.");
+			activeChar.sendMessage("这个物品不可堆叠的 - 创造取消。");
 			return;
 		}
 		
@@ -224,43 +224,43 @@ public class AdminCreateItem implements IAdminCommandHandler
 		
 		if (activeChar != target)
 		{
-			target.sendMessage("Admin spawned " + num + " " + template.getName() + " in your inventory.");
+			target.sendMessage("管理员创造「" + num + "」个「" + template.getName() + "」给你。");
 		}
-		activeChar.sendMessage("You have spawned " + num + " " + template.getName() + "(" + id + ") in " + target.getName() + " inventory.");
+		activeChar.sendMessage("創造「" + num + "」个「" + template.getName() + "」(" + id + ") 给「" + target.getName() + "」。");
 	}
 	
 	private int getCoinId(String name)
 	{
 		int id;
-		if (name.equalsIgnoreCase("adena"))
+		if (name.equalsIgnoreCase("金币"))
 		{
 			id = 57;
 		}
-		else if (name.equalsIgnoreCase("ancientadena"))
+		else if (name.equalsIgnoreCase("古代金币"))
 		{
 			id = 5575;
 		}
-		else if (name.equalsIgnoreCase("festivaladena"))
+		else if (name.equalsIgnoreCase("祝福金币"))
 		{
 			id = 6673;
 		}
-		else if (name.equalsIgnoreCase("blueeva"))
+		else if (name.equalsIgnoreCase("蓝色伊娃"))
 		{
 			id = 4355;
 		}
-		else if (name.equalsIgnoreCase("goldeinhasad"))
+		else if (name.equalsIgnoreCase("金色殷海萨"))
 		{
 			id = 4356;
 		}
-		else if (name.equalsIgnoreCase("silvershilen"))
+		else if (name.equalsIgnoreCase("银色席琳"))
 		{
 			id = 4357;
 		}
-		else if (name.equalsIgnoreCase("bloodypaagrio"))
+		else if (name.equalsIgnoreCase("血色帕格立欧"))
 		{
 			id = 4358;
 		}
-		else if (name.equalsIgnoreCase("fantasyislecoin"))
+		else if (name.equalsIgnoreCase("梦幻岛金币"))
 		{
 			id = 13067;
 		}

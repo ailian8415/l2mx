@@ -50,7 +50,7 @@ public final class RequestOustPartyMember extends L2GameClientPacket
 		{
 			if (activeChar.getParty().isInDimensionalRift() && !activeChar.getParty().getDimensionalRift().getRevivedAtWaitingRoom().contains(activeChar))
 			{
-				activeChar.sendMessage("You can't dismiss party member when you are in Dimensional Rift.");
+				activeChar.sendMessage("无法在次元的裂痕驱逐队员.");
 			}
 			else
 			{

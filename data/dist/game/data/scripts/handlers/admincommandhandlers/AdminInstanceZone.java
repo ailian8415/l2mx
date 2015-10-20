@@ -54,14 +54,14 @@ public class AdminInstanceZone implements IAdminCommandHandler
 				final int instanceId = Integer.parseInt(st.nextToken());
 				final String name = InstanceManager.getInstance().getInstanceIdName(instanceId);
 				InstanceManager.getInstance().deleteInstanceTime(player.getObjectId(), instanceId);
-				activeChar.sendMessage("Instance zone " + name + " cleared for player " + player.getName());
-				player.sendMessage("Admin cleared instance zone " + name + " for you");
+				activeChar.sendMessage("副本" + name + "从「 " + player.getName() + "」清除。");
+				player.sendMessage("管理员清除即时地区：" + name);
 				
 				return true;
 			}
 			catch (Exception e)
 			{
-				activeChar.sendMessage("Failed clearing instance time: " + e.getMessage());
+				activeChar.sendMessage("清除副本时间失败 " + e.getMessage());
 				activeChar.sendMessage("Usage: //instancezone_clear <playername> [instanceId]");
 				return false;
 			}
@@ -90,7 +90,7 @@ public class AdminInstanceZone implements IAdminCommandHandler
 				}
 				else
 				{
-					activeChar.sendMessage("The player " + playername + " is not online");
+					activeChar.sendMessage("玩家「" + playername + "」不在线");
 					activeChar.sendMessage("Usage: //instancezone [playername]");
 					return false;
 				}
@@ -120,7 +120,7 @@ public class AdminInstanceZone implements IAdminCommandHandler
 	{
 		Map<Integer, Long> instanceTimes = InstanceManager.getInstance().getAllInstanceTimes(player.getObjectId());
 		
-		final StringBuilder html = StringUtil.startAppend(500 + (instanceTimes.size() * 200), "<html><center><table width=260><tr>" + "<td width=40><button value=\"Main\" action=\"bypass -h admin_admin\" width=40 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td width=180><center>Character Instances</center></td>" + "<td width=40><button value=\"Back\" action=\"bypass -h admin_current_player\" width=40 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "</tr></table><br><font color=\"LEVEL\">Instances for ", player.getName(), "</font><center><br>" + "<table>" + "<tr><td width=150>Name</td><td width=50>Time</td><td width=70>Action</td></tr>");
+		final StringBuilder html = StringUtil.startAppend(500 + (instanceTimes.size() * 200), "<html><center><table width=260><tr>" + "<td width=40><button value=\"首页\" action=\"bypass -h admin_admin\" width=40 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td width=180><center>玩家副本</center></td>" + "<td width=40><button value=\"返回\" action=\"bypass -h admin_current_player\" width=40 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "</tr></table><br><font color=\"LEVEL\">玩家「", player.getName(), "」的副本</font><center><br>" + "<table>" + "<tr><td width=150>名称</td><td width=50>时间</td><td width=70>状态</td></tr>");
 		
 		for (int id : instanceTimes.keySet())
 		{
@@ -133,7 +133,7 @@ public class AdminInstanceZone implements IAdminCommandHandler
 				minutes = (int) ((remainingTime % 3600) / 60);
 			}
 			
-			StringUtil.append(html, "<tr><td>", InstanceManager.getInstance().getInstanceIdName(id), "</td><td>", String.valueOf(hours), ":", String.valueOf(minutes), "</td><td><button value=\"Clear\" action=\"bypass -h admin_instancezone_clear ", player.getName(), " ", String.valueOf(id), "\" width=60 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
+			StringUtil.append(html, "<tr><td>", InstanceManager.getInstance().getInstanceIdName(id), "</td><td>", String.valueOf(hours), ":", String.valueOf(minutes), "</td><td><button value=\"清除\" action=\"bypass -h admin_instancezone_clear ", player.getName(), " ", String.valueOf(id), "\" width=60 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
 		}
 		
 		StringUtil.append(html, "</table></html>");

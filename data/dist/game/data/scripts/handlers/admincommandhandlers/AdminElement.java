@@ -144,7 +144,7 @@ public class AdminElement implements IAdminCommandHandler
 			Elementals element = itemInstance.getElemental(type);
 			if (element == null)
 			{
-				old = "None";
+				old = "无";
 			}
 			else
 			{
@@ -165,7 +165,7 @@ public class AdminElement implements IAdminCommandHandler
 			
 			if (itemInstance.getElementals() == null)
 			{
-				current = "None";
+				current = "无";
 			}
 			else
 			{
@@ -178,10 +178,10 @@ public class AdminElement implements IAdminCommandHandler
 			player.sendPacket(iu);
 			
 			// informations
-			activeChar.sendMessage("Changed elemental power of " + player.getName() + "'s " + itemInstance.getItem().getName() + " from " + old + " to " + current + ".");
+			activeChar.sendMessage("属性强化「" + player.getName() + "」的「" + itemInstance.getItem().getName() + "」，\n从「" + old + "」变为「" + current + "」.");
 			if (player != activeChar)
 			{
-				player.sendMessage(activeChar.getName() + " has changed the elemental power of your " + itemInstance.getItem().getName() + " from " + old + " to " + current + ".");
+				player.sendMessage("管理员「" + activeChar.getName() + "」属性强化你的「" + itemInstance.getItem().getName() + "」，\n从「" + old + "」变为「" + current + "」.");
 			}
 		}
 	}

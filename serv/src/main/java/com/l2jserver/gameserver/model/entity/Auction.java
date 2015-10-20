@@ -376,7 +376,7 @@ public class Auction
 				}
 				if (L2World.getInstance().getPlayer(_highestBidderName) != null)
 				{
-					L2World.getInstance().getPlayer(_highestBidderName).sendMessage("You have been out bidded");
+					L2World.getInstance().getPlayer(_highestBidderName).sendMessage("您已经离开投标。");
 				}
 			}
 			
@@ -424,7 +424,7 @@ public class Auction
 			{
 				if (L2World.getInstance().getPlayer(b.getName()) != null)
 				{
-					L2World.getInstance().getPlayer(b.getName()).sendMessage("Congratulation you have won ClanHall!");
+					L2World.getInstance().getPlayer(b.getName()).sendMessage("恭喜您得到根据地！");
 				}
 			}
 			ClanTable.getInstance().getClanByName(b.getClanName()).setAuctionBiddedAt(0, true);

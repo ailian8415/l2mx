@@ -63,27 +63,27 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 		{
 			if (!command.contains("menu"))
 			{
-				activeChar.sendMessage("====== Cursed Weapons: ======");
+				activeChar.sendMessage("====== 受诅咒的武器资讯: ======");
 				for (CursedWeapon cw : cwm.getCursedWeapons())
 				{
 					activeChar.sendMessage("> " + cw.getName() + " (" + cw.getItemId() + ")");
 					if (cw.isActivated())
 					{
 						L2PcInstance pl = cw.getPlayer();
-						activeChar.sendMessage("  Player holding: " + (pl == null ? "null" : pl.getName()));
-						activeChar.sendMessage("    Player karma: " + cw.getPlayerKarma());
-						activeChar.sendMessage("    Time Remaining: " + (cw.getTimeLeft() / 60000) + " min.");
-						activeChar.sendMessage("    Kills : " + cw.getNbKills());
+						activeChar.sendMessage("  持有者: " + (pl == null ? "无" : pl.getName()));
+						activeChar.sendMessage("    性向指数: " + cw.getPlayerKarma());
+						activeChar.sendMessage("    时间剩下: " + (cw.getTimeLeft() / 60000) + " 分.");
+						activeChar.sendMessage("    杀人数量 : " + cw.getNbKills());
 					}
 					else if (cw.isDropped())
 					{
-						activeChar.sendMessage("  Lying on the ground.");
-						activeChar.sendMessage("    Time Remaining: " + (cw.getTimeLeft() / 60000) + " min.");
-						activeChar.sendMessage("    Kills : " + cw.getNbKills());
+						activeChar.sendMessage("  掉落地面.");
+						activeChar.sendMessage("    时间剩下: " + (cw.getTimeLeft() / 60000) + " 分.");
+						activeChar.sendMessage("    杀人数量 : " + cw.getNbKills());
 					}
 					else
 					{
-						activeChar.sendMessage("  Don't exist in the world.");
+						activeChar.sendMessage("  尚未出现.");
 					}
 					activeChar.sendPacket(SystemMessageId.FRIEND_LIST_FOOTER);
 				}
@@ -98,20 +98,20 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 				{
 					itemId = cw.getItemId();
 					
-					StringUtil.append(replyMSG, "<table width=270><tr><td>Name:</td><td>", cw.getName(), "</td></tr>");
+					StringUtil.append(replyMSG, "<table width=270><tr><td>名称:</td><td>", cw.getName(), "</td></tr>");
 					
 					if (cw.isActivated())
 					{
 						L2PcInstance pl = cw.getPlayer();
-						StringUtil.append(replyMSG, "<tr><td>Weilder:</td><td>", (pl == null ? "null" : pl.getName()), "</td></tr>" + "<tr><td>Karma:</td><td>", String.valueOf(cw.getPlayerKarma()), "</td></tr>" + "<tr><td>Kills:</td><td>", String.valueOf(cw.getPlayerPkKills()), "/", String.valueOf(cw.getNbKills()), "</td></tr>" + "<tr><td>Time remaining:</td><td>", String.valueOf(cw.getTimeLeft() / 60000), " min.</td></tr>" + "<tr><td><button value=\"Remove\" action=\"bypass -h admin_cw_remove ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td><button value=\"Go\" action=\"bypass -h admin_cw_goto ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
+						StringUtil.append(replyMSG, "<tr><td>持有者:</td><td>", (pl == null ? "无" : pl.getName()), "</td></tr>" + "<tr><td>性向:</td><td>", String.valueOf(cw.getPlayerKarma()), "</td></tr>" + "<tr><td>杀人数:</td><td>", String.valueOf(cw.getPlayerPkKills()), "/", String.valueOf(cw.getNbKills()), "</td></tr>" + "<tr><td>剩余时间:</td><td>", String.valueOf(cw.getTimeLeft() / 60000), " 分.</td></tr>" + "<tr><td><button value=\"移除\" action=\"bypass -h admin_cw_remove ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td><button value=\"传送\" action=\"bypass -h admin_cw_goto ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
 					}
 					else if (cw.isDropped())
 					{
-						StringUtil.append(replyMSG, "<tr><td>Position:</td><td>Lying on the ground</td></tr>" + "<tr><td>Time remaining:</td><td>", String.valueOf(cw.getTimeLeft() / 60000), " min.</td></tr>" + "<tr><td>Kills:</td><td>", String.valueOf(cw.getNbKills()), "</td></tr>" + "<tr><td><button value=\"Remove\" action=\"bypass -h admin_cw_remove ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td><button value=\"Go\" action=\"bypass -h admin_cw_goto ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
+						StringUtil.append(replyMSG, "<tr><td>位置:</td><td>掉落地上</td></tr>" + "<tr><td>剩余时间:</td><td>", String.valueOf(cw.getTimeLeft() / 60000), " 分.</td></tr>" + "<tr><td>杀人数:</td><td>", String.valueOf(cw.getNbKills()), "</td></tr>" + "<tr><td><button value=\"移除\" action=\"bypass -h admin_cw_remove ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td><button value=\"传送\" action=\"bypass -h admin_cw_goto ", String.valueOf(itemId), "\" width=73 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
 					}
 					else
 					{
-						StringUtil.append(replyMSG, "<tr><td>Position:</td><td>Doesn't exist.</td></tr>" + "<tr><td><button value=\"Give to Target\" action=\"bypass -h admin_cw_add ", String.valueOf(itemId), "\" width=130 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td></td></tr>");
+						StringUtil.append(replyMSG, "<tr><td>位置:</td><td>不存在.</td></tr>" + "<tr><td><button value=\"给予目标\" action=\"bypass -h admin_cw_add ", String.valueOf(itemId), "\" width=130 height=21 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td></td></tr>");
 					}
 					
 					replyMSG.append("</table><br>");
@@ -155,7 +155,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 			
 			if (cw == null)
 			{
-				activeChar.sendMessage("Unknown cursed weapon ID.");
+				activeChar.sendMessage("不是受诅咒的武器 ID");
 				return false;
 			}
 			
@@ -171,7 +171,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 			{
 				if (cw.isActive())
 				{
-					activeChar.sendMessage("This cursed weapon is already active.");
+					activeChar.sendMessage("这把受诅咒的武器已经出现。");
 				}
 				else
 				{
@@ -190,7 +190,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 			}
 			else
 			{
-				activeChar.sendMessage("Unknown command.");
+				activeChar.sendMessage("指令错误.");
 			}
 		}
 		return true;

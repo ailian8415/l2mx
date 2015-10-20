@@ -235,8 +235,8 @@ public class AdminEditChar implements IAdminCommandHandler
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
 					player.sendPacket(new ExBrExtraUserInfo(player));
-					player.sendMessage("A GM changed your PK count to " + pk);
-					activeChar.sendMessage(player.getName() + "'s PK count changed to " + pk);
+					player.sendMessage("管理者变更你的 PK 值" + pk);
+					activeChar.sendMessage(player.getName() + "的 PK 值更改为：" + pk);
 				}
 				else
 				{
@@ -266,8 +266,8 @@ public class AdminEditChar implements IAdminCommandHandler
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
 					player.sendPacket(new ExBrExtraUserInfo(player));
-					player.sendMessage("A GM changed your PVP count to " + pvp);
-					activeChar.sendMessage(player.getName() + "'s PVP count changed to " + pvp);
+					player.sendMessage("管理者变更你的 PVP 值 " + pvp);
+					activeChar.sendMessage(player.getName() + "的 PVP 值更改为：" + pvp);
 				}
 				else
 				{
@@ -297,8 +297,8 @@ public class AdminEditChar implements IAdminCommandHandler
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
 					player.sendPacket(new ExBrExtraUserInfo(player));
-					player.sendMessage("A GM changed your Reputation points to " + fame);
-					activeChar.sendMessage(player.getName() + "'s Fame changed to " + fame);
+					player.sendMessage("管理者变更你的声望为：" + fame);
+					activeChar.sendMessage(player.getName() + "的声望更改为：" + fame);
 				}
 				else
 				{
@@ -329,8 +329,8 @@ public class AdminEditChar implements IAdminCommandHandler
 					player.sendPacket(new UserInfo(player));
 					player.sendPacket(new ExBrExtraUserInfo(player));
 					player.sendPacket(new ExVoteSystemInfo(player));
-					player.sendMessage("A GM changed your Recommend points to " + recVal);
-					activeChar.sendMessage(player.getName() + "'s Recommend changed to " + recVal);
+					player.sendMessage("管理者更改你的推荐为：" + recVal);
+					activeChar.sendMessage(player.getName() + "的推荐更改为：" + recVal);
 				}
 				else
 				{
@@ -375,9 +375,9 @@ public class AdminEditChar implements IAdminCommandHandler
 					}
 					String newclass = ClassListData.getInstance().getClass(player.getClassId()).getClassName();
 					player.storeMe();
-					player.sendMessage("A GM changed your class to " + newclass + ".");
+					player.sendMessage("管理者更改你的职业为：" + newclass + ".");
 					player.broadcastUserInfo();
-					activeChar.sendMessage(player.getName() + " is a " + newclass + ".");
+					activeChar.sendMessage(player.getName() + "的职业变更为：" + newclass + ".");
 				}
 				else
 				{
@@ -409,12 +409,12 @@ public class AdminEditChar implements IAdminCommandHandler
 					return false;
 				}
 				player.setTitle(val);
-				player.sendMessage("Your title has been changed by a GM");
+				player.sendMessage("管理者更改了你的称号。");
 				player.broadcastTitleInfo();
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{ // Case of empty character title
-				activeChar.sendMessage("You need to specify the new title.");
+				activeChar.sendMessage("请指定一个新的称号。");
 			}
 		}
 		else if (command.startsWith("admin_changename"))
@@ -434,14 +434,14 @@ public class AdminEditChar implements IAdminCommandHandler
 				}
 				if (CharNameTable.getInstance().getIdByName(val) > 0)
 				{
-					activeChar.sendMessage("Warning, player " + val + " already exists");
+					activeChar.sendMessage("警告 玩家" + val + "已存在");
 					return false;
 				}
 				player.setName(val);
 				player.storeMe();
 				
-				activeChar.sendMessage("Changed name to " + val);
-				player.sendMessage("Your name has been changed by a GM.");
+				activeChar.sendMessage("管理者更改你的名字为:" + val);
+				player.sendMessage("你的名字被管理员更改.");
 				player.broadcastUserInfo();
 				
 				if (player.isInParty())
@@ -480,7 +480,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				return false;
 			}
 			player.getAppearance().setSex(player.getAppearance().getSex() ? false : true);
-			player.sendMessage("Your gender has been changed by a GM");
+			player.sendMessage("管理员更改你的性别");
 			player.broadcastUserInfo();
 		}
 		else if (command.startsWith("admin_setcolor"))
@@ -499,12 +499,12 @@ public class AdminEditChar implements IAdminCommandHandler
 					return false;
 				}
 				player.getAppearance().setNameColor(Integer.decode("0x" + val));
-				player.sendMessage("Your name color has been changed by a GM");
+				player.sendMessage("管理员修改了你的名字颜色");
 				player.broadcastUserInfo();
 			}
 			catch (Exception e)
 			{ // Case of empty color or invalid hex string
-				activeChar.sendMessage("You need to specify a valid new color.");
+				activeChar.sendMessage("必须指定一个新的色码.");
 			}
 		}
 		else if (command.startsWith("admin_settcolor"))
@@ -523,12 +523,12 @@ public class AdminEditChar implements IAdminCommandHandler
 					return false;
 				}
 				player.getAppearance().setTitleColor(Integer.decode("0x" + val));
-				player.sendMessage("Your title color has been changed by a GM");
+				player.sendMessage("管理员修改你的称号颜色");
 				player.broadcastUserInfo();
 			}
 			catch (Exception e)
 			{ // Case of empty color or invalid hex string
-				activeChar.sendMessage("You need to specify a valid new color.");
+				activeChar.sendMessage("必须指定一个新的色码.");
 			}
 		}
 		else if (command.startsWith("admin_fullfood"))
@@ -587,7 +587,7 @@ public class AdminEditChar implements IAdminCommandHandler
 					}
 				}
 				
-				activeChar.sendMessage("Clan penalty successfully removed to character: " + playerName);
+				activeChar.sendMessage("移除玩家「" + playerName + "」的血盟惩罚。");
 			}
 			catch (Exception e)
 			{
@@ -656,13 +656,13 @@ public class AdminEditChar implements IAdminCommandHandler
 			final L2GameClient client = pl.getClient();
 			if (client == null)
 			{
-				activeChar.sendMessage("Client is null.");
+				activeChar.sendMessage("客户端不存在.");
 				return false;
 			}
 			
 			if (client.isDetached())
 			{
-				activeChar.sendMessage("Client is detached.");
+				activeChar.sendMessage("客户端已离线.");
 				return false;
 			}
 			
@@ -679,7 +679,7 @@ public class AdminEditChar implements IAdminCommandHandler
 						ip = ip + ".";
 					}
 				}
-				activeChar.sendMessage("Hop" + i + ": " + ip);
+				activeChar.sendMessage("跳转IP到" + i + ": " + ip);
 			}
 		}
 		else if (command.startsWith("admin_summon_info"))
@@ -691,7 +691,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			}
 			else
 			{
-				activeChar.sendMessage("Invalid target.");
+				activeChar.sendMessage("目标错误.");
 			}
 		}
 		else if (command.startsWith("admin_unsummon"))
@@ -703,7 +703,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			}
 			else
 			{
-				activeChar.sendMessage("Usable only with Pets/Summons");
+				activeChar.sendMessage("目标必须是宠物或召唤");
 			}
 		}
 		else if (command.startsWith("admin_summon_setlvl"))
@@ -734,7 +734,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			}
 			else
 			{
-				activeChar.sendMessage("Usable only with Pets");
+				activeChar.sendMessage("目标必须是宠物");
 			}
 		}
 		else if (command.startsWith("admin_show_pet_inv"))
@@ -757,7 +757,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			}
 			else
 			{
-				activeChar.sendMessage("Usable only with Pets");
+				activeChar.sendMessage("目标必须是宠物");
 			}
 			
 		}
@@ -786,7 +786,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				}
 				else
 				{
-					activeChar.sendMessage("Not in party.");
+					activeChar.sendMessage("不在队伍中。");
 				}
 			}
 			else
@@ -812,9 +812,9 @@ public class AdminEditChar implements IAdminCommandHandler
 				player.setNoble(!player.isNoble());
 				if (player.getObjectId() != activeChar.getObjectId())
 				{
-					activeChar.sendMessage("You've changed nobless status of: " + player.getName());
+					activeChar.sendMessage("修改玩家「" + player.getName() + "」贵族状态");
 				}
-				player.sendMessage("GM changed your nobless status!");
+				player.sendMessage("管理修改你的贵族状态!");
 			}
 		}
 		else if (command.startsWith("admin_set_hp"))
@@ -907,7 +907,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		
 		final PageResult result = HtmlUtil.createPage(players, page, 20, i ->
 		{
-			return "<td align=center><a action=\"bypass -h admin_show_characters " + i + "\">Page " + (i + 1) + "</a></td>";
+			return "<td align=center><a action=\"bypass -h admin_show_characters " + i + "\">第 " + (i + 1) + "页</a></td>";
 		} , player ->
 		{
 			StringBuilder sb = new StringBuilder();
@@ -964,18 +964,18 @@ public class AdminEditChar implements IAdminCommandHandler
 		
 		if (player == null)
 		{
-			activeChar.sendMessage("Player is null.");
+			activeChar.sendMessage("玩家不存在.");
 			return;
 		}
 		
 		final L2GameClient client = player.getClient();
 		if (client == null)
 		{
-			activeChar.sendMessage("Client is null.");
+			activeChar.sendMessage("客户端不存在.");
 		}
 		else if (client.isDetached())
 		{
-			activeChar.sendMessage("Client is detached.");
+			activeChar.sendMessage("客户端已离线.");
 		}
 		else
 		{
@@ -1023,8 +1023,8 @@ public class AdminEditChar implements IAdminCommandHandler
 		adminReply.replace("%account%", player.getAccountName());
 		adminReply.replace("%ip%", ip);
 		adminReply.replace("%ai%", String.valueOf(player.getAI().getIntention().name()));
-		adminReply.replace("%inst%", player.getInstanceId() > 0 ? "<tr><td>InstanceId:</td><td><a action=\"bypass -h admin_instance_spawns " + String.valueOf(player.getInstanceId()) + "\">" + String.valueOf(player.getInstanceId()) + "</a></td></tr>" : "");
-		adminReply.replace("%noblesse%", player.isNoble() ? "Yes" : "No");
+		adminReply.replace("%inst%", player.getInstanceId() > 0 ? "<tr><td>副本Id:</td><td><a action=\"bypass -h admin_instance_spawns " + String.valueOf(player.getInstanceId()) + "\">" + String.valueOf(player.getInstanceId()) + "</a></td></tr>" : "");
+		adminReply.replace("%noblesse%", player.isNoble() ? "是" : "否");
 		activeChar.sendPacket(adminReply);
 	}
 	
@@ -1053,7 +1053,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			sm.addInt(newKarma);
 			player.sendPacket(sm);
 			// Admin information
-			activeChar.sendMessage("Successfully Changed karma for " + player.getName() + " from (" + oldKarma + ") to (" + newKarma + ").");
+			activeChar.sendMessage("更改「" + player.getName() + "」的性向，从 (" + oldKarma + ") 变 (" + newKarma + ").");
 			if (Config.DEBUG)
 			{
 				_log.fine("[SET KARMA] [GM]" + activeChar.getName() + " Changed karma for " + player.getName() + " from (" + oldKarma + ") to (" + newKarma + ").");
@@ -1062,7 +1062,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		else
 		{
 			// tell admin of mistake
-			activeChar.sendMessage("You must enter a value for karma greater than or equal to 0.");
+			activeChar.sendMessage("输入的数值必须大于 0。");
 			if (Config.DEBUG)
 			{
 				_log.fine("[SET KARMA] ERROR: [GM]" + activeChar.getName() + " entered an incorrect value for new karma: " + newKarma + " for " + player.getName() + ".");
@@ -1121,20 +1121,20 @@ public class AdminEditChar implements IAdminCommandHandler
 		
 		if (CharactersFound == 0)
 		{
-			replyMSG2 = "s. Please try again.";
+			replyMSG2 = "请重新尝试。";
 		}
 		else if (CharactersFound > 20)
 		{
-			adminReply.replace("%number%", " more than 20");
-			replyMSG2 = "s.<br>Please refine your search to see all of the results.";
+			adminReply.replace("%number%", "大于 20");
+			replyMSG2 = "。<br>请修改搜寻的关键字以方便查询所需的资料。";
 		}
 		else if (CharactersFound == 1)
 		{
-			replyMSG2 = ".";
+			replyMSG2 = "。";
 		}
 		else
 		{
-			replyMSG2 = "s.";
+			replyMSG2 = "。";
 		}
 		
 		adminReply.replace("%number%", String.valueOf(CharactersFound));
@@ -1213,20 +1213,20 @@ public class AdminEditChar implements IAdminCommandHandler
 		
 		if (CharactersFound == 0)
 		{
-			replyMSG2 = "s. Maybe they got d/c? :)";
+			replyMSG2 = "。没有找到！)";
 		}
 		else if (CharactersFound > 20)
 		{
-			adminReply.replace("%number%", " more than " + String.valueOf(CharactersFound));
-			replyMSG2 = "s.<br>In order to avoid you a client crash I won't <br1>display results beyond the 20th character.";
+			adminReply.replace("%number%", " 超过 " + String.valueOf(CharactersFound));
+			replyMSG2 = "。<br>为了防止客户端出错，<br1>显示的资料限制为 20。";
 		}
 		else if (CharactersFound == 1)
 		{
-			replyMSG2 = ".";
+			replyMSG2 = "。";
 		}
 		else
 		{
-			replyMSG2 = "s.";
+			replyMSG2 = "。";
 		}
 		adminReply.replace("%ip%", IpAdress);
 		adminReply.replace("%number%", String.valueOf(CharactersFound));
@@ -1244,7 +1244,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		L2PcInstance player = L2World.getInstance().getPlayer(characterName);
 		if (player == null)
 		{
-			throw new IllegalArgumentException("Player doesn't exist");
+			throw new IllegalArgumentException("玩家不存在");
 		}
 		
 		final Map<Integer, String> chars = player.getAccountChars();
@@ -1461,11 +1461,11 @@ public class AdminEditChar implements IAdminCommandHandler
 		if (target instanceof L2PetInstance)
 		{
 			int objId = target.getActingPlayer().getObjectId();
-			html.replace("%inv%", " <a action=\"bypass admin_show_pet_inv " + objId + "\">view</a>");
+			html.replace("%inv%", " <a action=\"bypass admin_show_pet_inv " + objId + "\">预览</a>");
 		}
 		else
 		{
-			html.replace("%inv%", "none");
+			html.replace("%inv%", "无");
 		}
 		if (target instanceof L2PetInstance)
 		{
