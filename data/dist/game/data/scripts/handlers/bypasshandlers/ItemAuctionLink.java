@@ -93,7 +93,7 @@ public class ItemAuctionLink implements IBypassHandler
 					
 					if (nextAuction != null)
 					{
-						activeChar.sendMessage("The next auction will begin on the " + fmt.format(new Date(nextAuction.getStartingTime())) + ".");
+						activeChar.sendMessage("下一次拍卖将在 " + fmt.format(new Date(nextAuction.getStartingTime())) + "开始.");
 					}
 					return true;
 				}

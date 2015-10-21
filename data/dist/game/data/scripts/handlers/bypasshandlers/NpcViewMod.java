@@ -152,7 +152,7 @@ public class NpcViewMod implements IBypassHandler
 		final L2Spawn npcSpawn = npc.getSpawn();
 		if ((npcSpawn == null) || (npcSpawn.getRespawnMinDelay() == 0))
 		{
-			html.replace("%respawn%", "None");
+			html.replace("%respawn%", "无");
 		}
 		else
 		{
@@ -225,12 +225,12 @@ public class NpcViewMod implements IBypassHandler
 			sb.append("<table width=275 cellpadding=0 cellspacing=0><tr>");
 			if (dropLists.containsKey(DropListScope.DEATH))
 			{
-				sb.append("<td align=center><button value=\"Show Drop\" width=100 height=25 action=\"bypass NpcViewMod dropList DEATH " + npc.getObjectId() + "\" back=\"L2UI_CT1.Button_DF_Calculator_Down\" fore=\"L2UI_CT1.Button_DF_Calculator\"></td>");
+				sb.append("<td align=center><button value=\"掉落列表\" width=100 height=25 action=\"bypass NpcViewMod dropList DEATH " + npc.getObjectId() + "\" back=\"L2UI_CT1.Button_DF_Calculator_Down\" fore=\"L2UI_CT1.Button_DF_Calculator\"></td>");
 			}
 			
 			if (dropLists.containsKey(DropListScope.CORPSE))
 			{
-				sb.append("<td align=center><button value=\"Show Spoil\" width=100 height=25 action=\"bypass NpcViewMod dropList CORPSE " + npc.getObjectId() + "\" back=\"L2UI_CT1.Button_DF_Calculator_Down\" fore=\"L2UI_CT1.Button_DF_Calculator\"></td>");
+				sb.append("<td align=center><button value=\"回收列表\" width=100 height=25 action=\"bypass NpcViewMod dropList CORPSE " + npc.getObjectId() + "\" back=\"L2UI_CT1.Button_DF_Calculator_Down\" fore=\"L2UI_CT1.Button_DF_Calculator\"></td>");
 			}
 			sb.append("</tr></table>");
 		}
@@ -305,7 +305,7 @@ public class NpcViewMod implements IBypassHandler
 					GroupedGeneralDropItem normalized = generalGroupedDropItem.normalizeMe(npc, activeChar);
 					sb.append("<table width=332 cellpadding=2 cellspacing=0 background=\"L2UI_CT1.Windows.Windows_DF_TooltipBG\">");
 					sb.append("<tr><td width=32 valign=top><img src=\"L2UI_CT1.ICON_DF_premiumItem\" width=32 height=32></td>");
-					sb.append("<td fixwidth=300 align=center><font name=\"ScreenMessageSmall\" color=\"CD9000\">One from group</font>");
+					sb.append("<td fixwidth=300 align=center><font name=\"ScreenMessageSmall\" color=\"CD9000\">掉落其中一个</font>");
 					sb.append("</td></tr><tr><td width=32></td><td width=300><table width=295 cellpadding=0 cellspacing=0><tr>");
 					sb.append("<td width=48 align=right valign=top><font color=\"LEVEL\">Chance:</font></td>");
 					sb.append("<td width=247 align=center>");
@@ -321,7 +321,7 @@ public class NpcViewMod implements IBypassHandler
 						sb.append("</td><td fixwidth=259 align=center><font name=\"hs9\" color=\"CD9000\">");
 						sb.append(item.getName());
 						sb.append("</font></td></tr><tr><td width=32></td><td width=259><table width=253 cellpadding=0 cellspacing=0>");
-						sb.append("<tr><td width=48 align=right valign=top><font color=\"LEVEL\">Amount:</font></td><td width=205 align=center>");
+						sb.append("<tr><td width=48 align=right valign=top><font color=\"LEVEL\">数量:</font></td><td width=205 align=center>");
 						MinMax minMax = getPreciseMinMax(normalized.getChance(), generalDropItem.getMin(npc), generalDropItem.getMax(npc), generalDropItem.isPreciseCalculated());
 						final long min = minMax.min;
 						final long max = minMax.max;
@@ -336,7 +336,7 @@ public class NpcViewMod implements IBypassHandler
 							sb.append(amountFormat.format(max));
 						}
 						
-						sb.append("</td></tr><tr><td width=48 align=right valign=top><font color=\"LEVEL\">Chance:</font></td>");
+						sb.append("</td></tr><tr><td width=48 align=right valign=top><font color=\"LEVEL\">几率:</font></td>");
 						sb.append("<td width=205 align=center>");
 						sb.append(chanceFormat.format(Math.min(generalDropItem.getChance(), 100)));
 						sb.append("%</td></tr></table></td></tr><tr><td width=32></td><td width=259>&nbsp;</td></tr></table>");
@@ -399,7 +399,7 @@ public class NpcViewMod implements IBypassHandler
 		sb.append("</td><td fixwidth=300 align=center><font name=\"hs9\" color=\"CD9000\">");
 		sb.append(item.getName());
 		sb.append("</font></td></tr><tr><td width=32></td><td width=300><table width=295 cellpadding=0 cellspacing=0>");
-		sb.append("<tr><td width=48 align=right valign=top><font color=\"LEVEL\">Amount:</font></td>");
+		sb.append("<tr><td width=48 align=right valign=top><font color=\"LEVEL\">数量:</font></td>");
 		sb.append("<td width=247 align=center>");
 		MinMax minMax = getPreciseMinMax(dropItem.getChance(npc, activeChar), dropItem.getMin(npc), dropItem.getMax(npc), dropItem.isPreciseCalculated());
 		
@@ -416,7 +416,7 @@ public class NpcViewMod implements IBypassHandler
 			sb.append(amountFormat.format(max));
 		}
 		
-		sb.append("</td></tr><tr><td width=48 align=right valign=top><font color=\"LEVEL\">Chance:</font></td>");
+		sb.append("</td></tr><tr><td width=48 align=right valign=top><font color=\"LEVEL\">几率:</font></td>");
 		sb.append("<td width=247 align=center>");
 		sb.append(chanceFormat.format(Math.min(dropItem.getChance(npc, activeChar), 100)));
 		sb.append("%</td></tr></table></td></tr><tr><td width=32></td><td width=300>&nbsp;</td></tr></table>");

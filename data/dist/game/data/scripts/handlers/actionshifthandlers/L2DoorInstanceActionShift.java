@@ -52,7 +52,7 @@ public class L2DoorInstanceActionShift implements IActionShiftHandler
 			html.replace("%maxx%", String.valueOf(door.getX(2)));
 			html.replace("%maxy%", String.valueOf(door.getY(2)));
 			html.replace("%maxz%", String.valueOf(door.getZMax()));
-			html.replace("%unlock%", door.isOpenableBySkill() ? "<font color=00FF00>YES<font>" : "<font color=FF0000>NO</font>");
+			html.replace("%unlock%", door.isOpenableBySkill() ? "<font color=00FF00>ÊÇ<font>" : "<font color=FF0000>·ñ</font>");
 			
 			activeChar.sendPacket(html);
 		}
