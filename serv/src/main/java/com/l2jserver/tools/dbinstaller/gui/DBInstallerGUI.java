@@ -48,7 +48,6 @@ public class DBInstallerGUI extends JFrame implements DBOutputInterface
 		super("天堂II数据安排装工具");
 		setLayout(new BorderLayout());
 		setDefaultLookAndFeelDecorated(true);
-		setIconImage(ImagesTable.getImage("l2j.png").getImage());
 		
 		_con = con;
 		

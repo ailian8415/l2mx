@@ -70,12 +70,12 @@ public class SkillList implements IBypassHandler
 						}
 					}
 					
-					String text = "<html><body><center>Skill learning:</center><br>";
+					String text = "<html><body><center>学习技能:</center><br>";
 					
 					if (!own_class)
 					{
-						String charType = activeChar.getClassId().isMage() ? "fighter" : "mage";
-						text += "Skills of your class are the easiest to learn.<br>" + "Skills of another class of your race are a little harder.<br>" + "Skills for classes of another race are extremely difficult.<br>" + "But the hardest of all to learn are the  " + charType + "skills!<br>";
+						String charType = activeChar.getClassId().isMage() ? "战士" : "法师";
+						text += "本身职业技能是最容易学习的。<br>" + "相同种族的其他职业技能则会有点困难，<br>" + "其他种族的技能将会更难学习，<br>" + "当然，你也可以学习「" + charType + "」的技能，但它们是最难学习的！<br>";
 					}
 					
 					// make a list of classes
@@ -98,7 +98,7 @@ public class SkillList implements IBypassHandler
 									continue;
 								}
 								
-								text += "<a action=\"bypass -h npc_%objectId%_SkillList " + cid.getId() + "\">Learn " + cid + "'s class Skills</a><br>\n";
+								text += "<a action=\"bypass -h npc_%objectId%_SkillList " + cid.getId() + "\">学会了「" + cid + "」的职业技能</a><br>\n";
 								count++;
 							}
 							classCheck = classCheck.getParent();
@@ -107,7 +107,7 @@ public class SkillList implements IBypassHandler
 					}
 					else
 					{
-						text += "No Skills.<br>";
+						text += "已无技能可学习。<br>";
 					}
 					text += "</body></html>";
 					

@@ -227,7 +227,7 @@ public abstract class BaseGameServerRegister
 			"-u, --unregister <id>|all\t\t" + bundle.getString("unregisterOpt"),
 			"",
 			bundle.getString("credits"),
-			bundle.getString("bugReports") + " http://www.l2jserver.com"
+			bundle.getString("bugReports") + " https://github.com/L2MX/mx"
 		
 		/*
 		 * "-b, --fallback\t\t\t\tIf an register operation fails due to ID already being in use it will then try to register first available ID", "-c, --cmd\t\t\t\tForces application to run in command-line mode even if the GUI is supported.",

@@ -171,8 +171,8 @@ public class Loto implements IBypassHandler
 			
 			if (count == 5)
 			{
-				String search = "0\">Return";
-				String replace = "22\">Your lucky numbers have been selected above.";
+				String search = "0\">返回";
+				String replace = "22\">你的彩券已中奖.";
 				html.replace(search, replace);
 			}
 		}

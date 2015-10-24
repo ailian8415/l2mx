@@ -61,7 +61,6 @@ public class DBConfigGUI extends JFrame
 		super("天堂II数据库导入工具");
 		setLayout(new SpringLayout());
 		setDefaultLookAndFeelDecorated(true);
-		setIconImage(ImagesTable.getImage("l2j.png").getImage());
 		
 		_db = db;
 		_dir = dir;

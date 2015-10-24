@@ -72,7 +72,7 @@ public class ScriptExecutor
 	
 	public void execSqlFile(File file, boolean skipErrors)
 	{
-		_frame.appendToProgressArea("Installing " + file.getName());
+		_frame.appendToProgressArea("–¥»Î " + file.getName());
 		String line = "";
 		Connection con = _frame.getConnection();
 		try (Statement stmt = con.createStatement();
